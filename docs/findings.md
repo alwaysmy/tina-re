@@ -242,6 +242,9 @@ void FUN_005597f8(self, inStream, outStream, char dir, int size) {
 
 ## 8. 类族全表与核心算法实现（round 3-5）
 
+> 注：本节的类普查、Blowfish 识别、Haval 槽位语义与 BATTLELOG 第三十二轮**部分重合**——
+> 此处提供的是**独立复核**（Ghidra 反编译级）与完整 C 代码、系统化 VMT 表；§9 给出增量部分。
+
 ### 8.1 类族扫描结果（DCPcrypt 风格家族，2026-10-16）
 
 - `TCipher_*`（19 个）：Gost、**Blowfish**、IDEA、SAFER（+K40/SK40/K64/SK64/K128/SK128）、TEA、TEAN、SCOP、Q128、3Way、Twofish、Shark、Square
@@ -284,7 +287,67 @@ void FUN_005597f8(self, inStream, outStream, char dir, int size) {
 
 ---
 
-## 9. 复现命令（本机）
+## 9. round 6：mode 引擎全模式 + 哈希驱动（"G 生成器"）+ Haval v3 反编译
+
+> 说明：本节与 BATTLELOG 第三十二轮存在部分重合（类普查、Blowfish 标准实现、Haval 槽位语义他们已记录）。
+> 本节的**独立增量**：mode 引擎全部 8 个 case 的完整 C、FUN_0055cc50 的"哈希递推生成器"结构、
+> 版本选择器阈值实证、Haval v3 压缩函数源码级反编译（可与其 static_g.py 对拍）。
+
+### 9.1 模式引擎 FUN_0056b034 全模式（完整 C 见 out/round6.txt）
+
+`switch ((char)obj[5])`，`obj[5]=(byte)obj+0x14`=mode；`obj[9]`=块尺寸；缓冲：obj+0x2C(0xb)/obj+0x30(0xc)/obj+0x34(0xd)
+
+| mode | 语义 |
+|---|---|
+| 0 | `out = in ^ state; E(out); state ^= out`（反馈累积，见 §4.6） |
+| 1 | `out = in ^ prev; E(out); prev = out`（CFB 式） |
+| 2 | 逐字节：`blk = state; E(blk); out = in ^ blk[0]; state = (state<<8)|out` |
+| 3 | 逐字节：同上但 state 新字节取 blk[0]（OFB 式） |
+| 4 | 就地 ECB：`copy; E(块); copy 回` |
+| **5** | **状态泵**：`tmp = in ^ state; E(tmp); state ^= tmp` —— **不写输出**（= 笔记中的 "mode5"） |
+| 6 | 类似 5 但 `state = E(in ^ state)`（直接覆盖） |
+| 7 | 逐字节 CFB：输出写回且 state 更新用输出字节 |
+
+### 9.2 哈希驱动三件套（mode 驱动的哈希层 —— "G 生成器"关键）
+
+- **Begin `FUN_0055cbf0(self, mode)`**：`[vt+0x20]()`（Reset）；若 mode==4：取摘要指针/长度存入全局暂存（`FUN_0055ac58/0055ac38`）；后接 `FUN_0055972c`。
+- **Process `FUN_0055cc50(self, buf, len, mode)`** ★：
+  - 能力位测试：`self+0x10` 起 8 字节位图（mode n → bit n）——即笔记中的"[链尾+0x10] 能力位" ✓
+  - mode==3：`[vt+0x24](self, buf, len)`（仅吸收 Update）
+  - mode==2/4：循环 digestLen：`Update(chunk); Finalize; digest=[vt+0x2c](); memcpy(digest → buf)`（摘要回写缓冲）
+  - **其他 mode（含 5）**：循环 digestLen：`digest=[vt+0x2c](); [vt+0x24](self, digest, digestLen); [vt+0x28](); memxor(digest, buf, chunk)`
+    → **递推哈希生成器：`d_{n+1} = H(d_n)`，密钥流 = d_{n+1}，与输入异或**（= 笔记"hash→流→hash 递归"的代码实体）
+- **End `FUN_0055cc28(self, mode)`**：mode==3 → `[vt+0x28]()`（Finalize）；否则 `[vt+0x20]()`（Reset）。
+- 槽位映射（哈希层）：+0x20=Reset、+0x24=Update、+0x28=Finalize、+0x2c=摘要指针、+0x30=摘要长度（与 SetKey 的调用序列一致 ✓）
+
+### 9.3 Haval 版本选择器 FUN_00566650（实证）
+
+```c
+if (passes<3 || passes>5) passes = digestLen<0x15 ? 3 : (digestLen<0x1d ? 4 : 5);
+obj[0xB8] = passes;
+passes==3 → obj[0xC0]=0x5666d0, obj[0xC4]=obj（绑定方法：v3 压缩）
+passes==4 → obj[0xC0]=0x566960 …（v4）
+passes==5 → obj[0xC0]=0x566c9c …（v5）
+```
+
+- 阈值：摘要 < 21B → v3；21..28B → v4；≥29B → v5 ✓（笔记"摘要≤20B→v3"一致）
+- 压缩入口（供 static_g.py 对拍）：**v3=0x1666d0 / v4=0x166960 / v5=0x166c9c**
+
+### 9.4 Haval v3 压缩 FUN_005666d0（源码级）
+
+- 常量表直接硬编码为指针：**CST @ VA 0xA1293C（RVA 0x61293C）**、**IDX @ VA 0xA12B3C（RVA 0x612B3C）** ✓（与笔记一致——该区域同时承载 Blowfish P[8..17]+S 盒，即 π 派生表共用）
+- 结构：3 pass × 32 步；pass0 仅用消息表，pass1/2 用 `msg[IDX[i]] + CST[i]`；轮函数含 `(a>>7|a<<25) + (b>>11|b<<21) + …`（ROTR7/ROTR11 加法）与 8 状态字馈给更新（标准 HAVAL 骨架）
+- 篇幅所限全文见 `out/round6.txt`，可直接与其 Python 转录对拍
+
+### 9.5 其他核对
+
+- RVA 0x61293C（48B）dump 证实 = P[8..17]（0x452821E6…0x8979FB1B）+ S 盒起始 ✓ 笔记无误差
+- 'BlowFish'/'<Encrypted Library>' 字符串在 Ghidra 静态 xref 为空（Delphi 字符串引用未在分析区内恢复）；其三个检查点见 tina-research 记录（0x58f851/0x174248/0x171a95）
+- 0x55B326（"静态 keystream 暂存"）静态镜像中为代码字节——运行时写入的 scratch 区（与笔记的运行时观测一致）
+
+---
+
+## 10. 复现命令（本机）
 
 ```powershell
 $env:JAVA_HOME = "D:\MyPrograms\jdk-21.0.12.1"
