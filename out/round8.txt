@@ -1,0 +1,106 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1027 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (3582 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round8.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round8.java (HeadlessAnalyzer)  
+INFO  Round8.java> [rename] 00971084 -> TSC_DecryptEntry (GhidraScript)  
+INFO  Round8.java> [rename] 00970bfc -> TSC_CipherFactory (GhidraScript)  
+INFO  Round8.java> [rename] 00970c2c -> TSC_GetAuxObject (GhidraScript)  
+INFO  Round8.java> [rename] 0096acd8 -> DEC_CipherCreate (GhidraScript)  
+INFO  Round8.java> [rename] 0096adfc -> DEC_CipherSetKey (GhidraScript)  
+INFO  Round8.java> [rename] 0096d010 -> DEC_CipherInitKey (GhidraScript)  
+INFO  Round8.java> [rename] 0096b034 -> DEC_ModeEngine (GhidraScript)  
+INFO  Round8.java> [rename] no function at 009597f8 for DEC_DoStream (GhidraScript)  
+INFO  Round8.java> [rename] 009599c0 -> DEC_DoStreamStrings (GhidraScript)  
+INFO  Round8.java> [rename] 00959b58 -> DEC_DoCipherString (GhidraScript)  
+INFO  Round8.java> [rename] 00959af0 -> DEC_DoBuffer (GhidraScript)  
+INFO  Round8.java> [rename] 0095cbf0 -> DEC_HashDriver_Begin (GhidraScript)  
+INFO  Round8.java> [rename] 0095cc50 -> DEC_HashDriver_Process (GhidraScript)  
+INFO  Round8.java> [rename] 0095cc28 -> DEC_HashDriver_End (GhidraScript)  
+INFO  Round8.java> [rename] 0095a854 -> memxor (GhidraScript)  
+INFO  Round8.java> [rename] 0095a720 -> ClassCheck (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0095ac38 for LCG32_Keystream (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0095ac58 for RandSeed (GhidraScript)  
+INFO  Round8.java> [rename] 0096cf18 -> TCipher_TEA_GetParams (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096cf34 for TCipher_TEA_GetBlobPtr (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096cf5c for TCipher_TEA_EncryptBlock (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096cfb4 for TCipher_TEA_DecryptBlock (GhidraScript)  
+INFO  Round8.java> [rename] 0096cef8 -> DEC_setRounds_clamp (GhidraScript)  
+INFO  Round8.java> [rename] 0096bd38 -> TCipher_Blowfish_GetParams (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096bd54 for TCipher_Blowfish_GetBlobPtr (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096be80 for TCipher_Blowfish_EncryptBlock (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096bef0 for TCipher_Blowfish_DecryptBlock (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0096bf5c for TCipher_Blowfish_InitKey (GhidraScript)  
+INFO  Round8.java> [rename] 0096ab5c -> DEC_SetFlag (GhidraScript)  
+INFO  Round8.java> [rename] 0096ac68 -> DEC_SetBlock (GhidraScript)  
+INFO  Round8.java> [rename] 0096aeb4 -> DEC_CmpCopyBlock (GhidraScript)  
+INFO  Round8.java> [rename] 0096aee8 -> DEC_ClearBuffers (GhidraScript)  
+INFO  Round8.java> [rename] 0096ad74 -> DEC_CipherDestroy (GhidraScript)  
+INFO  Round8.java> [rename] 0096708c -> THash_Haval_Init (GhidraScript)  
+INFO  Round8.java> [rename] 0096755c -> THash_Haval_Update (GhidraScript)  
+INFO  Round8.java> [rename] 0096710c -> THash_Haval_Final (GhidraScript)  
+INFO  Round8.java> [rename] 00967610 -> THash_Haval_GetDigestPtr (GhidraScript)  
+INFO  Round8.java> [rename] no function at 00967084 for THash_Haval256_GetDigestSize (GhidraScript)  
+INFO  Round8.java> [rename] no function at 00967644 for THash_Haval224_GetDigestSize (GhidraScript)  
+INFO  Round8.java> [rename] 00966650 -> THash_Haval_SetPasses (GhidraScript)  
+INFO  Round8.java> [rename] no function at 009666d0 for Haval_v3_Compress (GhidraScript)  
+INFO  Round8.java> [rename] 00966960 -> Haval_v4_Compress (GhidraScript)  
+INFO  Round8.java> [rename] 00966c9c -> Haval_v5_Compress (GhidraScript)  
+INFO  Round8.java> [rename] no function at 0097112c for Delphi_UnitInit_0x57112c_stub (GhidraScript)  
+INFO  Round8.java>  (GhidraScript)  
+INFO  Round8.java> dump global VA 00a28b64 (16B): 88 9e 56 00 b8 35 01 0f fc a9 f1 d2 4d 62 50 3f  (GhidraScript)  
+INFO  Round8.java>   ascii: ..V..5......MbP? (GhidraScript)  
+INFO  Round8.java> dump global VA 00a1a0bc (16B): 10 b9 55 00 80 35 01 0f 34 54 56 00 10 00 00 00  (GhidraScript)  
+INFO  Round8.java>   ascii: ..U..5..4TV..... (GhidraScript)  
+INFO  Round8.java> dump global(seed ptr var) VA 00a64318 (8B): 28 29 a1 00 c4 cb 74 00  (GhidraScript)  
+INFO  Round8.java>   ascii: ()....t. (GhidraScript)  
+INFO  Round8.java> dump global(fnptr?) VA 00a65164 (8B): 20 29 a1 00 78 67 79 00  (GhidraScript)  
+INFO  Round8.java>   ascii:  )..xgy. (GhidraScript)  
+INFO  Round8.java> dump global VA 00a63eb8 (8B): 1c 60 a6 00 08 1c fd 01  (GhidraScript)  
+INFO  Round8.java>   ascii: .`...... (GhidraScript)  
+INFO  Round8.java> dump CST/P8 area VA 00a1293c (16B): e6 21 28 45 77 13 d0 38 cf 66 54 be 6c 0c e9 34  (GhidraScript)  
+INFO  Round8.java>   ascii: .!(Ew..8.fT.l..4 (GhidraScript)  
+INFO  Round8.java> dump IDX VA 00a12b3c (16B): 05 0e 1a 12 0b 1c 07 10 00 17 14 16 01 0a 04 08  (GhidraScript)  
+INFO  Round8.java>   ascii: ................ (GhidraScript)  
+INFO  Round8.java> seed ptr value = 0x00a12928 (GhidraScript)  
+INFO  Round8.java> dump seed buffer contents VA 00a12928 (16B): 00 00 00 00 00 00 00 00 06 00 00 00 b0 cf 00 0f  (GhidraScript)  
+INFO  Round8.java>   ascii: ................ (GhidraScript)  
+INFO  Round8.java>  (GhidraScript)  
+INFO  Round8.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

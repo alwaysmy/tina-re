@@ -1,0 +1,118 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (824 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2775 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round9.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round9.java (HeadlessAnalyzer)  
+INFO  Round9.java> [cleanup] removing TSC_DecryptEntry @00971084 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing TSC_CipherFactory @00970bfc (GhidraScript)  
+INFO  Round9.java> [cleanup] removing TSC_GetAuxObject @00970c2c (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_CipherCreate @0096acd8 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_CipherSetKey @0096adfc (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_CipherInitKey @0096d010 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_ModeEngine @0096b034 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_DoStreamStrings @009599c0 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_DoCipherString @00959b58 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_DoBuffer @00959af0 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_HashDriver_Begin @0095cbf0 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_HashDriver_Process @0095cc50 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_HashDriver_End @0095cc28 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing memxor @0095a854 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing ClassCheck @0095a720 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing TCipher_TEA_GetParams @0096cf18 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_setRounds_clamp @0096cef8 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing TCipher_Blowfish_GetParams @0096bd38 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_SetFlag @0096ab5c (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_SetBlock @0096ac68 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_CmpCopyBlock @0096aeb4 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_ClearBuffers @0096aee8 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing DEC_CipherDestroy @0096ad74 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing THash_Haval_Init @0096708c (GhidraScript)  
+INFO  Round9.java> [cleanup] removing THash_Haval_Update @0096755c (GhidraScript)  
+INFO  Round9.java> [cleanup] removing THash_Haval_Final @0096710c (GhidraScript)  
+INFO  Round9.java> [cleanup] removing THash_Haval_GetDigestPtr @00967610 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing THash_Haval_SetPasses @00966650 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing Haval_v4_Compress @00966960 (GhidraScript)  
+INFO  Round9.java> [cleanup] removing Haval_v5_Compress @00966c9c (GhidraScript)  
+INFO  Round9.java> [rename] 00571084 -> TSC_DecryptEntry (GhidraScript)  
+INFO  Round9.java> [rename] 00570bfc -> TSC_CipherFactory (GhidraScript)  
+INFO  Round9.java> [rename] 00570c2c -> TSC_GetAuxObject (GhidraScript)  
+INFO  Round9.java> [rename] 0056acd8 -> DEC_CipherCreate (GhidraScript)  
+INFO  Round9.java> [rename] 0056adfc -> DEC_CipherSetKey (GhidraScript)  
+INFO  Round9.java> [rename] 0056d010 -> DEC_CipherInitKey (GhidraScript)  
+INFO  Round9.java> [rename] 0056b034 -> DEC_ModeEngine (GhidraScript)  
+INFO  Round9.java> [rename] 005597f8 -> DEC_DoStream (GhidraScript)  
+INFO  Round9.java> [rename] 005599c0 -> DEC_DoStreamStrings (GhidraScript)  
+INFO  Round9.java> [rename] 00559b58 -> DEC_DoCipherString (GhidraScript)  
+INFO  Round9.java> [rename] 00559af0 -> DEC_DoBuffer (GhidraScript)  
+INFO  Round9.java> [rename] 0055cbf0 -> DEC_HashDriver_Begin (GhidraScript)  
+INFO  Round9.java> [rename] 0055cc50 -> DEC_HashDriver_Process (GhidraScript)  
+INFO  Round9.java> [rename] 0055cc28 -> DEC_HashDriver_End (GhidraScript)  
+INFO  Round9.java> [rename] 0055a854 -> memxor (GhidraScript)  
+INFO  Round9.java> [rename] 0055a720 -> ClassCheck (GhidraScript)  
+INFO  Round9.java> [rename] 0055ac38 -> LCG32_Keystream (GhidraScript)  
+INFO  Round9.java> [rename] 0055ac58 -> RandSeed (GhidraScript)  
+INFO  Round9.java> [rename] 0056cf18 -> TCipher_TEA_GetParams (GhidraScript)  
+INFO  Round9.java> [rename] 0056cf34 -> TCipher_TEA_GetBlobPtr (GhidraScript)  
+INFO  Round9.java> [rename] 0056cf5c -> TCipher_TEA_EncryptBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056cfb4 -> TCipher_TEA_DecryptBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056cef8 -> DEC_setRounds_clamp (GhidraScript)  
+INFO  Round9.java> [rename] 0056bd38 -> TCipher_Blowfish_GetParams (GhidraScript)  
+INFO  Round9.java> [rename] 0056bd54 -> TCipher_Blowfish_GetBlobPtr (GhidraScript)  
+INFO  Round9.java> [rename] 0056be80 -> TCipher_Blowfish_EncryptBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056bef0 -> TCipher_Blowfish_DecryptBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056bf5c -> TCipher_Blowfish_InitKey (GhidraScript)  
+INFO  Round9.java> [rename] 0056ab5c -> DEC_SetFlag (GhidraScript)  
+INFO  Round9.java> [rename] 0056ac68 -> DEC_SetBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056aeb4 -> DEC_CmpCopyBlock (GhidraScript)  
+INFO  Round9.java> [rename] 0056aee8 -> DEC_ClearBuffers (GhidraScript)  
+INFO  Round9.java> [rename] 0056ad74 -> DEC_CipherDestroy (GhidraScript)  
+INFO  Round9.java> [rename] 0056708c -> THash_Haval_Init (GhidraScript)  
+INFO  Round9.java> [rename] 0056755c -> THash_Haval_Update (GhidraScript)  
+INFO  Round9.java> [rename] 0056710c -> THash_Haval_Final (GhidraScript)  
+INFO  Round9.java> [rename] 00567610 -> THash_Haval_GetDigestPtr (GhidraScript)  
+INFO  Round9.java> [rename] 00567084 -> THash_Haval256_GetDigestSize (GhidraScript)  
+INFO  Round9.java> [rename] 00567644 -> THash_Haval224_GetDigestSize (GhidraScript)  
+INFO  Round9.java> [rename] 00566650 -> THash_Haval_SetPasses (GhidraScript)  
+INFO  Round9.java> [rename] 005666d0 -> Haval_v3_Compress (GhidraScript)  
+INFO  Round9.java> [rename] 00566960 -> Haval_v4_Compress (GhidraScript)  
+INFO  Round9.java> [rename] 00566c9c -> Haval_v5_Compress (GhidraScript)  
+INFO  Round9.java> [rename] 0057112c -> Delphi_UnitInit_0x57112c_stub (GhidraScript)  
+INFO  Round9.java>  (GhidraScript)  
+INFO  Round9.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

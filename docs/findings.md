@@ -362,7 +362,51 @@ passes==5 → obj[0xC0]=0x566c9c …（v5）
 
 ---
 
-## 10. 复现命令（本机）
+## 10. 管线接线图（.lib 解密路径综合，round 6-9）
+
+```
+TSC_DecryptEntry (0x171084)
+  ├─ 8B 种子 [容器+0x40/44] → 全局缓冲（指针变量 0xA64318 → 静态缓冲 0xA12928，π 表区近旁）
+  ├─ TSC_CipherFactory (0x170bfc)
+  │    └─ TSC_GetAuxObject (0x170c2c) → FUN_0056a8b0 → 全局 0xA28B64 = 0x00569E88
+  │         （指向 Blowfish 类注册区 → 管线类极可能 = TCipher_Blowfish）
+  │    └─ DEC_CipherCreate (0x56acd8)（异常帧 + 4 缓冲分配 + 钩子）
+  │    └─ 模式字节 [容器+0x3c] → 管线对象 +0x14
+  └─ [vt+0x0C] DEC_DoStream(0x5597f8)（self, in, out, dir=1, size）
+        └─ 4KB 分块 → [vt+0x08] Process(buf, len, mode)
+              ├─ mode3: 纯吸收（哈希 Update）
+              ├─ mode2/4: Update+Final，摘要回写
+              └─ 其他(含 5): d_{n+1}=H(d_n); buf ^= d_{n+1}（递推哈希流）
+     DEC_ModeEngine(0x56b034) 8 模式（case5 = 状态泵 state ^= E(in^state)）
+     SetKey 链: DEC_CipherSetKey(0x56adfc) → THash 子对象(+0x18)
+        → [0x20]Init/[0x24]Update/[0x28]Final/[0x2c]摘要指针/[0x30]摘要长度
+        → 密码器 [0x34] 装订 → DEC_ModeEngine 初始化
+     Haval 系: SetPasses(0x566650, 阈值21/29→v3/v4/v5); Init 写标准 IV(π);
+        Update(0x56755c)/Final(0x56710c, 0x76 溢出填充 + 版本字节)
+```
+
+**全局变量表**（本轮 dump 实证）：
+
+| 全局 | 初值 | 含义 |
+|---|---|---|
+| 0xA64318 | → 0xA12928 | 种子缓冲指针变量（静态缓冲，π 表区近旁；入口写、退出清） |
+| 0xA28B64 | 0x00569E88 | `FUN_0056a8b0` 返回；指向 Blowfish 类注册区（工厂创建链使用） |
+| 0xA1A0BC | 0x0055B910 | `FUN_0055c6f4` 返回；指向 THash 类注册区（哈希子对象来源） |
+| 0xA65164 | → 0xA12920 | 指向静态区（字节序转换/暂存相关） |
+
+**Ghidra 项目已命名**（44 个符号，持久保存在 `tina_unpacked_fixed_ghidra_mcp` 项目）：
+`TSC_DecryptEntry / TSC_CipherFactory / DEC_DoStream / DEC_HashDriver_Process / DEC_ModeEngine /
+TCipher_Blowfish_* / THash_Haval_* / Haval_v3|v4|v5_Compress / memxor / LCG32_Keystream …`
+—— 后续任何 Ghidra（含 MCP）会话可直接按名字导航。
+
+**保留问题**：
+1. 管线实际类确认（0xA28B64 → 0x569E88 属 Blowfish 区，但非标准 VMT 起点；建议运行时对象捕获交叉验证）
+2. 密钥来源（种子是否参与 InitKey：既有运行时证据=不进链；静态工厂链未见 SetKey 调用点参数）
+3. G 的精确构造（oracle 对撞已排除标准 Blowfish×两个 40B blob；递推哈希生成器为最强候选）
+
+---
+
+## 11. 复现命令（本机）
 
 ```powershell
 $env:JAVA_HOME = "D:\MyPrograms\jdk-21.0.12.1"
