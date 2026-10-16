@@ -347,6 +347,21 @@ passes==5 → obj[0xC0]=0x566c9c …（v5）
 
 ---
 
+### 9.6 round 7 增量（LCG 定位 + G 假设对撞）
+
+- **FUN_0055ac38 = 32 位 Delphi LCG**（`seed = ((byte)seed ^ *p) * 0x08088405 + 1; *p = seed >> 24`）
+  ——即此前笔记中"0x15ac39 候选生成器"（0x15ac39 正是本函数体内一字节之差）。实际用途：
+  **mode 4 的 Begin（FUN_0055cbf0）用随机种子（FUN_0055ac58）对摘要区做 LCG 掩码填充**（不是 .lib 主链路密钥流）。
+- 'BlowFish'('0x98FABC') / '<Encrypted Library>'(0x98FAA0) / 40B 串(0x98FAD0) 的**立即数装载扫描为空**
+  （B8/68 编码全代码区无命中）→ 其引用应以运行时/计算方式构造，静态 xref 不可得（符合既有判断：属 .TSC 或 InitKey 子系统）。
+- **G 假设对撞（scripts/test_g_hypothesis.py）**：以三组 oracle 点（`G(0⁸)=7455d14e72cf5821` 等）
+  对撞 {K=0x98FAD0 40B, K=0x56BD5A 40B} × {E/D} × {原样/dword 换序/整串反序} 全部 **0 命中** ——
+  以正确的字节序与标准 Blowfish 实现独立复核了"标准 Blowfish × raw40 死"的既有结论。
+- 40B 串 @0x98FAD0（可打印值域）：`78372f6a3f242b34283a3c4076372131525e397e6b256738363d6c5c30223c2a3e31235e54267b5d`
+- 0x56BD5A（Blowfish 类 blob getter 指向）同样为 40B：`1971cacd2b9c8529da8147b7ebce16c6910e1dc840123e3570edbc964c13d0b8c39057565355528b`
+
+---
+
 ## 10. 复现命令（本机）
 
 ```powershell
