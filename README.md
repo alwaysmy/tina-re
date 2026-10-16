@@ -38,7 +38,10 @@ TINA-RE/
 | 解密入口/工厂/创建链/SetKey/init | ✅ 反编译完成（docs/findings.md §4） |
 | 模式引擎（case0/1/2 链） | ✅ 结构已明确，`pt=ct^ct_prev^G(ct)` 的 `ct^ct_prev` 项来源确认 |
 | 0x17112c「直调」方向 | ❌ 作废（Delphi 单元初始化桩） |
-| 类族扫描（TCipher_*/THash* → Blowfish 类/G 候选） | 🔄 进行中（round 3） |
+| 类族全表（TCipher_* / THash_*） | ✅ 19 + 21 个类，VMT 布局与槽位映射完成 |
+| TCipher_Blowfish 实现 | ✅ 加密/解密/InitKey/π 常数全部落实（§8.2） |
+| HAVAL 系列（G 候选层） | ✅ Init/Update/Final/填充/版本字节/摘要长度全解（§8.3） |
+| 管线串联方式（Blowfish×Haval 组合） | 🔄 下一步 |
 
 ## 复现
 

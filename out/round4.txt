@@ -1,0 +1,2121 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (760 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2131 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round4.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round4.java (HeadlessAnalyzer)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ######## scanning for "TCipher_" ######## (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 00569e2d "TCipher_Gost" == (GhidraScript)  
+INFO    array @ 00569dcc : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056bd00  (GhidraScript)  
+INFO  +0c=0056bb90  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056ba18  (GhidraScript)  
+INFO  +14=0056b9f0  (GhidraScript)  
+INFO  +18=0056b9d4  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 00569ec9 "TCipher_Blowfish" == (GhidraScript)  
+INFO    array @ 00569e68 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056bf5c  (GhidraScript)  
+INFO  +0c=0056bef0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056be80  (GhidraScript)  
+INFO  +14=0056bd54  (GhidraScript)  
+INFO  +18=0056bd38  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 00569f69 "TCipher_IDEA" == (GhidraScript)  
+INFO    array @ 00569f08 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056c340  (GhidraScript)  
+INFO  +0c=0056c280  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c274  (GhidraScript)  
+INFO  +14=0056c104  (GhidraScript)  
+INFO  +18=0056c0e8  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a005 "TCipher_SAFER" == (GhidraScript)  
+INFO    array @ 00569fa4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056c9b0  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056c570  (GhidraScript)  
+INFO  +18=0056c554  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a0a1 "TCipher_SAFER_K40" == (GhidraScript)  
+INFO    array @ 0056a040 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056cd80  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056cd58  (GhidraScript)  
+INFO  +18=0056cd3c  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a141 "TCipher_SAFER_SK40" == (GhidraScript)  
+INFO    array @ 0056a0e0 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056cdbc  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056cd94  (GhidraScript)  
+INFO  +18=0056cd3c  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a1e1 "TCipher_SAFER_K64" == (GhidraScript)  
+INFO    array @ 0056a180 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056ce14  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056cdec  (GhidraScript)  
+INFO  +18=0056cdd0  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a281 "TCipher_SAFER_SK64" == (GhidraScript)  
+INFO    array @ 0056a220 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056ce50  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056ce28  (GhidraScript)  
+INFO  +18=0056cdd0  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a321 "TCipher_SAFER_K128" == (GhidraScript)  
+INFO    array @ 0056a2c0 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056cea8  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056ce80  (GhidraScript)  
+INFO  +18=0056ce64  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a3c1 "TCipher_SAFER_SK128" == (GhidraScript)  
+INFO    array @ 0056a360 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056cee4  (GhidraScript)  
+INFO  +0c=0056c7a0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056c598  (GhidraScript)  
+INFO  +14=0056cebc  (GhidraScript)  
+INFO  +18=0056ce64  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a461 "TCipher_TEA" == (GhidraScript)  
+INFO    array @ 0056a400 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056d010  (GhidraScript)  
+INFO  +0c=0056cfb4  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056cf5c  (GhidraScript)  
+INFO  +14=0056cf34  (GhidraScript)  
+INFO  +18=0056cf18  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a4f9 "TCipher_TEAN" == (GhidraScript)  
+INFO    array @ 0056a498 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056d010  (GhidraScript)  
+INFO  +0c=0056d104  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056d078  (GhidraScript)  
+INFO  +14=0056d050  (GhidraScript)  
+INFO  +18=0056cf18  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a595 "TCipher_SCOP" == (GhidraScript)  
+INFO    array @ 0056a534 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056d5d0  (GhidraScript)  
+INFO  +08=0056d4c0  (GhidraScript)  
+INFO  +0c=0056d260  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056d1cc  (GhidraScript)  
+INFO  +14=0056d1a4  (GhidraScript)  
+INFO  +18=0056d188  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a631 "TCipher_Q128" == (GhidraScript)  
+INFO    array @ 0056a5d0 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056d748  (GhidraScript)  
+INFO  +0c=0056d6bc  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056d634  (GhidraScript)  
+INFO  +14=0056d60c  (GhidraScript)  
+INFO  +18=0056d5f0  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a6cd "TCipher_3Way" == (GhidraScript)  
+INFO    array @ 0056a66c : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056dea4  (GhidraScript)  
+INFO  +0c=0056db78  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056d8b8  (GhidraScript)  
+INFO  +14=0056d890  (GhidraScript)  
+INFO  +18=0056d874  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a769 "TCipher_Twofish" == (GhidraScript)  
+INFO    array @ 0056a708 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056ed70  (GhidraScript)  
+INFO  +0c=0056e258  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056e09c  (GhidraScript)  
+INFO  +14=0056e074  (GhidraScript)  
+INFO  +18=0056e058  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a805 "TCipher_Shark" == (GhidraScript)  
+INFO    array @ 0056a7a4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056f658  (GhidraScript)  
+INFO  +0c=0056f04c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056ee1c  (GhidraScript)  
+INFO  +14=0056edf4  (GhidraScript)  
+INFO  +18=0056edd8  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0056a8a1 "TCipher_Square" == (GhidraScript)  
+INFO    array @ 0056a840 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056aee8  (GhidraScript)  
+INFO  +04=0056aeb4  (GhidraScript)  
+INFO  +08=0056ff3c  (GhidraScript)  
+INFO  +0c=0056fc5c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056f984  (GhidraScript)  
+INFO  +14=0056f95c  (GhidraScript)  
+INFO  +18=0056f940  (GhidraScript)  
+INFO  +1c=0056ac68  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0056ab5c  (GhidraScript)  
+INFO  +24=00559af0  (GhidraScript)  
+INFO  +28=00559b58  (GhidraScript)  
+INFO  +2c=005599c0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=005597f8  (GhidraScript)  
+INFO  +34=0056b95c  (GhidraScript)  
+INFO  +38=0056b924  (GhidraScript)  
+INFO  +3c=0056b844  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=0056ad74  (GhidraScript)  
+INFO  +44=00404e30  (GhidraScript)  
+INFO  +48=00407f4c  (GhidraScript)  
+INFO  +4c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050ec  (GhidraScript)  
+INFO  +54=00407f3c  (GhidraScript)  
+INFO  +58=00407f30  (GhidraScript)  
+INFO  +5c=004050d8  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ######## scanning for "THash" ######## (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 00451402 "THashItem" == (GhidraScript)  
+INFO    array @ 00451401 : (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 00451595 "THashedStringList" == (GhidraScript)  
+INFO    array @ 00451534 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=004273b0  (GhidraScript)  
+INFO  +04=004273a0  (GhidraScript)  
+INFO  +08=00426fe0  (GhidraScript)  
+INFO  +0c=00427190  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00426e98  (GhidraScript)  
+INFO  +14=004522f8  (GhidraScript)  
+INFO  +18=0042682c  (GhidraScript)  
+INFO  +1c=00426774  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=0042671c  (GhidraScript)  
+INFO  +24=00426584  (GhidraScript)  
+INFO  +28=004264d8  (GhidraScript)  
+INFO  +2c=00426484  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0042713c  (GhidraScript)  
+INFO  +34=0042712c  (GhidraScript)  
+INFO  +38=00426420  (GhidraScript)  
+INFO  +3c=004523b4  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00452344  (GhidraScript)  
+INFO  +44=004260b8  (GhidraScript)  
+INFO  +48=00426f60  (GhidraScript)  
+INFO  +4c=00426ef4  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00426eb4  (GhidraScript)  
+INFO  +54=00425914  (GhidraScript)  
+INFO  +58=00426e18  (GhidraScript)  
+INFO  +5c=00426e0c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 004515ae "THashedStringList" == (GhidraScript)  
+INFO    array @ 004515ad : (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b5ed "THash" == (GhidraScript)  
+INFO    array @ 0055b594 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0055ca3c  (GhidraScript)  
+INFO  +04=0055ca2c  (GhidraScript)  
+INFO  +08=0055ca24  (GhidraScript)  
+INFO  +0c=0055c9b4  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055c9ac  (GhidraScript)  
+INFO  +14=0055ca40  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=005592ec  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b701 "THash_MD4" == (GhidraScript)  
+INFO    array @ 0055b6a4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0055cf1c  (GhidraScript)  
+INFO  +04=0055d5a8  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=0055cf04  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b56c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b791 "THash_MD5" == (GhidraScript)  
+INFO    array @ 0055b734 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0055d774  (GhidraScript)  
+INFO  +04=0055d5a8  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=0055d75c  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b821 "THash_RipeMD128" == (GhidraScript)  
+INFO    array @ 0055b7c4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0055e068  (GhidraScript)  
+INFO  +04=0055d5a8  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=0055e050  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b8b5 "THash_RipeMD160" == (GhidraScript)  
+INFO    array @ 0055b858 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0055f4bc  (GhidraScript)  
+INFO  +04=00561558  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=0055f4a0  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b949 "THash_RipeMD256" == (GhidraScript)  
+INFO    array @ 0055b8ec : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00561588  (GhidraScript)  
+INFO  +04=005629fc  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=00562a04  (GhidraScript)  
+INFO  +18=00561560  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055b9dd "THash_RipeMD320" == (GhidraScript)  
+INFO    array @ 0055b980 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00562a9c  (GhidraScript)  
+INFO  +04=005653bc  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=0055d624  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=00562a6c  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055ba71 "THash_SHA" == (GhidraScript)  
+INFO    array @ 0055ba14 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00565484  (GhidraScript)  
+INFO  +04=00561558  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=00566544  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=0055d5bc  (GhidraScript)  
+INFO  +18=005653c4  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b830  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bb01 "THash_SHA1" == (GhidraScript)  
+INFO    array @ 0055baa4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00565484  (GhidraScript)  
+INFO  +04=00561558  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=00566544  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=00566618  (GhidraScript)  
+INFO  +18=005665fc  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b9ec  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bb8d "THash_Haval256" == (GhidraScript)  
+INFO    array @ 0055bb34 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00567084  (GhidraScript)  
+INFO  +04=00567610  (GhidraScript)  
+INFO  +08=0056710c  (GhidraScript)  
+INFO  +0c=0056755c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056708c  (GhidraScript)  
+INFO  +14=00566628  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055b56c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bc1d "THash_Haval224" == (GhidraScript)  
+INFO    array @ 0055bbc4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00567644  (GhidraScript)  
+INFO  +04=00567610  (GhidraScript)  
+INFO  +08=0056710c  (GhidraScript)  
+INFO  +0c=0056755c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056708c  (GhidraScript)  
+INFO  +14=00567620  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055bb0c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bcad "THash_Haval192" == (GhidraScript)  
+INFO    array @ 0055bc54 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056766c  (GhidraScript)  
+INFO  +04=00567610  (GhidraScript)  
+INFO  +08=0056710c  (GhidraScript)  
+INFO  +0c=0056755c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056708c  (GhidraScript)  
+INFO  +14=0056764c  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055bb0c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bd3d "THash_Haval160" == (GhidraScript)  
+INFO    array @ 0055bce4 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00567690  (GhidraScript)  
+INFO  +04=00567610  (GhidraScript)  
+INFO  +08=0056710c  (GhidraScript)  
+INFO  +0c=0056755c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056708c  (GhidraScript)  
+INFO  +14=00567674  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055bb0c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bdcd "THash_Haval128" == (GhidraScript)  
+INFO    array @ 0055bd74 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=005676b0  (GhidraScript)  
+INFO  +04=00567610  (GhidraScript)  
+INFO  +08=0056710c  (GhidraScript)  
+INFO  +0c=0056755c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0056708c  (GhidraScript)  
+INFO  +14=00567698  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055bb0c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055be5d "THash_Snefru" == (GhidraScript)  
+INFO    array @ 0055be04 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=005676e0  (GhidraScript)  
+INFO  +04=0056797c  (GhidraScript)  
+INFO  +08=00567850  (GhidraScript)  
+INFO  +0c=005678dc  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=005676e8  (GhidraScript)  
+INFO  +14=005676b8  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055b56c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bef1 "THash_Tiger" == (GhidraScript)  
+INFO    array @ 0055be94 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=005679c0  (GhidraScript)  
+INFO  +04=005688cc  (GhidraScript)  
+INFO  +08=0055d5b0  (GhidraScript)  
+INFO  +0c=00568930  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=0055d6bc  (GhidraScript)  
+INFO  +14=005688d4  (GhidraScript)  
+INFO  +18=005679a0  (GhidraScript)  
+INFO  +1c=00559af0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00559b58  (GhidraScript)  
+INFO  +24=005599c0  (GhidraScript)  
+INFO  +28=005597f8  (GhidraScript)  
+INFO  +2c=0055cc50  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cc28  (GhidraScript)  
+INFO  +34=0055cbf0  (GhidraScript)  
+INFO  +38=0055c970  (GhidraScript)  
+INFO  +3c=00404e30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=00407f4c  (GhidraScript)  
+INFO  +44=004050e0  (GhidraScript)  
+INFO  +48=004050ec  (GhidraScript)  
+INFO  +4c=00407f3c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=00407f30  (GhidraScript)  
+INFO  +54=004050d8  (GhidraScript)  
+INFO  +58=0055b67c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055bf7d "THash_Sapphire320" == (GhidraScript)  
+INFO    array @ 0055bf24 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568ad8  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=005689c8  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055b56c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c011 "THash_Sapphire288" == (GhidraScript)  
+INFO    array @ 0055bfb8 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568c4c  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568c20  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c0a5 "THash_Sapphire256" == (GhidraScript)  
+INFO    array @ 0055c04c : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568c7c  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568c54  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c139 "THash_Sapphire224" == (GhidraScript)  
+INFO    array @ 0055c0e0 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568ca8  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568c84  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c1cd "THash_Sapphire192" == (GhidraScript)  
+INFO    array @ 0055c174 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568cd0  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568cb0  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c261 "THash_Sapphire160" == (GhidraScript)  
+INFO    array @ 0055c208 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568cf4  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568cd8  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c2f5 "THash_Sapphire128" == (GhidraScript)  
+INFO    array @ 0055c29c : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00568d14  (GhidraScript)  
+INFO  +04=00568c10  (GhidraScript)  
+INFO  +08=00568b2c  (GhidraScript)  
+INFO  +0c=005689f8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00568ae0  (GhidraScript)  
+INFO  +14=00568cfc  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055befc  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c389 "THash_Square" == (GhidraScript)  
+INFO    array @ 0055c330 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0056915c  (GhidraScript)  
+INFO  +04=00569164  (GhidraScript)  
+INFO  +08=005691b0  (GhidraScript)  
+INFO  +0c=00569240  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00569170  (GhidraScript)  
+INFO  +14=00568d1c  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055b56c  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c4a5 "THash_XOR16" == (GhidraScript)  
+INFO    array @ 0055c44c : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=005692ec  (GhidraScript)  
+INFO  +04=00569320  (GhidraScript)  
+INFO  +08=0055ca24  (GhidraScript)  
+INFO  +0c=00569304  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=005692f4  (GhidraScript)  
+INFO  +14=005692e0  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055c398  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c531 "THash_XOR32" == (GhidraScript)  
+INFO    array @ 0055c4d8 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00569338  (GhidraScript)  
+INFO  +04=0056937c  (GhidraScript)  
+INFO  +08=0055ca24  (GhidraScript)  
+INFO  +0c=00569350  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00569340  (GhidraScript)  
+INFO  +14=0056932c  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055c398  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c5bd "THash_CRC32" == (GhidraScript)  
+INFO    array @ 0055c564 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=00569338  (GhidraScript)  
+INFO  +04=0056937c  (GhidraScript)  
+INFO  +08=005693b4  (GhidraScript)  
+INFO  +0c=005693a4  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=00569394  (GhidraScript)  
+INFO  +14=00569388  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055c4b0  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0055c649 "THash_CRC16_CCITT" == (GhidraScript)  
+INFO    array @ 0055c5f0 : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=005692ec  (GhidraScript)  
+INFO  +04=00569320  (GhidraScript)  
+INFO  +08=0055ca24  (GhidraScript)  
+INFO  +0c=005693dc  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=005693cc  (GhidraScript)  
+INFO  +14=005693c0  (GhidraScript)  
+INFO  +18=00559af0  (GhidraScript)  
+INFO  +1c=00559b58  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=005599c0  (GhidraScript)  
+INFO  +24=005597f8  (GhidraScript)  
+INFO  +28=0055cc50  (GhidraScript)  
+INFO  +2c=0055cc28  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +30=0055cbf0  (GhidraScript)  
+INFO  +34=0055c970  (GhidraScript)  
+INFO  +38=00404e30  (GhidraScript)  
+INFO  +3c=00407f4c  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +40=004050e0  (GhidraScript)  
+INFO  +44=004050ec  (GhidraScript)  
+INFO  +48=00407f3c  (GhidraScript)  
+INFO  +4c=00407f30  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +50=004050d8  (GhidraScript)  
+INFO  +54=0055c424  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0057059b "THashManager" == (GhidraScript)  
+INFO    array @ 0057059a : (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 005705ae "THashManager" == (GhidraScript)  
+INFO    array @ 005705ad : (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 0060a7c1 "THashTable" == (GhidraScript)  
+INFO    array @ 0060a79c : (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +00=0060a84c  (GhidraScript)  
+INFO  +04=00404e30  (GhidraScript)  
+INFO  +08=00404e14  (GhidraScript)  
+INFO  +0c=004050e0  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +10=004050ec  (GhidraScript)  
+INFO  +14=004050e8  (GhidraScript)  
+INFO  +18=004050e4  (GhidraScript)  
+INFO  +1c=004050d8  (GhidraScript)  
+INFO  
+     (GhidraScript)  
+INFO  +20=00401168  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> == 007eb13a "THashItem" == (GhidraScript)  
+INFO    array @ 007eb139 : (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> [create] 0056bd38 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16bd38 VA 0056bd38 : FUN_0056bd38 @0056bd38 ==== (GhidraScript)  
+INFO  Round4.java> 
+void FUN_0056bd38(undefined4 param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4)
+
+{
+  *param_2 = 8;
+  *param_3 = 0x38;
+  *param_4 = 0x1048;
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056bd54 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16bd54 VA 0056bd54 : FUN_0056bd54 @0056bd54 ==== (GhidraScript)  
+INFO  Round4.java> 
+undefined4 FUN_0056bd54(void)
+
+{
+  return 0x56bd5a;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056be80 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16be80 VA 0056be80 : FUN_0056be80 @0056be80 ==== (GhidraScript)  
+INFO  Round4.java> 
+void FUN_0056be80(int param_1,uint *param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  
+  iVar2 = *(int *)(param_1 + 0x38);
+  uVar3 = *param_2;
+  uVar4 = param_2[1];
+  uVar6 = 0;
+  uVar3 = (uVar3 >> 0x18 | (uVar3 & 0xff0000) >> 8 | (uVar3 & 0xff00) << 8 | uVar3 << 0x18) ^
+          *(uint *)(iVar2 + 0x1000);
+  uVar4 = uVar4 >> 0x18 | (uVar4 & 0xff0000) >> 8 | (uVar4 & 0xff00) << 8 | uVar4 << 0x18;
+  do {
+    uVar5 = uVar3;
+    iVar1 = uVar6 * 4;
+    uVar6 = uVar6 + 1;
+    uVar3 = (*(int *)(iVar2 + (uVar5 >> 0x18) * 4) +
+             *(int *)(iVar2 + 0x400 + (uVar5 >> 0x10 & 0xff) * 4) ^
+            *(uint *)(iVar2 + 0x800 + (uVar5 >> 8 & 0xff) * 4)) +
+            *(int *)(iVar2 + 0xc00 + (uVar5 & 0xff) * 4) ^ uVar4 ^ *(uint *)(iVar2 + 0x1004 + iVar1)
+    ;
+    uVar4 = uVar5;
+  } while ((uVar6 & 0x10) == 0);
+  uVar5 = uVar5 ^ *(uint *)(iVar2 + 0x1044);
+  *param_2 = uVar5 >> 0x18 | (uVar5 & 0xff0000) >> 8 | (uVar5 & 0xff00) << 8 | uVar5 << 0x18;
+  param_2[1] = uVar3 >> 0x18 | (uVar3 & 0xff0000) >> 8 | (uVar3 & 0xff00) << 8 | uVar3 << 0x18;
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056bef0 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16bef0 VA 0056bef0 : FUN_0056bef0 @0056bef0 ==== (GhidraScript)  
+INFO  Round4.java> 
+void FUN_0056bef0(int param_1,uint *param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  int iVar5;
+  
+  iVar1 = *(int *)(param_1 + 0x38);
+  uVar2 = *param_2;
+  uVar3 = param_2[1];
+  iVar5 = 0x10;
+  uVar2 = (uVar2 >> 0x18 | (uVar2 & 0xff0000) >> 8 | (uVar2 & 0xff00) << 8 | uVar2 << 0x18) ^
+          *(uint *)(iVar1 + 0x1044);
+  uVar3 = uVar3 >> 0x18 | (uVar3 & 0xff0000) >> 8 | (uVar3 & 0xff00) << 8 | uVar3 << 0x18;
+  do {
+    uVar4 = uVar2;
+    uVar2 = (*(int *)(iVar1 + (uVar4 >> 0x18) * 4) +
+             *(int *)(iVar1 + 0x400 + (uVar4 >> 0x10 & 0xff) * 4) ^
+            *(uint *)(iVar1 + 0x800 + (uVar4 >> 8 & 0xff) * 4)) +
+            *(int *)(iVar1 + 0xc00 + (uVar4 & 0xff) * 4) ^
+            uVar3 ^ *(uint *)(iVar1 + 0x1000 + iVar5 * 4);
+    iVar5 = iVar5 + -1;
+    uVar3 = uVar4;
+  } while (iVar5 != 0);
+  uVar4 = uVar4 ^ *(uint *)(iVar1 + 0x1000);
+  *param_2 = uVar4 >> 0x18 | (uVar4 & 0xff0000) >> 8 | (uVar4 & 0xff00) << 8 | uVar4 << 0x18;
+  param_2[1] = uVar2 >> 0x18 | (uVar2 & 0xff0000) >> 8 | (uVar2 & 0xff00) << 8 | uVar2 << 0x18;
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056bf5c ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16bf5c VA 0056bf5c : FUN_0056bf5c @0056bf5c ==== (GhidraScript)  
+INFO  Round4.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0056bf5c(int *param_1,int param_2,int param_3,undefined4 param_4)
+
+{
+  uint *puVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 uVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  undefined4 uStack_14;
+  undefined4 uStack_10;
+  int iStack_c;
+  int *piStack_8;
+  
+  iStack_c = param_3;
+  piStack_8 = param_1;
+  func_0x0056ab78(param_1,&iStack_c);
+  iVar2 = piStack_8[0xe];
+  iVar7 = piStack_8[0xe];
+  iVar3 = iVar7 + 0x1000;
+  func_0x004032b8(0xa1b0dc,iVar2,0x1000);
+  func_0x004032b8(0xa1c0dc,iVar3,0x48);
+  iVar5 = 0;
+  iVar6 = 0;
+  do {
+    puVar1 = (uint *)(iVar3 + iVar6 * 4);
+    *puVar1 = *puVar1 ^ (uint)*(byte *)(param_2 + iVar5 % iStack_c) * 0x1000000 +
+                        (uint)*(byte *)(param_2 + (iVar5 + 1) % iStack_c) * 0x10000 +
+                        (uint)*(byte *)(param_2 + (iVar5 + 2) % iStack_c) * 0x100 +
+                        (uint)*(byte *)(param_2 + (iVar5 + 3) % iStack_c);
+    iVar5 = (iVar5 + 4) % iStack_c;
+    iVar6 = iVar6 + 1;
+  } while (iVar6 != 0x12);
+  func_0x00403d5c(&uStack_14,8,0);
+  iVar5 = 0;
+  do {
+    (**(code **)(*piStack_8 + 0x2c))(piStack_8,&uStack_14);
+    uVar4 = (*(code *)*_DAT_00a65164)(uStack_14);
+    *(undefined4 *)(iVar3 + iVar5 * 8) = uVar4;
+    uVar4 = (*(code *)*_DAT_00a65164)(uStack_10);
+    *(undefined4 *)(iVar7 + 0x1004 + iVar5 * 8) = uVar4;
+    iVar5 = iVar5 + 1;
+  } while (iVar5 != 9);
+  iVar7 = 0;
+  do {
+    iVar3 = 0;
+    do {
+      (**(code **)(*piStack_8 + 0x2c))(piStack_8,&uStack_14);
+      uVar4 = (*(code *)*_DAT_00a65164)(uStack_14);
+      *(undefined4 *)(iVar2 + iVar7 * 0x400 + iVar3 * 8) = uVar4;
+      uVar4 = (*(code *)*_DAT_00a65164)(uStack_10);
+      *(undefined4 *)(iVar2 + iVar7 * 0x400 + 4 + iVar3 * 8) = uVar4;
+      iVar3 = iVar3 + 1;
+    } while (iVar3 != 0x80);
+    iVar7 = iVar7 + 1;
+  } while (iVar7 != 4);
+  func_0x00403d5c(&uStack_14,8,0);
+  (**(code **)(*piStack_8 + 0x20))(piStack_8,param_4);
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056a8b0 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16a8b0 VA 0056a8b0 : FUN_0056a8b0 @0056a8b0 ==== (GhidraScript)  
+INFO  Round4.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FUN_0056a8b0(void)
+
+{
+  return _DAT_00a28b64;
+}
+
+ (GhidraScript)  
+INFO  Round4.java> [create] 0056a8b8 ok=true (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== RVA 0x16a8b8 VA 0056a8b8 : FUN_0056a8b8 @0056a8b8 ==== (GhidraScript)  
+INFO  Round4.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0056a8b8(undefined4 param_1,undefined4 param_2)
+
+{
+  int iVar1;
+  
+  iVar1 = func_0x0041248c(_DAT_00569c4c,1,param_2);
+  *(undefined4 *)(iVar1 + 0xc) = param_1;
+  func_0x0040565c(iVar1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round4.java>  (GhidraScript)  
+INFO  Round4.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

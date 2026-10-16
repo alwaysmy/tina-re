@@ -240,7 +240,51 @@ void FUN_005597f8(self, inStream, outStream, char dir, int size) {
 
 ---
 
-## 8. 复现命令（本机）
+## 8. 类族全表与核心算法实现（round 3-5）
+
+### 8.1 类族扫描结果（DCPcrypt 风格家族，2026-10-16）
+
+- `TCipher_*`（19 个）：Gost、**Blowfish**、IDEA、SAFER（+K40/SK40/K64/SK64/K128/SK128）、TEA、TEAN、SCOP、Q128、3Way、Twofish、Shark、Square
+- `THash_*`（21 个）：MD4、MD5、RipeMD128/160/256/320、SHA、SHA1、**Haval256/224/192/160/128**、Snefru、Tiger、Sapphire320..128、Square、XOR16/32
+- 每类 VMT 布局（已实证）：[共享方法若干] + [类专属方法] + [长度前缀类名] + [元数据（RTL 指针/析构/实例大小）]
+- 关键字符串：`<Encrypted Library>` 与 `"BlowFish"`（注意大写 F）同在 RVA 0x58FAxx 数据区——.lib 管线的算法选择来源
+
+### 8.2 TCipher_Blowfish（.lib 管线目标算法）
+
+类专属方法（与 TEA 槽位一一对应）：
+
+| 槽 | RVA | 语义 |
+|---|---|---|
+| 参数 | 0x16bd38 | 块=8，密钥上限 0x38（56B），上下文=0x1048 |
+| 取指针 | 0x16bd54 | 返回 0x56BD5A（变体 blob） |
+| 加密 | 0x16be80 | 见下 |
+| 解密 | 0x16bef0 | 镜像逆运算 |
+| InitKey | 0x16bf5c | 见下 |
+
+**上下文布局**（密码器 obj+0x38，共 0x1048 B）：
+
+- +0x0000..+0x0FFF：S 盒 4×256 dwords ← 全局 **0xA1B0DC**
+- +0x1000..+0x1047：P 数组 18 dwords ← 全局 **0xA1C0DC**
+- 两个全局均验证为**标准 π 常数**（P[0]=0x243F6A88、S0[0]=0xD1310BA6，小端存储）
+
+**加密 0x16be80**：块大端序（bswap）；`v0 ^= P[0]`；16 轮 `v0 = F(v0) ^ v1 ^ P[i]`（F = ((S0[x0]+S1[x1]) ^ S2[x2]) + S3[x3]，标准 Blowfish F）；收尾 `^= P[17]` + bswap。结构上是标准 Blowfish 的等价展开（此前"自定义轮函数"疑为展开形式误读）。
+
+**InitKey 0x16bf5c**：`P[i] ^= 密钥字节循环（按大端组成 dword）`；随后表生成：以零块反复调用本类加密，输出 bswap 后依次填充 P[0..17] 与四个 S 盒。
+
+### 8.3 HAVAL 系列（"G"的最可能所在层）
+
+- **IV = 标准 HAVAL 常数**（π 前 8 值，写于 obj+0x98）：`243F6A88 85A308D3 13198A2E 03707344 A4093822 299F31D0 082EFA98 EC4E6C89`
+- 摘要长度（[vt+0x30]）：0x167084=**32**（Haval256）/ 0x167644=**28**（Haval224）/ …
+- Init（0x16708c）：清 128B 缓冲（obj+0x18）、计数清零（obj+0x14）、写 IV，并按变体设置压缩函数绑定
+- **Update（0x16755c）＝ 此前笔记中的"数据泵"**：128B 缓冲；满块经**绑定方法（obj+0xC0=代码指针、obj+0xC4=对象，Delphi 方法引用）**压缩
+- **Final（0x16710c）**：HAVAL 填充（含 0x76 溢出特例）；按摘要大小（0x80/0xa0/0xc0/0xe0 位）打包位长与版本字节 `(passes<<3)|1`（passes=obj+0xB8）；压缩后逐字经 FUN_0055a798 反转取出
+- 槽位（与 SetKey 调用吻合）：+0x20=Init、+0x24=Update、+0x28=Final、+0x2c=摘要指针(obj+0x98)、+0x30=摘要长度
+
+> 结论：G 的构造 = **HAVAL（pass 3/4/5，obj+0xB8）× 标准 IV × 本实现特有填充/取出顺序**。static_g.py 已有压缩核心转录；本轮补齐了**变体绑定、填充、版本字节、输出反序**四块拼图。与 Blowfish 的串联方式（管线如何组合两者）为下一步。
+
+---
+
+## 9. 复现命令（本机）
 
 ```powershell
 $env:JAVA_HOME = "D:\MyPrograms\jdk-21.0.12.1"
@@ -256,5 +300,5 @@ python D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\fix-pe.py
 # 在已分析项目上跑脚本（秒级）
 & $H $PROJ $NAME -process "tina_unpacked_fixed.exe" -noanalysis `
     -scriptPath "D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless" `
-    -postScript "ScanClasses.java"
+    -postScript "Round4.java"
 ```

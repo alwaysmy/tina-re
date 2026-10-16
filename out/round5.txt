@@ -1,0 +1,274 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (689 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2062 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round5.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round5.java (HeadlessAnalyzer)  
+INFO  Round5.java> [create] 0056708c ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x16708c VA 0056708c : FUN_0056708c @0056708c ==== (GhidraScript)  
+INFO  Round5.java> 
+void FUN_0056708c(int param_1)
+
+{
+  func_0x00403d5c(param_1 + 0x18,0x80,0);
+  func_0x00566650(param_1,*(undefined4 *)(param_1 + 0xb8));
+  *(undefined4 *)(param_1 + 0x14) = 0;
+  *(undefined4 *)(param_1 + 0x98) = 0x243f6a88;
+  *(undefined4 *)(param_1 + 0x9c) = 0x85a308d3;
+  *(undefined4 *)(param_1 + 0xa0) = 0x13198a2e;
+  *(undefined4 *)(param_1 + 0xa4) = 0x3707344;
+  *(undefined4 *)(param_1 + 0xa8) = 0xa4093822;
+  *(undefined4 *)(param_1 + 0xac) = 0x299f31d0;
+  *(undefined4 *)(param_1 + 0xb0) = 0x82efa98;
+  *(undefined4 *)(param_1 + 0xb4) = 0xec4e6c89;
+  func_0x0055c9b8(param_1,1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 0056755c ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x16755c VA 0056755c : FUN_0056755c @0056755c ==== (GhidraScript)  
+INFO  Round5.java> 
+void FUN_0056755c(int param_1,int param_2,uint param_3)
+
+{
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  
+  if (0 < (int)param_3) {
+    uVar2 = *(uint *)(param_1 + 0x14) & 0x3f;
+    *(int *)(param_1 + 0x14) = *(int *)(param_1 + 0x14) + param_3;
+    iVar1 = 0;
+    if (uVar2 != 0) {
+      if ((int)param_3 < (int)(0x80 - uVar2)) {
+        func_0x004032b8(param_2,param_1 + 0x18 + uVar2,param_3,param_3);
+        return;
+      }
+      func_0x004032b8(param_2,param_1 + 0x18 + uVar2,0x80 - uVar2,param_3);
+      (**(code **)(param_1 + 0xc0))(*(undefined4 *)(param_1 + 0xc4),param_1 + 0x18);
+      iVar1 = 0x80 - uVar2;
+      param_3 = param_3 - iVar1;
+    }
+    iVar3 = param_2 + iVar1;
+    uVar2 = param_3 & 0xffffff80;
+    for (; 0x7f < (int)param_3; param_3 = param_3 - 0x80) {
+      (**(code **)(param_1 + 0xc0))(*(undefined4 *)(param_1 + 0xc4),iVar3);
+      iVar3 = iVar3 + 0x80;
+    }
+    func_0x004032b8(param_2 + iVar1 + uVar2,param_1 + 0x18,param_3);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 0056710c ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x16710c VA 0056710c : FUN_0056710c @0056710c ==== (GhidraScript)  
+INFO  Round5.java> 
+void FUN_0056710c(int *param_1)
+
+{
+  uint uVar1;
+  int iVar2;
+  longlong lStack_14;
+  int iStack_c;
+  
+  uVar1 = param_1[5] & 0x8000007f;
+  if ((int)uVar1 < 0) {
+    uVar1 = (uVar1 - 1 | 0xffffff80) + 1;
+  }
+  *(undefined1 *)((int)param_1 + uVar1 + 0x18) = 1;
+  iVar2 = uVar1 + 1;
+  if (0x76 < iVar2) {
+    func_0x00403d5c((int)param_1 + uVar1 + 0x19,0x76 - iVar2,0);
+    (*(code *)param_1[0x30])(param_1[0x31],param_1 + 6);
+    iVar2 = 0;
+  }
+  func_0x00403d5c((int)param_1 + iVar2 + 0x18,0x76 - iVar2,0);
+  uVar1 = (**(code **)(*param_1 + 0x30))();
+  iVar2 = uVar1 * 8;
+  *(byte *)((int)param_1 + 0x8e) = (char)param_1[0x2e] << 3 | 1;
+  *(char *)((int)param_1 + 0x8f) = (char)((uVar1 & 0x1fffffff) << 1);
+  iStack_c = param_1[5] << 3;
+  lStack_14 = (longlong)ROUND((float10)iStack_c);
+  func_0x004032b8(&lStack_14,param_1 + 0x24,8);
+  (*(code *)param_1[0x30])(param_1[0x31],param_1 + 6);
+  func_0x00403d5c(param_1 + 6,0x80,0);
+  if (iVar2 == 0x80) {
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0xffU | param_1[0x2c] & 0xff000000U |
+                            param_1[0x2b] & 0xff0000U | param_1[0x2a] & 0xff00U,8);
+    param_1[0x26] = param_1[0x26] + iVar2;
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0xff00U | param_1[0x2c] & 0xffU |
+                            param_1[0x2b] & 0xff000000U | param_1[0x2a] & 0xff0000U,0x10);
+    param_1[0x27] = param_1[0x27] + iVar2;
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0xff0000U | param_1[0x2c] & 0xff00U |
+                            param_1[0x2b] & 0xffU | param_1[0x2a] & 0xff000000U,0x18);
+    param_1[0x28] = param_1[0x28] + iVar2;
+    param_1[0x29] =
+         param_1[0x29] +
+         (param_1[0x2d] & 0xff000000U | param_1[0x2c] & 0xff0000U | param_1[0x2b] & 0xff00U |
+         param_1[0x2a] & 0xffU);
+  }
+  else if (iVar2 == 0xa0) {
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0x3fU | param_1[0x2c] & 0xfe000000U |
+                            param_1[0x2b] & 0x1f80000U,0x13);
+    param_1[0x26] = param_1[0x26] + iVar2;
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0xfc0U | param_1[0x2c] & 0x3fU |
+                            param_1[0x2b] & 0xfe000000U,0x19);
+    param_1[0x27] = param_1[0x27] + iVar2;
+    param_1[0x28] =
+         param_1[0x28] + (param_1[0x2d] & 0x7f000U | param_1[0x2c] & 0xfc0U | param_1[0x2b] & 0x3fU)
+    ;
+    param_1[0x29] =
+         param_1[0x29] +
+         ((param_1[0x2d] & 0x1f80000U | param_1[0x2c] & 0x7f000U | param_1[0x2b] & 0xfc0U) >> 6);
+    param_1[0x2a] =
+         param_1[0x2a] +
+         ((param_1[0x2d] & 0x6e000000U | param_1[0x2c] & 0x1f80000U | param_1[0x2b] & 0x7f000U) >>
+         0xc);
+  }
+  else if (iVar2 == 0xc0) {
+    iVar2 = func_0x0055a798(param_1[0x2d] & 0x3fU | param_1[0x2c] & 0xfc000000U,0x1a);
+    param_1[0x26] = param_1[0x26] + iVar2;
+    param_1[0x27] = param_1[0x27] + (param_1[0x2d] & 0x3e0U | param_1[0x2c] & 0x1fU);
+    param_1[0x28] = param_1[0x28] + ((param_1[0x2d] & 0xfc00U | param_1[0x2c] & 0x3e0U) >> 5);
+    param_1[0x29] = param_1[0x29] + ((param_1[0x2d] & 0x1f0000U | param_1[0x2c] & 0xfc00U) >> 10);
+    param_1[0x2a] =
+         param_1[0x2a] + ((param_1[0x2d] & 0x3e00000U | param_1[0x2c] & 0x1f0000U) >> 0x10);
+    param_1[0x2b] =
+         param_1[0x2b] + ((param_1[0x2d] & 0xfc000000U | param_1[0x2c] & 0x3e00000U) >> 0x15);
+  }
+  else if (iVar2 == 0xe0) {
+    param_1[0x26] = param_1[0x26] + ((uint)param_1[0x2d] >> 0x1b);
+    param_1[0x27] = param_1[0x27] + ((uint)param_1[0x2d] >> 0x16 & 0x1f);
+    param_1[0x28] = param_1[0x28] + ((uint)param_1[0x2d] >> 0x12 & 0xf);
+    param_1[0x29] = param_1[0x29] + ((uint)param_1[0x2d] >> 0xd & 0x1f);
+    param_1[0x2a] = param_1[0x2a] + ((uint)param_1[0x2d] >> 9 & 0xf);
+    param_1[0x2b] = param_1[0x2b] + ((uint)param_1[0x2d] >> 4 & 0x1f);
+    param_1[0x2c] = param_1[0x2c] + (param_1[0x2d] & 0xfU);
+  }
+  func_0x0055c9b8(param_1,0);
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 00567610 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x167610 VA 00567610 : FUN_00567610 @00567610 ==== (GhidraScript)  
+INFO  Round5.java> 
+int FUN_00567610(int param_1)
+
+{
+  return param_1 + 0x98;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 00566628 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x166628 VA 00566628 : FUN_00566628 @00566628 ==== (GhidraScript)  
+INFO  Round5.java> 
+undefined4 FUN_00566628(void)
+
+{
+  return 0x56662e;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 00567084 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x167084 VA 00567084 : FUN_00567084 @00567084 ==== (GhidraScript)  
+INFO  Round5.java> 
+undefined4 FUN_00567084(void)
+
+{
+  return 0x20;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 00567620 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x167620 VA 00567620 : FUN_00567620 @00567620 ==== (GhidraScript)  
+INFO  Round5.java> 
+undefined4 FUN_00567620(void)
+
+{
+  return 0x567626;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 00567644 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x167644 VA 00567644 : FUN_00567644 @00567644 ==== (GhidraScript)  
+INFO  Round5.java> 
+undefined4 FUN_00567644(void)
+
+{
+  return 0x1c;
+}
+
+ (GhidraScript)  
+INFO  Round5.java> [create] 0055c970 ok=true (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== RVA 0x15c970 VA 0055c970 : FUN_0055c970 @0055c970 ==== (GhidraScript)  
+INFO  Round5.java> 
+void FUN_0055c970(void)
+
+{
+  int *piVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  uint extraout_EDX;
+  
+  piVar1 = (int *)func_0x0040525c();
+  uVar2 = (**(code **)(*piVar1 + 0x2c))();
+  uVar3 = (**(code **)(*piVar1 + 0x30))();
+  func_0x00403d5c(uVar2,uVar3,0);
+  func_0x00559cc8(piVar1,extraout_EDX & 0xfffffffc);
+  if ('\0' < (char)extraout_EDX) {
+    func_0x00405244(piVar1);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round5.java>  (GhidraScript)  
+INFO  Round5.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
