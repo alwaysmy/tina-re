@@ -1,0 +1,980 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (726 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2092 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra-mcp\scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: GapDecompile.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\MyPrograms\ghidra-mcp\scripts\GapDecompile.java (HeadlessAnalyzer)  
+INFO  GapDecompile.java> [create] 00970c2c ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x570c2c VA 00970c2c : FUN_00970c2c @00970c2c ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_00970c2c(void)
+
+{
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 00959698 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x559698 VA 00959698 : FUN_00959698 @00959698 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Instruction at (ram,0x009597be) overlaps instruction at (ram,0x009597bb)
+    */
+/* WARNING: Unable to track spacebase fully for stack */
+
+void FUN_00959698(undefined2 param_1,char *param_2,char *param_3)
+
+{
+  char *pcVar1;
+  undefined1 *puVar2;
+  longlong lVar3;
+  code *pcVar4;
+  char cVar5;
+  byte bVar6;
+  char cVar7;
+  char cVar15;
+  uint uVar8;
+  char cVar14;
+  int iVar9;
+  byte *pbVar10;
+  int iVar11;
+  char *pcVar12;
+  char *pcVar13;
+  char *pcVar16;
+  char *pcVar17;
+  int extraout_ECX;
+  byte bVar18;
+  byte bVar19;
+  char *extraout_EDX;
+  char cVar20;
+  int unaff_EBX;
+  int iVar21;
+  undefined1 *puVar22;
+  undefined1 *puVar23;
+  char *unaff_EBP;
+  char *unaff_ESI;
+  char *unaff_EDI;
+  byte in_AF;
+  bool bVar24;
+  float10 in_ST0;
+  
+  bVar18 = 9 < ((byte)param_1 & 0xf) | in_AF;
+  cVar15 = (char)((ushort)param_1 >> 8);
+  uVar8 = CONCAT31((int3)cVar15,(byte)param_1 + bVar18 * '\x06') & 0xffffff0f;
+  pcVar13 = (char *)CONCAT22((short)(uVar8 >> 0x10),CONCAT11(cVar15 + bVar18,(char)uVar8));
+  bVar18 = (byte)param_2;
+  param_3[-0x1e63ff6b] = param_3[-0x1e63ff6b] + bVar18;
+  do {
+    param_3[-0x1e27ff6b] = param_3[-0x1e27ff6b] + (char)((uint)unaff_EBP >> 8);
+    pcVar17 = unaff_EBP;
+code_r0x009596ab:
+    cVar15 = (char)((uint)pcVar13 >> 8);
+    pcVar13[-0x1c] = pcVar13[-0x1c] + cVar15;
+    *pcVar17 = *pcVar17 + bVar18;
+    cVar5 = (char)pcVar17;
+    cVar14 = (char)((uint)pcVar17 >> 8) + bVar18;
+    (&stack0x00000000)[(int)unaff_EDI * 2] = (&stack0x00000000)[(int)unaff_EDI * 2] + cVar5;
+    iVar9 = (int)CONCAT11(cVar14,cVar5);
+    cVar7 = (char)((uint)param_2 >> 8);
+    *(char *)(iVar9 + -0x34) = *(char *)(iVar9 + -0x34) + cVar7;
+    pbVar10 = (byte *)(pcVar13 + 0x10009880);
+    bVar6 = *pbVar10;
+    *pbVar10 = *pbVar10 + bVar18;
+    *(uint *)(pcVar13 + -0x67836400) =
+         (*(int *)(pcVar13 + -0x67836400) + 0x6a338800) - (uint)CARRY1(bVar6,bVar18);
+    pcVar17 = (char *)(iVar9 + -0x6b + (int)param_3 * 8);
+    *pcVar17 = *pcVar17 + bVar18;
+    pcVar17 = (char *)(iVar9 + -0x6b + (int)param_3 * 8);
+    cVar20 = (char)unaff_EBX;
+    *pcVar17 = *pcVar17 + cVar20;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar15;
+    *(char *)(iVar9 + -0x68) = *(char *)(iVar9 + -0x68) + (char)((uint)param_3 >> 8);
+    *(char *)(iVar9 + -0x2b4fff68) = *(char *)(iVar9 + -0x2b4fff68) + (char)param_3;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar14;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar14;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar14;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar14;
+    pcVar17 = (char *)((int)unaff_ESI * 2 + 0x40);
+    *pcVar17 = *pcVar17 + cVar14;
+    *(short *)(pcVar13 + -0x6a1f9400) = (short)ROUND(in_ST0);
+    cVar15 = cVar14 * '\x02';
+    unaff_EBP = (char *)CONCAT22(cVar14 >> 7,CONCAT11(cVar15,cVar5 + cVar7));
+    pcVar17 = param_3 + -1;
+    if (pcVar17 == (char *)0x0 || cVar15 == '\0') {
+      while( true ) {
+        while( true ) {
+          pcVar16 = unaff_EBP;
+          cVar5 = (char)pcVar17;
+          *pcVar17 = *pcVar17 + cVar5;
+          cVar14 = (char)((uint)unaff_EBX >> 8);
+          *pcVar17 = *pcVar17 + cVar14;
+          pcVar12 = (char *)((int)unaff_ESI * 2 + 0x40);
+          cVar15 = (char)((uint)pcVar16 >> 8);
+          *pcVar12 = *pcVar12 + cVar15;
+          pcVar12 = (char *)((int)unaff_ESI * 2 + 0x40);
+          *pcVar12 = *pcVar12 + cVar15;
+          pcVar12 = (char *)((int)unaff_ESI * 2 + 0x40);
+          *pcVar12 = *pcVar12 + cVar15;
+          *unaff_ESI = *unaff_ESI + cVar5;
+          cVar15 = (char)pcVar16;
+          *pcVar16 = *pcVar16 + cVar15;
+          *pcVar16 = *pcVar16 + cVar15;
+          *pcVar17 = *pcVar17 + cVar15;
+          *pcVar16 = *pcVar16 + cVar15;
+          cVar15 = (char)((uint)pcVar17 >> 8);
+          pcVar17[(int)param_2] = pcVar17[(int)param_2] + cVar15;
+          pbVar10 = (byte *)(pcVar16 + 1);
+          (pcVar16 + 0x54090001)[(int)pbVar10] = (pcVar16 + 0x54090001)[(int)pbVar10] + cVar5;
+          iVar21 = *(int *)(unaff_EDI + 0x43) * 0x65767275;
+          unaff_EDI[0x95] = (char)param_2;
+          bVar6 = (byte)pbVar10;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          *pbVar10 = *pbVar10 + bVar6;
+          bVar18 = *pbVar10;
+          *pbVar10 = *pbVar10 + bVar6;
+          pcVar16[0xa00096] = (pcVar16[0xa00096] - cVar20) - CARRY1(bVar18,bVar6);
+          *pbVar10 = *pbVar10 + bVar6;
+          iVar9 = CONCAT31((int3)((uint)pcVar13 >> 8),(char)pcVar13 + cVar20);
+          *(int *)(iVar21 + -3) = iVar9;
+          iVar9 = iVar9 + 1;
+          iVar9 = CONCAT22((short)((uint)iVar9 >> 0x10),
+                           CONCAT11((char)((uint)iVar9 >> 8) * '\x02',(char)iVar9));
+          *(int *)(iVar21 + -7) = iVar9;
+          iVar9 = iVar9 + 1;
+          iVar9 = CONCAT31((int3)((uint)iVar9 >> 8),(char)iVar9 + cVar15);
+          *(int *)(iVar21 + -0xb) = iVar9;
+          iVar9 = iVar9 + 1;
+          iVar9 = CONCAT22((short)((uint)iVar9 >> 0x10),
+                           CONCAT11((char)((uint)iVar9 >> 8) + cVar15,(char)iVar9));
+          *(int *)(iVar21 + -0xf) = iVar9;
+          iVar9 = iVar9 + 1;
+          iVar9 = CONCAT31((int3)((uint)iVar9 >> 8),(char)iVar9 + (char)((uint)iVar9 >> 8));
+          *(int *)(iVar21 + -0x13) = iVar9;
+          pbVar10[(int)pcVar17 * 2] = pbVar10[(int)pcVar17 * 2] + (char)param_2;
+          *(char *)(iVar9 + 2) = *(char *)(iVar9 + 2) + (char)((uint)param_2 >> 8);
+          iVar11 = iVar9 + 3;
+          *(char *)(iVar9 + -0x32) = *(char *)(iVar9 + -0x32) + cVar14;
+          param_2[(int)pcVar17 * 8 + 0x37340095] =
+               param_2[(int)pcVar17 * 8 + 0x37340095] + (char)unaff_ESI;
+          unaff_ESI[-0x33ff61c9] = unaff_ESI[-0x33ff61c9] + cVar20;
+          puVar22 = (undefined1 *)(iVar21 + -0x17);
+          *(undefined4 *)(iVar21 + -0x17) = 0x95979a;
+          pcVar12 = (char *)func_0xe969982f();
+          puVar23 = puVar22 + -4;
+          *(undefined4 *)(puVar22 + -4) = 0x9597a2;
+          pcVar13 = (char *)func_0xe98d9837(CONCAT22((short)((uint)iVar11 >> 0x10),
+                                                     CONCAT11((char)((uint)iVar11 >> 8) + cVar20,
+                                                              (char)iVar11)));
+          pcVar17 = (char *)(unaff_EBX + -0x6b + (int)pcVar13 * 8);
+          *pcVar17 = *pcVar17 + (char)extraout_ECX;
+          bVar19 = (byte)extraout_EDX;
+          *pcVar12 = *pcVar12 + bVar19;
+          bVar6 = (byte)pcVar12;
+          cVar15 = (char)((uint)pcVar12 >> 8) + bVar19;
+          puVar23[(int)unaff_EDI * 2] = puVar23[(int)unaff_EDI * 2] + bVar6;
+          iVar9 = (int)CONCAT11(cVar15,bVar6);
+          *(char *)(iVar9 + -0x34) = *(char *)(iVar9 + -0x34) + (char)((uint)extraout_EDX >> 8);
+          pbVar10 = (byte *)(pcVar13 + 0x10009880);
+          bVar18 = *pbVar10;
+          *pbVar10 = *pbVar10 + bVar19;
+          *(uint *)(pcVar13 + -0x67836400) =
+               (*(int *)(pcVar13 + -0x67836400) + 0x6a338800) - (uint)CARRY1(bVar18,bVar19);
+          pcVar17 = (char *)(iVar9 + -0x6b + extraout_ECX * 8);
+          *pcVar17 = *pcVar17 + bVar19;
+          pcVar17 = (char *)(iVar9 + -0x6b + extraout_ECX * 8);
+          *pcVar17 = *pcVar17 + cVar20;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + (char)((uint)pcVar13 >> 8);
+          *(char *)(iVar9 + -0x68) = *(char *)(iVar9 + -0x68) + (char)((uint)extraout_ECX >> 8);
+          *(char *)(iVar9 + -0x1a37ff68) = *(char *)(iVar9 + -0x1a37ff68) + (char)extraout_ECX;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + cVar15;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + cVar15;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + cVar15;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + cVar15;
+          pcVar17 = (char *)((int)pcVar16 * 2 + 0x40);
+          *pcVar17 = *pcVar17 + cVar15;
+          pcVar17 = (char *)(iVar9 + -0x6b + (int)pcVar13 * 8);
+          *pcVar17 = *pcVar17 + bVar19;
+          pcVar12 = (char *)(iVar9 + -0x1bff6a18);
+          *pcVar12 = *pcVar12 + bVar19;
+          pcVar17 = (char *)(extraout_ECX + -1);
+          param_2 = extraout_EDX;
+          if (pcVar17 == (char *)0x0 || *pcVar12 == '\0') break;
+          unaff_EBP = (char *)CONCAT31((int3)(CONCAT22((short)cVar15 >> 7,
+                                                       CONCAT11(bVar6 / 0xe8,bVar6)) >> 8),
+                                       bVar6 % 0xe8);
+          unaff_ESI = pcVar16;
+        }
+        cVar5 = (char)pcVar17;
+        *pcVar17 = *pcVar17 + cVar5;
+        *pcVar17 = *pcVar17 + cVar14;
+        pcVar12 = (char *)((int)pcVar16 * 2 + 0x40);
+        *pcVar12 = *pcVar12 + cVar15;
+        pcVar12 = (char *)((int)pcVar16 * 2 + 0x40);
+        *pcVar12 = *pcVar12 + cVar15;
+        pcVar12 = (char *)((int)pcVar16 * 2 + 0x40);
+        *pcVar12 = *pcVar12 + cVar15;
+        *extraout_EDX = *extraout_EDX + cVar5;
+        *(undefined1 **)((int)puVar23 + -4) = puVar23;
+        lVar3 = (longlong)*(int *)(unaff_EBX + 99) * 0x76727543;
+        unaff_ESI = (char *)lVar3;
+        if ((int)unaff_ESI == lVar3) break;
+        unaff_EBP = (char *)(int)CONCAT11(cVar15,bVar6);
+        *unaff_EBP = *unaff_EBP + bVar19;
+      }
+      cVar7 = (char)pcVar13;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *pcVar13 = *pcVar13 + cVar7;
+      *(char *)(iVar9 + 0x44000000) = *(char *)(iVar9 + 0x44000000) + cVar15;
+      iVar11 = CONCAT31((int3)((uint)pcVar13 >> 8),cVar7 + cVar20);
+      *(int *)(puVar23 + -7) = iVar11;
+      iVar11 = iVar11 + 1;
+      iVar11 = CONCAT22((short)((uint)iVar11 >> 0x10),
+                        CONCAT11((char)((uint)iVar11 >> 8) * '\x02',(char)iVar11));
+      *(int *)(puVar23 + -0xb) = iVar11;
+      iVar11 = iVar11 + 1;
+      cVar15 = (char)((uint)pcVar17 >> 8);
+      iVar11 = CONCAT31((int3)((uint)iVar11 >> 8),(char)iVar11 + cVar15);
+      *(int *)(puVar23 + -0xf) = iVar11;
+      iVar11 = iVar11 + 1;
+      iVar11 = CONCAT22((short)((uint)iVar11 >> 0x10),
+                        CONCAT11((char)((uint)iVar11 >> 8) + cVar15,(char)iVar11));
+      *(int *)(puVar23 + -0x13) = iVar11;
+      iVar11 = iVar11 + 1;
+      iVar11 = CONCAT31((int3)((uint)iVar11 >> 8),(char)iVar11 + (char)((uint)iVar11 >> 8));
+      *(int *)(puVar23 + -0x17) = iVar11;
+      pcVar12 = (char *)(iVar9 + (int)pcVar17 * 2);
+      cVar7 = (char)((int)pcVar13 >> 0x1f);
+      *pcVar12 = *pcVar12 + cVar7;
+      *(char *)(iVar11 + 2) = *(char *)(iVar11 + 2) + cVar7;
+      *(char *)(iVar11 + -0x32) = *(char *)(iVar11 + -0x32) + cVar14;
+      pcVar17 = (char *)(((int)pcVar13 >> 0x1f) + 0x37340095 + (int)pcVar17 * 8);
+      *pcVar17 = *pcVar17 + (char)lVar3;
+      unaff_ESI[0x44009e37] = unaff_ESI[0x44009e37] + cVar20;
+      out((short)((int)pcVar13 >> 0x1f),unaff_ESI);
+      unaff_EDI[(int)unaff_ESI * 8 + -0x6b] = unaff_EDI[(int)unaff_ESI * 8 + -0x6b] + cVar5;
+      unaff_EDI[(int)unaff_ESI * 8 + -0x6b] = unaff_EDI[(int)unaff_ESI * 8 + -0x6b] + cVar7;
+      *(char *)(iVar11 + -0xe) = *(char *)(iVar11 + -0xe) + cVar7;
+      *unaff_ESI = *unaff_ESI + cVar15;
+      pcVar4 = (code *)swi(1);
+      (*pcVar4)();
+      return;
+    }
+    param_3 = param_3 + -2;
+    pcVar17 = pcVar13;
+  } while (param_3 == (char *)0x0 || cVar15 != '\0');
+code_r0x00959638:
+  *(uint *)(unaff_EDI + (int)param_3 * 2 + 0x53) =
+       *(uint *)(unaff_EDI + (int)param_3 * 2 + 0x53) | (uint)param_2;
+  unaff_EBX = unaff_EBX + 2;
+  bVar24 = true;
+  pcVar13 = unaff_EBP;
+  pcVar12 = unaff_ESI;
+  if (unaff_EBX == 0) {
+    do {
+      pcVar16 = param_3;
+      unaff_ESI = pcVar12;
+      if (!bVar24) {
+        cVar15 = (char)pcVar17;
+        *pcVar17 = *pcVar17 + cVar15;
+        *pcVar17 = *pcVar17 + cVar15;
+        *pcVar17 = *pcVar17 + cVar15;
+        *pcVar17 = *pcVar17 + cVar15;
+        *pcVar17 = *pcVar17 + (char)((uint)pcVar17 >> 8);
+        cVar5 = (char)pcVar12;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *pcVar12 = *pcVar12 + cVar5;
+        *param_2 = *param_2 + cVar7;
+        puVar2 = (undefined1 *)((int)unaff_EDI * 2 + 0x636c0000);
+        *puVar2 = *puVar2;
+        iVar9 = CONCAT31((int3)(char)((uint)unaff_EDI >> 8),(char)unaff_EDI) + 1;
+        iVar9 = CONCAT22((short)((uint)iVar9 >> 0x10),
+                         CONCAT11((char)((uint)iVar9 >> 8) * '\x02',(char)iVar9)) + 1;
+        cVar5 = (char)((uint)param_3 >> 8);
+        iVar9 = CONCAT31((int3)((uint)iVar9 >> 8),(char)iVar9 + cVar5) + 1;
+        iVar9 = CONCAT22((short)((uint)iVar9 >> 0x10),
+                         CONCAT11((char)((uint)iVar9 >> 8) + cVar5,(char)iVar9)) + 1;
+        iVar9 = CONCAT31((int3)((uint)iVar9 >> 8),(char)iVar9 + (char)((uint)iVar9 >> 8));
+        pcVar13[(int)param_3 * 2] = pcVar13[(int)param_3 * 2] + bVar18;
+        *(char *)(iVar9 + 2) = *(char *)(iVar9 + 2) + cVar7;
+        unaff_ESI = pcVar13 + -1;
+        pcVar13 = (char *)(iVar9 + 3);
+        *(undefined1 *)(iVar9 + -0x32) = *(undefined1 *)(iVar9 + -0x32);
+        param_2[(int)param_3 * 8 + 0x37340095] = param_2[(int)param_3 * 8 + 0x37340095] + cVar15;
+        pcVar1 = pcVar17 + -0x6bff61c9;
+        *pcVar1 = *pcVar1;
+        pcVar16 = param_3 + -1;
+        if (pcVar16 != (char *)0x0 && *pcVar1 == '\0') goto code_r0x00959634;
+        param_3[-0x1e5bff6c] = param_3[-0x1e5bff6c];
+        unaff_EDI = pcVar12;
+      }
+      bVar24 = (char)pcVar13 == '\0';
+      param_3 = pcVar16 + -1;
+      pcVar12 = unaff_ESI;
+      if (param_3 == (char *)0x0 || !bVar24) goto code_r0x009596ab;
+    } while( true );
+  }
+  (&stack0x64d40095)[(int)param_3 * 8] = (&stack0x64d40095)[(int)param_3 * 8] + (char)param_3;
+  pcVar13 = (char *)(int)(short)unaff_EBP;
+  goto code_r0x009596ab;
+code_r0x00959634:
+  unaff_EBP = pcVar17 + 1;
+  *pcVar16 = *pcVar16 + (char)pcVar16;
+  unaff_EDI = pcVar12 + -1;
+  param_3 = pcVar16;
+  pcVar17 = pcVar13;
+  goto code_r0x00959638;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0095c9ac ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x55c9ac VA 0095c9ac : FUN_0095c9ac @0095c9ac ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0095c9ac(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                 undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  int iVar1;
+  char cVar2;
+  int unaff_EBX;
+  
+  while( true ) {
+    *(undefined4 *)(unaff_EBX + 0xd8) = param_1;
+    *(undefined4 *)(unaff_EBX + 0xdc) = param_8;
+    cVar2 = (**(code **)(**(int **)(unaff_EBX + 0x8c) + 0x18))
+                      (*(int **)(unaff_EBX + 0x8c),&param_5,&param_7);
+    if (cVar2 == '\0') break;
+    *(undefined4 *)(unaff_EBX + 200) = param_4;
+    *(undefined4 *)(unaff_EBX + 0xcc) = param_5;
+    iVar1 = *(int *)(unaff_EBX + 0xa8);
+    if ((double)CONCAT44(param_5,param_4) <= *(double *)(iVar1 + 0x88)) {
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(iVar1);
+      func_0x009872a8();
+    }
+    else {
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(iVar1);
+      func_0x009872a8();
+      func_0x009872a8();
+      *(int *)(unaff_EBX + 0xb8) = *(int *)(unaff_EBX + 0xb8) + 1;
+      iVar1 = *(int *)(unaff_EBX + 0xa8);
+      *(double *)(iVar1 + 0x80) = *(double *)(iVar1 + 0x80) + *(double *)(unaff_EBX + 0xf8);
+      *(double *)(iVar1 + 0x88) = *(double *)(iVar1 + 0x88) + *(double *)(unaff_EBX + 0xf8);
+      *(undefined4 *)(iVar1 + 0x90) = *(undefined4 *)(iVar1 + 0x80);
+      *(undefined4 *)(iVar1 + 0x94) = *(undefined4 *)(iVar1 + 0x84);
+      *(undefined4 *)(iVar1 + 0x98) = *(undefined4 *)(iVar1 + 0x88);
+      *(undefined4 *)(iVar1 + 0x9c) = *(undefined4 *)(iVar1 + 0x8c);
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xa8));
+      func_0x009872a8();
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xa8));
+      func_0x009872a8();
+    }
+    *(undefined4 *)(unaff_EBX + 0xd0) = param_5;
+    *(undefined4 *)(unaff_EBX + 0xd4) = param_6;
+    param_1 = param_7;
+  }
+  func_0x00431950(*(undefined4 *)(unaff_EBX + 0x44),1);
+  *(undefined4 *)(unaff_EBX + 0xf0) = *(undefined4 *)(*(int *)(unaff_EBX + 0xa8) + 0x80);
+  *(undefined4 *)(unaff_EBX + 0xf4) = *(undefined4 *)(*(int *)(unaff_EBX + 0xa8) + 0x84);
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x55c9b4 VA 0095c9b4 : FUN_0095c9ac @0095c9ac ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0095c9ac(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                 undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8)
+
+{
+  int iVar1;
+  char cVar2;
+  int unaff_EBX;
+  
+  while( true ) {
+    *(undefined4 *)(unaff_EBX + 0xd8) = param_1;
+    *(undefined4 *)(unaff_EBX + 0xdc) = param_8;
+    cVar2 = (**(code **)(**(int **)(unaff_EBX + 0x8c) + 0x18))
+                      (*(int **)(unaff_EBX + 0x8c),&param_5,&param_7);
+    if (cVar2 == '\0') break;
+    *(undefined4 *)(unaff_EBX + 200) = param_4;
+    *(undefined4 *)(unaff_EBX + 0xcc) = param_5;
+    iVar1 = *(int *)(unaff_EBX + 0xa8);
+    if ((double)CONCAT44(param_5,param_4) <= *(double *)(iVar1 + 0x88)) {
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(iVar1);
+      func_0x009872a8();
+    }
+    else {
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(iVar1);
+      func_0x009872a8();
+      func_0x009872a8();
+      *(int *)(unaff_EBX + 0xb8) = *(int *)(unaff_EBX + 0xb8) + 1;
+      iVar1 = *(int *)(unaff_EBX + 0xa8);
+      *(double *)(iVar1 + 0x80) = *(double *)(iVar1 + 0x80) + *(double *)(unaff_EBX + 0xf8);
+      *(double *)(iVar1 + 0x88) = *(double *)(iVar1 + 0x88) + *(double *)(unaff_EBX + 0xf8);
+      *(undefined4 *)(iVar1 + 0x90) = *(undefined4 *)(iVar1 + 0x80);
+      *(undefined4 *)(iVar1 + 0x94) = *(undefined4 *)(iVar1 + 0x84);
+      *(undefined4 *)(iVar1 + 0x98) = *(undefined4 *)(iVar1 + 0x88);
+      *(undefined4 *)(iVar1 + 0x9c) = *(undefined4 *)(iVar1 + 0x8c);
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xa8));
+      func_0x009872a8();
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xac));
+      func_0x0097851c(*(undefined4 *)(unaff_EBX + 0xa8));
+      func_0x009872a8();
+    }
+    *(undefined4 *)(unaff_EBX + 0xd0) = param_5;
+    *(undefined4 *)(unaff_EBX + 0xd4) = param_6;
+    param_1 = param_7;
+  }
+  func_0x00431950(*(undefined4 *)(unaff_EBX + 0x44),1);
+  *(undefined4 *)(unaff_EBX + 0xf0) = *(undefined4 *)(*(int *)(unaff_EBX + 0xa8) + 0x80);
+  *(undefined4 *)(unaff_EBX + 0xf4) = *(undefined4 *)(*(int *)(unaff_EBX + 0xa8) + 0x84);
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0095ca24 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x55ca24 VA 0095ca24 : FUN_0095ca24 @0095ca24 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Instruction at (ram,0x0095ca25) overlaps instruction at (ram,0x0095ca24)
+    */
+
+void FUN_0095ca24(undefined4 param_1)
+
+{
+  int iVar1;
+  int unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  char in_CF;
+  
+  iVar1 = CONCAT31((int3)((uint)param_1 >> 8),((char)param_1 + 'u') - in_CF);
+  do {
+    if (*(int *)(*(int *)(unaff_EBX + 0x38) + -4 + unaff_ESI * 8) == -10000) {
+      iVar1 = iVar1 + -1;
+    }
+    do {
+      unaff_ESI = unaff_ESI + 1;
+      if ((*(int *)(unaff_EBX + 0x34) < unaff_ESI) || (iVar1 < 1)) {
+        func_0x004032b8(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8,*(int *)(unaff_EBX + 0x38),
+                        ((*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1) * 8,
+                        *(undefined4 *)(unaff_EBP + 0xe));
+        *(int *)(unaff_EBX + 0x34) = (*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1;
+        *(undefined4 *)(unaff_EBX + 0xb8) = 3;
+        *(undefined4 *)(unaff_EBX + 0xbc) = *(undefined4 *)(unaff_EBX + 0x34);
+        return;
+      }
+    } while (*(int *)(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8) != -10000);
+  } while( true );
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x55ca2c VA 0095ca2c : FUN_0095ca24 @0095ca24 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Instruction at (ram,0x0095ca25) overlaps instruction at (ram,0x0095ca24)
+    */
+
+void FUN_0095ca24(undefined4 param_1)
+
+{
+  int iVar1;
+  int unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  char in_CF;
+  
+  iVar1 = CONCAT31((int3)((uint)param_1 >> 8),((char)param_1 + 'u') - in_CF);
+  do {
+    if (*(int *)(*(int *)(unaff_EBX + 0x38) + -4 + unaff_ESI * 8) == -10000) {
+      iVar1 = iVar1 + -1;
+    }
+    do {
+      unaff_ESI = unaff_ESI + 1;
+      if ((*(int *)(unaff_EBX + 0x34) < unaff_ESI) || (iVar1 < 1)) {
+        func_0x004032b8(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8,*(int *)(unaff_EBX + 0x38),
+                        ((*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1) * 8,
+                        *(undefined4 *)(unaff_EBP + 0xe));
+        *(int *)(unaff_EBX + 0x34) = (*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1;
+        *(undefined4 *)(unaff_EBX + 0xb8) = 3;
+        *(undefined4 *)(unaff_EBX + 0xbc) = *(undefined4 *)(unaff_EBX + 0x34);
+        return;
+      }
+    } while (*(int *)(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8) != -10000);
+  } while( true );
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x55ca3c VA 0095ca3c : FUN_0095ca24 @0095ca24 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Instruction at (ram,0x0095ca25) overlaps instruction at (ram,0x0095ca24)
+    */
+
+void FUN_0095ca24(undefined4 param_1)
+
+{
+  int iVar1;
+  int unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  char in_CF;
+  
+  iVar1 = CONCAT31((int3)((uint)param_1 >> 8),((char)param_1 + 'u') - in_CF);
+  do {
+    if (*(int *)(*(int *)(unaff_EBX + 0x38) + -4 + unaff_ESI * 8) == -10000) {
+      iVar1 = iVar1 + -1;
+    }
+    do {
+      unaff_ESI = unaff_ESI + 1;
+      if ((*(int *)(unaff_EBX + 0x34) < unaff_ESI) || (iVar1 < 1)) {
+        func_0x004032b8(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8,*(int *)(unaff_EBX + 0x38),
+                        ((*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1) * 8,
+                        *(undefined4 *)(unaff_EBP + 0xe));
+        *(int *)(unaff_EBX + 0x34) = (*(int *)(unaff_EBX + 0x34) - unaff_ESI) + 1;
+        *(undefined4 *)(unaff_EBX + 0xb8) = 3;
+        *(undefined4 *)(unaff_EBX + 0xbc) = *(undefined4 *)(unaff_EBX + 0x34);
+        return;
+      }
+    } while (*(int *)(*(int *)(unaff_EBX + 0x38) + -8 + unaff_ESI * 8) != -10000);
+  } while( true );
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096aeb4 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56aeb4 VA 0096aeb4 : FUN_0096aeb4 @0096aeb4 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0096aeb4(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 *param_4)
+
+{
+  *param_4 = CONCAT22((short)((uint)param_3 >> 0x10),CONCAT11(0xff,(char)param_3));
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096aee8 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56aee8 VA 0096aee8 : FUN_0096aee8 @0096aee8 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0096aee8(undefined4 param_1,undefined4 param_2,char param_3,undefined4 *param_4)
+
+{
+  undefined4 uVar1;
+  int unaff_EBX;
+  
+  *(char *)(unaff_EBX + -0x2417f5ad) = *(char *)(unaff_EBX + -0x2417f5ad) + param_3;
+  *param_4 = CONCAT22((short)((uint)param_1 >> 0x10),CONCAT11(0xff,(char)param_1));
+  uVar1 = func_0x004b3fd4(*param_4,*(undefined4 *)(unaff_EBX + 0x12));
+  *param_4 = uVar1;
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096ab5c ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56ab5c VA 0096ab5c : FUN_0096ab5c @0096ab5c ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Instruction at (ram,0x0096ab5e) overlaps instruction at (ram,0x0096ab5d)
+    */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0096ab5c(uint param_1,undefined4 param_2)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  int iVar4;
+  int unaff_EDI;
+  
+  param_1 = param_1 | 0x8b;
+  do {
+    uVar1 = func_0x004b3fcc(param_1,param_2);
+    uVar2 = func_0x004b3fd4(*(undefined4 *)(unaff_EBP + -3),*(undefined4 *)(unaff_EBP + 0xd));
+    func_0x00976280(*(undefined4 *)(unaff_EBP + -0xf),uVar2,uVar1);
+    iVar3 = unaff_ESI;
+    do {
+      unaff_ESI = iVar3 + 1;
+      unaff_EBX = unaff_EBX + -1;
+      if (unaff_EBX == 0) {
+        iVar3 = (**(code **)(**(int **)(unaff_EDI + 0x44) + 0x14))();
+        if (0 < iVar3) {
+          iVar4 = 1;
+          do {
+            uVar1 = (**(code **)(**(int **)(unaff_EDI + 0x44) + 0x18))
+                              (*(int **)(unaff_EDI + 0x44),iVar4 + -1);
+            uVar1 = func_0x00405038(uVar1,_DAT_00972bb8);
+            *(undefined4 *)(unaff_EBP + -0x13) = uVar1;
+            if (*(char *)(*(int *)(unaff_EBP + -0x13) + 4) != '\0') {
+              uVar1 = func_0x004b3fd4(*(undefined4 *)(unaff_EBP + -7),*(undefined4 *)(unaff_EBP + 9)
+                                     );
+              uVar2 = func_0x004b3fcc(*(undefined4 *)(unaff_EBP + -7),*(undefined4 *)(unaff_EBP + 9)
+                                     );
+              func_0x00976280(*(undefined4 *)(unaff_EBP + -0x13),uVar2,uVar1);
+            }
+            iVar4 = iVar4 + 1;
+            iVar3 = iVar3 + -1;
+          } while (iVar3 != 0);
+        }
+        return;
+      }
+      uVar1 = (**(code **)(**(int **)(unaff_EDI + 0x40) + 0x18))(*(int **)(unaff_EDI + 0x40),iVar3);
+      uVar1 = func_0x00405038(uVar1,_DAT_00972bb8);
+      *(undefined4 *)(unaff_EBP + -0xf) = uVar1;
+      iVar3 = unaff_ESI;
+    } while (*(char *)(*(int *)(unaff_EBP + -0xf) + 4) == '\0');
+    param_2 = *(undefined4 *)(unaff_EBP + 0xd);
+    param_1 = *(uint *)(unaff_EBP + -3);
+  } while( true );
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096ac68 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56ac68 VA 0096ac68 : FUN_0096ac68 @0096ac68 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0096ac68(void)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  int unaff_EDI;
+  
+  while (unaff_EBX = unaff_EBX + -1, unaff_EBX != 0) {
+    uVar1 = (**(code **)(**(int **)(unaff_EDI + 0x44) + 0x18))
+                      (*(int **)(unaff_EDI + 0x44),unaff_ESI + -1);
+    uVar2 = func_0x004b3fd4(*(undefined4 *)(unaff_EBP + -8),*(undefined4 *)(unaff_EBP + 8));
+    uVar3 = func_0x004b3fcc(*(undefined4 *)(unaff_EBP + -8),*(undefined4 *)(unaff_EBP + 8));
+    func_0x00976280(uVar1,uVar3,uVar2);
+    unaff_ESI = unaff_ESI + 1;
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096a4b8 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56a4b8 VA 0096a4b8 : FUN_0096a4b8 @0096a4b8 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0096a4b8(void)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int iVar5;
+  int iVar6;
+  int unaff_ESI;
+  
+  iVar2 = (**(code **)(**(int **)(unaff_ESI + 0x44) + 0x14))();
+  if (-1 < iVar2 + -1) {
+    iVar6 = 0;
+    do {
+      uVar3 = (**(code **)(**(int **)(unaff_ESI + 0x44) + 0x18))(*(int **)(unaff_ESI + 0x44),iVar6);
+      piVar4 = (int *)func_0x00405038(uVar3,_DAT_00972bb8);
+      cVar1 = (**(code **)(*piVar4 + 0x28))();
+      if (cVar1 == '\0') {
+        piVar4[0x1b] = 0;
+      }
+      else {
+        iVar5 = func_0x00403634();
+        piVar4[0x1b] = iVar5;
+      }
+      (**(code **)(*piVar4 + 0x90))();
+      iVar6 = iVar6 + 1;
+      iVar2 = iVar2 + -1;
+    } while (iVar2 != 0);
+  }
+  iVar2 = (**(code **)(**(int **)(unaff_ESI + 0x40) + 0x14))();
+  if (-1 < iVar2 + -1) {
+    iVar6 = 0;
+    do {
+      uVar3 = (**(code **)(**(int **)(unaff_ESI + 0x40) + 0x18))(*(int **)(unaff_ESI + 0x40),iVar6);
+      piVar4 = (int *)func_0x00405038(uVar3,_DAT_00972bb8);
+      cVar1 = (**(code **)(*piVar4 + 0x28))();
+      if (cVar1 == '\0') {
+        piVar4[0x1b] = 0;
+      }
+      else {
+        iVar5 = func_0x00403634();
+        piVar4[0x1b] = iVar5;
+      }
+      (**(code **)(*piVar4 + 0x90))();
+      iVar6 = iVar6 + 1;
+      iVar2 = iVar2 + -1;
+    } while (iVar2 != 0);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56a4f8 VA 0096a4f8 : FUN_0096a4b8 @0096a4b8 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0096a4b8(void)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int iVar5;
+  int iVar6;
+  int unaff_ESI;
+  
+  iVar2 = (**(code **)(**(int **)(unaff_ESI + 0x44) + 0x14))();
+  if (-1 < iVar2 + -1) {
+    iVar6 = 0;
+    do {
+      uVar3 = (**(code **)(**(int **)(unaff_ESI + 0x44) + 0x18))(*(int **)(unaff_ESI + 0x44),iVar6);
+      piVar4 = (int *)func_0x00405038(uVar3,_DAT_00972bb8);
+      cVar1 = (**(code **)(*piVar4 + 0x28))();
+      if (cVar1 == '\0') {
+        piVar4[0x1b] = 0;
+      }
+      else {
+        iVar5 = func_0x00403634();
+        piVar4[0x1b] = iVar5;
+      }
+      (**(code **)(*piVar4 + 0x90))();
+      iVar6 = iVar6 + 1;
+      iVar2 = iVar2 + -1;
+    } while (iVar2 != 0);
+  }
+  iVar2 = (**(code **)(**(int **)(unaff_ESI + 0x40) + 0x14))();
+  if (-1 < iVar2 + -1) {
+    iVar6 = 0;
+    do {
+      uVar3 = (**(code **)(**(int **)(unaff_ESI + 0x40) + 0x18))(*(int **)(unaff_ESI + 0x40),iVar6);
+      piVar4 = (int *)func_0x00405038(uVar3,_DAT_00972bb8);
+      cVar1 = (**(code **)(*piVar4 + 0x28))();
+      if (cVar1 == '\0') {
+        piVar4[0x1b] = 0;
+      }
+      else {
+        iVar5 = func_0x00403634();
+        piVar4[0x1b] = iVar5;
+      }
+      (**(code **)(*piVar4 + 0x90))();
+      iVar6 = iVar6 + 1;
+      iVar2 = iVar2 + -1;
+    } while (iVar2 != 0);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096a3d4 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56a3d4 VA 0096a3d4 : FUN_0096a3d4 @0096a3d4 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+char FUN_0096a3d4(char param_1)
+
+{
+  char cVar1;
+  undefined4 uVar2;
+  int *piVar3;
+  int iVar4;
+  int unaff_EBX;
+  int iVar5;
+  int unaff_EDI;
+  char in_CF;
+  
+  cVar1 = param_1 + -0x75 + in_CF;
+  if (-1 < unaff_EDI + -1) {
+    iVar5 = 0;
+    do {
+      uVar2 = (**(code **)(**(int **)(unaff_EBX + 0x40) + 0x18))(*(int **)(unaff_EBX + 0x40),iVar5);
+      piVar3 = (int *)func_0x00405038(uVar2,_DAT_00972bb8);
+      cVar1 = (**(code **)(*piVar3 + 0x28))();
+      if (cVar1 == '\0') {
+        piVar3[0x1b] = 0;
+      }
+      else {
+        iVar4 = func_0x00403634();
+        piVar3[0x1b] = iVar4;
+      }
+      func_0x004315d8(piVar3[0x1c],*(undefined4 *)(unaff_EBX + 0x50));
+      func_0x004315d8(piVar3[0x1d],*(undefined4 *)(unaff_EBX + 0x50));
+      cVar1 = (**(code **)(*piVar3 + 0x90))();
+      iVar5 = iVar5 + 1;
+      unaff_EDI = unaff_EDI + -1;
+    } while (unaff_EDI != 0);
+  }
+  return cVar1;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0096ad74 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x56ad74 VA 0096ad74 : FUN_0096ad74 @0096ad74 ==== (GhidraScript)  
+INFO  GapDecompile.java> [decomp fail] 
+Low-level Error: Cannot properly adjust input varnodes (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== memory block @ VA 0x55b5b8 (24 dwords) ==== (GhidraScript)  
+INFO  GapDecompile.java>   [+0x00] = 0x0055cbf0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x04] = 0x0055cc28 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x08] = 0x0055cc50 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x0c] = 0x005597f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x10] = 0x005599c0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x14] = 0x00559b58 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x18] = 0x00559af0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x1c] = 0x0055ca40 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x20] = 0x0055c9ac (GhidraScript)  
+INFO  GapDecompile.java>   [+0x24] = 0x0055c9b4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x28] = 0x0055ca24 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x2c] = 0x0055ca2c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x30] = 0x0055ca3c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x34] = 0x61485405 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x38] = 0xc08b6873 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x3c] = 0x0055b640 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x40] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x44] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x48] = 0x0055b664 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x4c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x50] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x54] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x58] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x5c] = 0x0055b676 (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== memory block @ VA 0x56a43c (40 dwords) ==== (GhidraScript)  
+INFO  GapDecompile.java>   [+0x00] = 0x0056ab5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x04] = 0x0056ac68 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x08] = 0x0056cf18 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x0c] = 0x0056cf34 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x10] = 0x0056cf5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x14] = 0x0056cfb4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x18] = 0x0056d010 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x1c] = 0x0056aeb4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x20] = 0x0056aee8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x24] = 0x6943540b (GhidraScript)  
+INFO  GapDecompile.java>   [+0x28] = 0x72656870 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x2c] = 0x4145545f (GhidraScript)  
+INFO  GapDecompile.java>   [+0x30] = 0x0056a4b8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x34] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x38] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x3c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x40] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x44] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x48] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x4c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x50] = 0x0056a4f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x54] = 0x00000044 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x58] = 0x0056a3d4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x5c] = 0x004050d8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x60] = 0x00407f30 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x64] = 0x00407f3c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x68] = 0x004050ec (GhidraScript)  
+INFO  GapDecompile.java>   [+0x6c] = 0x004050e0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x70] = 0x00407f4c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x74] = 0x00404e30 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x78] = 0x0056ad74 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x7c] = 0x0056b844 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x80] = 0x0056b924 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x84] = 0x0056b95c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x88] = 0x005597f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x8c] = 0x005599c0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x90] = 0x00559b58 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x94] = 0x00559af0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x98] = 0x0056ab5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x9c] = 0x0056ac68 (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

@@ -1,0 +1,975 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (698 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2064 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra-mcp\scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: CleanupDecomp.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\MyPrograms\ghidra-mcp\scripts\CleanupDecomp.java (HeadlessAnalyzer)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_00970c2c @00970c2c body=[[00970c2c, 00970c2f]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_00959698 @00959698 body=[[00959698, 0095988d]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0095c9ac @0095c9ac body=[[0095c82e, 0095ca0b]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] no function at 0095c9b4 (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0095ca24 @0095ca24 body=[[0095ca24, 0095ca81]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] no function at 0095ca2c (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] no function at 0095ca3c (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096aeb4 @0096aeb4 body=[[0096aeb4, 0096aebe]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096aee8 @0096aee8 body=[[0096aee8, 0096af12]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096ab5c @0096ab5c body=[[0096ab39, 0096ab5a] [0096ab5c, 0096abe4]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096ac68 @0096ac68 body=[[0096ac3b, 0096ac6c] [0096acb0, 0096acb8]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096a4b8 @0096a4b8 body=[[0096a4b8, 0096a579]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] no function at 0096a4f8 (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096a3d4 @0096a3d4 body=[[0096a3d4, 0096a445]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removing FUN_0096ad74 @0096ad74 body=[[0096ad1f, 0096ad71] [0096ad74, 0096adb2]] (GhidraScript)  
+INFO  CleanupDecomp.java> [cleanup] removed. (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 00570c2c ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x170c2c VA 00570c2c : FUN_00570c2c @00570c2c ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+undefined4 FUN_00570c2c(int param_1)
+
+{
+  undefined4 uVar1;
+  
+  if (*(int *)(param_1 + 0x34) == 0) {
+    uVar1 = func_0x0056a8b0();
+    *(undefined4 *)(param_1 + 0x34) = uVar1;
+  }
+  return *(undefined4 *)(param_1 + 0x34);
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 00559698 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x159698 VA 00559698 : FUN_00559698 @00559698 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00559698(int param_1,int param_2)
+
+{
+  undefined1 *puVar1;
+  char cVar2;
+  undefined4 *in_FS_OFFSET;
+  undefined4 uStack_1c;
+  undefined4 uStack_18;
+  undefined1 *puStack_14;
+  undefined4 uStack_c;
+  int iStack_8;
+  
+  puStack_14 = &stack0xfffffffc;
+  uStack_c = 0;
+  uStack_18 = 0x55971d;
+  uStack_1c = *in_FS_OFFSET;
+  *in_FS_OFFSET = &uStack_1c;
+  puVar1 = &stack0xfffffffc;
+  iStack_8 = param_1;
+  if (param_2 != *(int *)(param_1 + 0xc)) {
+    cVar2 = func_0x0055965c(param_2);
+    if (cVar2 == '\0') {
+      func_0x004083e0(_DAT_00a63d40,&uStack_c,&stack0xfffffffc);
+      func_0x0041248c(_DAT_00559238,1,uStack_c);
+      func_0x0040565c();
+      puVar1 = puStack_14;
+    }
+    else {
+      func_0x005597a8(*(undefined4 *)(iStack_8 + 0xc));
+      *(int *)(iStack_8 + 0xc) = param_2;
+      func_0x005597d0();
+      puVar1 = puStack_14;
+    }
+  }
+  puStack_14 = puVar1;
+  puVar1 = puStack_14;
+  *in_FS_OFFSET = uStack_1c;
+  puStack_14 = (undefined1 *)0x559724;
+  uStack_18 = 0x55971c;
+  func_0x00405ce8(&uStack_c,uStack_1c,puVar1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 005597f8 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x1597f8 VA 005597f8 : FUN_005597f8 @005597f8 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_005597f8(int *param_1,int *param_2,int *param_3,char param_4,int param_5)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 *in_FS_OFFSET;
+  undefined4 uStack_38;
+  undefined4 uStack_34;
+  undefined1 *puStack_30;
+  undefined4 uStack_14;
+  int *piStack_10;
+  int *piStack_c;
+  int *piStack_8;
+  
+  if (param_2 == (int *)0x0) {
+    return;
+  }
+  piStack_10 = param_3;
+  if (param_3 == (int *)0x0) {
+    piStack_10 = param_2;
+  }
+  piStack_c = param_2;
+  piStack_8 = param_1;
+  if (param_5 < 0) {
+    puStack_30 = (undefined1 *)0x55982e;
+    param_5 = (**(code **)*param_2)();
+    puStack_30 = (undefined1 *)0x0;
+    uStack_34 = 0;
+    uStack_38 = 0x55983c;
+    func_0x0042743c(piStack_c);
+  }
+  puStack_30 = (undefined1 *)0x559846;
+  (**(code **)*piStack_8)(piStack_8,param_4);
+  uStack_14 = 0;
+  puStack_30 = (undefined1 *)0x55985b;
+  func_0x0055a88c(piStack_8,0,param_5);
+  uStack_34 = 0x5599ad;
+  uStack_38 = *in_FS_OFFSET;
+  *in_FS_OFFSET = &uStack_38;
+  puStack_30 = &stack0xfffffffc;
+  uStack_14 = func_0x0040c8ec(0x1000);
+  iVar2 = func_0x0042741c(piStack_10);
+  iVar3 = func_0x0042741c(piStack_c);
+  iVar1 = param_5;
+  if (param_4 == '\x03') {
+    while (0 < iVar1) {
+      iVar2 = iVar1;
+      if (0x1000 < iVar1) {
+        iVar2 = 0x1000;
+      }
+      iVar2 = (**(code **)(*piStack_c + 0xc))(piStack_c,uStack_14,iVar2);
+      if (iVar2 < 1) break;
+      (**(code **)(*piStack_8 + 8))(piStack_8,uStack_14,iVar2,3);
+      func_0x0055a88c(piStack_8,param_5 - (iVar1 - iVar2),param_5);
+      iVar1 = iVar1 - iVar2;
+    }
+  }
+  else {
+    while (0 < iVar1) {
+      iVar4 = iVar3 >> 0x1f;
+      func_0x0042743c(piStack_c);
+      iVar5 = iVar1;
+      if (0x1000 < iVar1) {
+        iVar5 = 0x1000;
+      }
+      iVar5 = (**(code **)(*piStack_c + 0xc))(piStack_c,uStack_14,iVar5,iVar3,iVar4);
+      iVar3 = func_0x0042741c(piStack_c);
+      if (iVar5 < 1) break;
+      (**(code **)(*piStack_8 + 8))(piStack_8,uStack_14,iVar5,param_4);
+      iVar4 = iVar2 >> 0x1f;
+      func_0x0042743c(piStack_10);
+      (**(code **)(*piStack_10 + 0x10))(piStack_10,uStack_14,iVar5,iVar2,iVar4);
+      iVar2 = func_0x0042741c(piStack_10);
+      func_0x0055a88c(piStack_8,param_5 - (iVar1 - iVar5),param_5);
+      iVar1 = iVar1 - iVar5;
+    }
+  }
+  *in_FS_OFFSET = uStack_38;
+  puStack_30 = (undefined1 *)0x5599b4;
+  uStack_34 = 0x559997;
+  func_0x0055a88c(piStack_8,0,0);
+  uStack_34 = 0x5599a1;
+  func_0x00402f38(&uStack_14,0);
+  uStack_34 = 0x5599ac;
+  (**(code **)(*piStack_8 + 4))(piStack_8,param_4);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 005599c0 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x1599c0 VA 005599c0 : FUN_005599c0 @005599c0 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_005599c0(int *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  undefined4 uVar3;
+  undefined4 *in_FS_OFFSET;
+  undefined4 uVar4;
+  undefined4 uStack_38;
+  undefined4 uStack_34;
+  undefined1 *puStack_30;
+  undefined4 uStack_2c;
+  undefined4 uStack_28;
+  undefined1 *puStack_24;
+  int iStack_14;
+  undefined4 *puStack_10;
+  undefined4 *puStack_c;
+  int *piStack_8;
+  
+  puStack_24 = &stack0xfffffffc;
+  puStack_30 = &stack0xfffffffc;
+  iStack_14 = 0;
+  uStack_28 = 0x559add;
+  uStack_2c = *in_FS_OFFSET;
+  *in_FS_OFFSET = &uStack_2c;
+  puStack_c = (undefined4 *)0x0;
+  puStack_10 = (undefined4 *)0x0;
+  uStack_34 = 0x559ac0;
+  uStack_38 = *in_FS_OFFSET;
+  *in_FS_OFFSET = &uStack_38;
+  piStack_8 = param_1;
+  iVar1 = func_0x0040cb88(param_2,param_3);
+  if (iVar1 != 0) {
+    func_0x0040ce28(param_3,&iStack_14);
+    if ((iStack_14 != 0) || ((char)param_4 == '\x03')) {
+      uVar4 = 0x40;
+      puStack_c = (undefined4 *)func_0x00427934(_DAT_00421b4c,1,param_2);
+      puVar2 = puStack_c;
+      if ((char)param_4 != '\x03') {
+        puVar2 = (undefined4 *)func_0x00427934(_DAT_00421b4c,1,param_3,0xffff);
+      }
+      goto LAB_00559a71;
+    }
+  }
+  uVar4 = 2;
+  puStack_c = (undefined4 *)func_0x00427934(_DAT_00421b4c,1,param_2);
+  puVar2 = puStack_c;
+LAB_00559a71:
+  puStack_10 = puVar2;
+  uVar3 = (**(code **)*puStack_c)();
+  (**(code **)(*piStack_8 + 0xc))(piStack_8,puStack_c,puStack_10,param_4,uVar3);
+  *in_FS_OFFSET = param_4;
+  func_0x00404e7c(puStack_c,param_4,uVar4,0x559ac7);
+  if (puStack_c != puStack_10) {
+    func_0x0042741c(puStack_10);
+    func_0x004274a0(puStack_10);
+    func_0x00404e7c(puStack_10);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 00559b58 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x159b58 VA 00559b58 : FUN_00559b58 @00559b58 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00559b58(int *param_1,undefined4 param_2,undefined4 param_3,undefined4 *param_4,
+                 undefined4 param_5)
+
+{
+  int iVar1;
+  int *piVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  char cVar5;
+  undefined4 *in_FS_OFFSET;
+  undefined4 *puVar6;
+  undefined4 uVar7;
+  undefined4 uStack_24;
+  undefined4 uStack_20;
+  undefined1 *puStack_1c;
+  
+  puStack_1c = (undefined1 *)0x559b72;
+  func_0x00405ce8(param_4);
+  puStack_1c = (undefined1 *)0x559b79;
+  iVar1 = func_0x00405fb8(param_2);
+  if (0 < iVar1) {
+    puStack_1c = (undefined1 *)0x559b8d;
+    piVar2 = (int *)func_0x00404e4c(_DAT_00421c3c,1);
+    uStack_20 = 0x559c66;
+    uStack_24 = *in_FS_OFFSET;
+    *in_FS_OFFSET = &uStack_24;
+    cVar5 = (char)param_3;
+    if (cVar5 == '\x01') {
+      puVar6 = param_4;
+      puStack_1c = &stack0xfffffffc;
+      uVar3 = func_0x00405fb8(param_2);
+      uVar4 = func_0x004061b8(param_2);
+      func_0x0055aa48(uVar4,uVar3,param_5,puVar6);
+    }
+    else {
+      puStack_1c = &stack0xfffffffc;
+      func_0x00405d3c(param_4,param_2);
+    }
+    uVar3 = func_0x00405fb8(*param_4);
+    uVar4 = func_0x004061b8(*param_4);
+    (**(code **)(*piVar2 + 0x10))(piVar2,uVar4,uVar3);
+    uVar7 = 0;
+    uVar4 = 0;
+    func_0x0042743c(piVar2);
+    uVar3 = (**(code **)*piVar2)();
+    (**(code **)(*param_1 + 0xc))(param_1,piVar2,piVar2,param_3,uVar3,uVar4,uVar7);
+    if (cVar5 == '\x01') {
+      uVar3 = (**(code **)*piVar2)();
+      func_0x00406348(param_4,uVar3);
+      uVar3 = (**(code **)*piVar2)();
+      uVar7 = func_0x004061b8(*param_4);
+      func_0x004032b8(piVar2[1],uVar7,uVar3);
+    }
+    else {
+      uVar3 = (**(code **)*piVar2)();
+      func_0x0055a92c(piVar2[1],uVar3,param_5,param_4);
+    }
+    *in_FS_OFFSET = param_3;
+    func_0x00404e7c(piVar2,param_3,uVar4,0x559c6d);
+    return;
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 00559af0 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x159af0 VA 00559af0 : FUN_00559af0 @00559af0 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_00559af0(int *param_1,undefined4 param_2,undefined4 param_3,byte param_4)
+
+{
+  uint *in_FS_OFFSET;
+  uint auStack_20 [2];
+  undefined1 *puStack_18;
+  
+  puStack_18 = (undefined1 *)0x559b0c;
+  (**(code **)*param_1)(param_1,param_4);
+  auStack_20[1] = 0x559b43;
+  auStack_20[0] = *in_FS_OFFSET;
+  *in_FS_OFFSET = (uint)auStack_20;
+  puStack_18 = &stack0xfffffffc;
+  (**(code **)(*param_1 + 8))(param_1,param_2,param_3);
+  *in_FS_OFFSET = (uint)param_4;
+  auStack_20[1] = 0x559b4a;
+  auStack_20[0] = 0x559b42;
+  (**(code **)(*param_1 + 4))(param_1,param_4);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0055c9ac ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x15c9ac VA 0055c9ac : FUN_0055c9ac @0055c9ac ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0055c9ac(undefined4 param_1)
+
+{
+  func_0x0055c9b8(param_1,1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0055c9b4 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x15c9b4 VA 0055c9b4 : FUN_0055c9b4 @0055c9b4 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0055c9b4(void)
+
+{
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0055ca24 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x15ca24 VA 0055ca24 : FUN_0055ca24 @0055ca24 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0055ca24(undefined4 param_1)
+
+{
+  func_0x0055c9b8(param_1,0);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0055ca2c ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x15ca2c VA 0055ca2c : FUN_0055ca2c @0055ca2c ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+undefined4 FUN_0055ca2c(void)
+
+{
+  undefined4 uVar1;
+  
+  uVar1 = func_0x0055b320();
+  return uVar1;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0055ca3c ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x15ca3c VA 0055ca3c : FUN_0055ca3c @0055ca3c ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+undefined4 FUN_0055ca3c(void)
+
+{
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056aeb4 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16aeb4 VA 0056aeb4 : FUN_0056aeb4 @0056aeb4 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056aeb4(int param_1)
+
+{
+  int iVar1;
+  
+  iVar1 = func_0x0055a838(*(undefined4 *)(param_1 + 0x30),*(undefined4 *)(param_1 + 0x34),
+                          *(undefined4 *)(param_1 + 0x24));
+  if (iVar1 != 0) {
+    func_0x004032b8(*(undefined4 *)(param_1 + 0x34),*(undefined4 *)(param_1 + 0x2c),
+                    *(undefined4 *)(param_1 + 0x24));
+    func_0x004032b8(*(undefined4 *)(param_1 + 0x30),*(undefined4 *)(param_1 + 0x34),
+                    *(undefined4 *)(param_1 + 0x24));
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056aee8 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16aee8 VA 0056aee8 : FUN_0056aee8 @0056aee8 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056aee8(int *param_1)
+
+{
+  (**(code **)(*param_1 + 0x1c))(param_1,0,0);
+  (**(code **)(*param_1 + 0x1c))(param_1,1,0);
+  func_0x00403d5c(param_1[0xc],param_1[9],0xaa);
+  func_0x00403d5c(param_1[0xd],param_1[9],0xaa);
+  func_0x00403d5c(param_1[0xb],param_1[9],0xaa);
+  func_0x00403d5c(param_1[0xe],param_1[10],0xaa);
+  func_0x00403d5c(param_1[0xc],param_1[9],0x55);
+  func_0x00403d5c(param_1[0xd],param_1[9],0x55);
+  func_0x00403d5c(param_1[0xb],param_1[9],0x55);
+  func_0x00403d5c(param_1[0xe],param_1[10],0x55);
+  func_0x00403d5c(param_1[0xc],param_1[9],0xff);
+  func_0x00403d5c(param_1[0xd],param_1[9],0xff);
+  func_0x00403d5c(param_1[0xb],param_1[9],0);
+  func_0x00403d5c(param_1[0xe],param_1[10],0);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056ab5c ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16ab5c VA 0056ab5c : FUN_0056ab5c @0056ab5c ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056ab5c(int param_1,byte param_2,char param_3)
+
+{
+  uint uVar1;
+  
+  uVar1 = 1 << (param_2 & 0x1f);
+  if (param_3 != '\0') {
+    *(uint *)(param_1 + 0x3c) = *(uint *)(param_1 + 0x3c) | uVar1;
+    return;
+  }
+  *(uint *)(param_1 + 0x3c) = *(uint *)(param_1 + 0x3c) & ~uVar1;
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056ac68 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16ac68 VA 0056ac68 : FUN_0056ac68 @0056ac68 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056ac68(int *param_1,int param_2)
+
+{
+  if (param_2 == 0) {
+    (**(code **)(*param_1 + 0x2c))(param_1,param_1[0xc]);
+  }
+  else {
+    func_0x004032b8(param_2,param_1[0xc],param_1[9]);
+  }
+  func_0x004032b8(param_1[0xc],param_1[0xd],param_1[9]);
+  (**(code **)(*param_1 + 0x1c))(param_1,1,1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056a4b8 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16a4b8 VA 0056a4b8 : FUN_0056a4b8 @0056a4b8 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056a4b8(undefined4 param_1,undefined4 param_2,int param_3)
+
+{
+  char *pcVar1;
+  char cVar2;
+  int3 iVar3;
+  char unaff_BL;
+  int unaff_EDI;
+  
+  pcVar1 = (char *)(param_3 + 0x56 + unaff_EDI * 4);
+  *pcVar1 = *pcVar1 + unaff_BL;
+  iVar3 = (int3)((uint)unaff_EDI >> 8);
+  cVar2 = (char)unaff_EDI * '\x02';
+  pcVar1 = (char *)(CONCAT31(iVar3,cVar2) + -0x65);
+  *pcVar1 = *pcVar1 + unaff_BL;
+  func_0xab5c0055(CONCAT31(iVar3,cVar2 + (char)(iVar3 >> 7)));
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056a4f8 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16a4f8 VA 0056a4f8 : FUN_0056a4f8 @0056a4f8 ==== (GhidraScript)  
+WARN  Decompiling 0056a4f8, pcode error at 0056a5a4: Unable to resolve constructor at 0056a5a4 (DecompileCallback)  
+INFO  CleanupDecomp.java> 
+/* WARNING: Instruction at (ram,0x0056a57b) overlaps instruction at (ram,0x0056a579)
+    */
+/* WARNING: Control flow encountered bad instruction data */
+
+void FUN_0056a4f8(uint param_1,int param_2,int param_3)
+
+{
+  char *pcVar1;
+  undefined4 *puVar2;
+  code *pcVar3;
+  ulonglong uVar4;
+  byte bVar5;
+  char cVar8;
+  char *pcVar6;
+  int iVar7;
+  int3 iVar9;
+  int iVar10;
+  char cVar11;
+  char cVar12;
+  int unaff_EBX;
+  int unaff_EBP;
+  int iVar13;
+  uint *puVar14;
+  uint *puVar15;
+  undefined4 *unaff_EDI;
+  byte bVar16;
+  byte bVar17;
+  uint *puStack_1c;
+  uint *puStack_18;
+  uint *puStack_14;
+  int iStack_10;
+  uint *puStack_c;
+  uint *puStack_8;
+  
+  bVar17 = 0;
+  pcVar6 = (char *)(param_1 | 0x54);
+  iVar13 = *(int *)(pcVar6 + 0x68) * 0x545f7265;
+  iVar10 = param_3 + 1;
+  puVar2 = unaff_EDI + 1;
+  puVar15 = (uint *)(iVar13 + 3);
+  *unaff_EDI = *(undefined4 *)(iVar13 + -1);
+  puStack_8 = puVar15;
+  bVar5 = (byte)pcVar6;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  *pcVar6 = *pcVar6 + bVar5;
+  IMAGE_DOS_HEADER_00400000.e_program[unaff_EBP + 0x17] =
+       IMAGE_DOS_HEADER_00400000.e_program[unaff_EBP + 0x17] + (char)param_2;
+  *pcVar6 = *pcVar6 + bVar5;
+  puStack_c = puVar15;
+  cVar12 = (char)(unaff_EBX + 1);
+  iStack_10 = CONCAT31((int3)(param_1 >> 8),(bVar5 | 0x9d) + cVar12);
+  pcVar6 = (char *)(iStack_10 + 1);
+  cVar8 = *pcVar6;
+  cVar11 = (char)((uint)param_2 >> 8);
+  *pcVar6 = *pcVar6 + cVar11;
+  if (*pcVar6 == '\0' || SCARRY1(cVar8,cVar11) != *pcVar6 < '\0') {
+    cVar8 = (char)((uint)(unaff_EBX + 1) >> 8);
+    *(char *)((int)puVar2 * 3) = *(char *)((int)puVar2 * 3) + cVar8;
+    iVar7 = iStack_10 + 2;
+    puStack_14 = (uint *)CONCAT22((short)((uint)iVar7 >> 0x10),
+                                  CONCAT11((char)((uint)iVar7 >> 8) + (char)((uint)iVar10 >> 8),
+                                           (char)iVar7));
+    iVar7 = (int)puStack_14 + 1;
+    puStack_18 = (uint *)CONCAT31((int3)((uint)iVar7 >> 8),(char)iVar7 + (char)((uint)iVar7 >> 8));
+    pcVar6 = (char *)((int)puVar2 * 3 + 0x40);
+    *pcVar6 = *pcVar6 + (char)iVar10;
+    *(char *)((int)puStack_18 + 1) = *(char *)((int)puStack_18 + 1) + cVar11;
+    puVar14 = (uint *)(iVar13 + 2);
+    iVar13 = (int)puStack_18 + 2;
+    pcVar6 = (char *)(unaff_EBP * 5 + 0x5b);
+    *pcVar6 = *pcVar6 + cVar11;
+    pcVar6 = (char *)((int)puStack_18 + 0x58 + (int)puVar2 * 4);
+    *pcVar6 = *pcVar6 + (char)iVar13;
+    pcVar6 = (char *)(iVar10 + (int)puVar2 * 4);
+    *pcVar6 = *pcVar6 + (char)((uint)iVar13 >> 8);
+    pcVar6 = (char *)(param_3 + 0x57 + (int)puVar2 * 4);
+    *pcVar6 = *pcVar6 + cVar12;
+    iVar9 = (int3)((uint)puVar2 >> 8);
+    bVar5 = (char)puVar2 * '\x02';
+    pcVar6 = (char *)(CONCAT31(iVar9,bVar5) + -0x65);
+    *pcVar6 = *pcVar6 + cVar12;
+    bVar16 = CARRY1(bVar5,(byte)(iVar9 >> 7));
+    puStack_1c = puVar14;
+    func_0xab5c0055(CONCAT31(iVar9,bVar5 + (char)(iVar9 >> 7)));
+    uVar4 = (ulonglong)CONCAT14(bVar16,*puVar14) << 1;
+    *puVar14 = (uint)uVar4 | (uint)bVar16;
+    puVar15 = (uint *)((int)puVar15 + (uint)bVar17 * -2);
+    *(undefined1 *)CONCAT31((int3)((uint)iVar13 >> 8),(char)iVar13 + cVar8) = *(undefined1 *)puVar14
+    ;
+    *puVar15 = *puVar15 << 1 | (uint)((uVar4 & 0x100000000) != 0);
+    pcVar3 = (code *)swi(3);
+    (*pcVar3)();
+    return;
+  }
+  pcVar1 = (char *)(param_3 + -0x2e33ffa9 + param_2 * 8);
+  cVar8 = (char)((uint)pcVar6 >> 8);
+  *pcVar1 = *pcVar1 + cVar8;
+  puStack_14 = puVar15;
+  *(char *)(iStack_10 + -0x2d) = *(char *)(iStack_10 + -0x2d) + cVar8;
+  puStack_18 = puVar15;
+  puStack_1c = puVar15;
+  pcVar6 = (char *)((int)&puStack_1c + param_2 * 2);
+  *pcVar6 = *pcVar6 + (char)iVar10;
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056a3d4 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16a3d4 VA 0056a3d4 : FUN_0056a3d4 @0056a3d4 ==== (GhidraScript)  
+WARN  Decompiling 0056a3d4, pcode error at 0056a5a4: Unable to resolve constructor at 0056a5a4 (DecompileCallback)  
+INFO  CleanupDecomp.java> 
+/* WARNING: Instruction at (ram,0x0056a57b) overlaps instruction at (ram,0x0056a579)
+    */
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0056a3d4(char *param_1,int param_2,int param_3)
+
+{
+  undefined1 *puVar1;
+  code *pcVar2;
+  ulonglong uVar3;
+  char cVar4;
+  char cVar5;
+  byte bVar6;
+  char *pcVar7;
+  int iVar8;
+  int3 iVar14;
+  uint uVar9;
+  byte *pbVar10;
+  int iVar11;
+  undefined3 uVar15;
+  int iVar13;
+  char cVar16;
+  char cVar17;
+  char *unaff_EBX;
+  int unaff_EBP;
+  int unaff_ESI;
+  uint *puVar18;
+  uint *puVar19;
+  undefined1 *unaff_EDI;
+  undefined2 in_CS;
+  byte bVar20;
+  byte bVar21;
+  uint *puStack_48;
+  uint *puStack_44;
+  uint *puStack_40;
+  int iStack_3c;
+  uint *puStack_38;
+  uint *puStack_34;
+  byte *pbStack_30;
+  byte *pbStack_2c;
+  byte *pbStack_28;
+  byte *pbStack_24;
+  byte *pbStack_20;
+  char *pcVar12;
+  
+  bVar21 = 0;
+  pbVar10 = (byte *)(unaff_ESI + param_2 * 2);
+  bVar6 = (byte)((uint)param_1 >> 8);
+  *pbVar10 = *pbVar10 & bVar6;
+  cVar4 = (char)param_1;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  *param_1 = *param_1 + cVar4;
+  param_1[-0x5c] = param_1[-0x5c] + bVar6;
+  *(char *)((int)param_1 * 2) = *(char *)((int)param_1 * 2) + cVar4;
+  cVar5 = (char)param_3;
+  (&DAT_50d80056)[(int)unaff_EBX * 4] = (&DAT_50d80056)[(int)unaff_EBX * 4] + cVar5;
+  pcVar7 = param_1 + 1;
+  cVar4 = *pcVar7;
+  cVar16 = (char)((uint)param_2 >> 8);
+  *pcVar7 = *pcVar7 + cVar16;
+  cVar17 = (char)unaff_EBX;
+  if (*pcVar7 == '\0' || SCARRY1(cVar4,cVar16) != *pcVar7 < '\0') {
+    *(char *)((int)unaff_EDI * 3) = *(char *)((int)unaff_EDI * 3) + (char)((uint)unaff_EBX >> 8);
+    param_1 = param_1 + 2;
+    iVar8 = CONCAT22((short)((uint)param_1 >> 0x10),
+                     CONCAT11((char)((uint)param_1 >> 8) + (char)((uint)param_3 >> 8),(char)param_1)
+                    ) + 1;
+    iVar8 = CONCAT31((int3)((uint)iVar8 >> 8),(char)iVar8 + (char)((uint)iVar8 >> 8));
+    pcVar7 = (char *)((int)unaff_EDI * 3 + 0x40);
+    *pcVar7 = *pcVar7 + cVar5;
+    *(char *)(iVar8 + 1) = *(char *)(iVar8 + 1) + cVar16;
+    pcVar7 = (char *)(unaff_EBP * 5 + 0x56);
+    *pcVar7 = *pcVar7 + cVar16;
+    pcVar7 = (char *)(iVar8 + 0x58 + (int)unaff_EDI * 4);
+    *pcVar7 = *pcVar7 + (char)(iVar8 + 2);
+    pcVar7 = (char *)(param_3 + (int)unaff_EDI * 4);
+    *pcVar7 = *pcVar7 + (char)((uint)(iVar8 + 2) >> 8);
+    pcVar7 = (char *)(param_3 + 0x56 + (int)unaff_EDI * 4);
+    *pcVar7 = *pcVar7 + cVar17;
+    iVar14 = (int3)((uint)unaff_EDI >> 8);
+    cVar4 = (char)unaff_EDI * '\x02';
+    pcVar7 = (char *)(CONCAT31(iVar14,cVar4) + -0x65);
+    *pcVar7 = *pcVar7 + cVar17;
+    pbStack_20 = (byte *)CONCAT22(pbStack_20._2_2_,in_CS);
+    pbStack_24 = (byte *)0x56a440;
+    func_0xab5c0055(CONCAT31(iVar14,cVar4 + (char)(iVar14 >> 7)));
+    return;
+  }
+  unaff_EDI[param_3 * 8] = unaff_EDI[param_3 * 8] + cVar16;
+  unaff_EDI[param_3 * 8 + 0x56] = unaff_EDI[param_3 * 8 + 0x56] + cVar17;
+  unaff_EDI[param_3 * 8 + -0x2fefffaa] = unaff_EDI[param_3 * 8 + -0x2fefffaa] + cVar16;
+  pcVar7 = (char *)(unaff_ESI + -0x5117ffaa + unaff_EBP * 4);
+  *pcVar7 = *pcVar7 + cVar16;
+  *unaff_EBX = *unaff_EBX + cVar5;
+  pbStack_24 = (byte *)(*(int *)(param_1 + 0x69) * 0x545f7265);
+  pbStack_30 = (byte *)(unaff_EBP + 1);
+  iVar8 = param_3 + 1;
+  cRam000056a4 = cRam000056a4 + 'T';
+  cVar5 = (char)((uint)(unaff_EBX + 1) >> 8);
+  cVar4 = cVar5 + -0x5c;
+  puVar1 = unaff_EDI + 1;
+  pbStack_20 = pbStack_24 + 1;
+  *unaff_EDI = *pbStack_24;
+  pcVar7 = (char *)(CONCAT31(0x56,cVar4) * 2);
+  *pcVar7 = *pcVar7 + cVar4;
+  bVar20 = (byte)param_2;
+  uVar9 = (uint)CONCAT11(bVar20 + 0x56,cVar4);
+  pbVar10 = (byte *)(uVar9 + 1);
+  bVar6 = *pbVar10;
+  _DAT_50d80056 = uVar9;
+  *pbVar10 = *pbVar10 + cVar16;
+  cVar4 = (char)((uint)iVar8 >> 8);
+  if (*pbVar10 == 0 || SCARRY1(bVar6,cVar16) != (char)*pbVar10 < '\0') {
+    *(char *)((int)puVar1 * 3) = *(char *)((int)puVar1 * 3) + cVar5;
+    iVar11 = uVar9 + 2;
+    iVar11 = CONCAT22((short)((uint)iVar11 >> 0x10),
+                      CONCAT11((char)((uint)iVar11 >> 8) + cVar4,(char)iVar11)) + 1;
+    pbStack_20 = (byte *)CONCAT31((int3)((uint)iVar11 >> 8),(char)iVar11 + (char)((uint)iVar11 >> 8)
+                                 );
+    pcVar7 = (char *)((int)puVar1 * 3 + 0x40);
+    *pcVar7 = *pcVar7 + (char)iVar8;
+    *(char *)((int)pbStack_20 + 1) = *(char *)((int)pbStack_20 + 1) + cVar16;
+    pcVar7 = (char *)(unaff_EBP + 0x57 + (int)pbStack_30 * 4);
+    *pcVar7 = *pcVar7 + cVar16;
+    pcVar7 = (char *)((int)pbStack_20 + 0x58 + (int)puVar1 * 4);
+    *pcVar7 = *pcVar7 + (char)((int)pbStack_20 + 2);
+    pcVar7 = (char *)(iVar8 + (int)puVar1 * 4);
+    *pcVar7 = *pcVar7 + (char)((uint)((int)pbStack_20 + 2) >> 8);
+    pcVar7 = (char *)(param_3 + 0x57 + (int)puVar1 * 4);
+    cVar5 = (char)(unaff_EBX + 1);
+    *pcVar7 = *pcVar7 + cVar5;
+    iVar14 = (int3)((uint)puVar1 >> 8);
+    cVar4 = (char)puVar1 * '\x02';
+    pcVar7 = (char *)(CONCAT31(iVar14,cVar4) + -0x65);
+    *pcVar7 = *pcVar7 + cVar5;
+    puStack_34 = (uint *)CONCAT22(puStack_34._2_2_,in_CS);
+    puStack_38 = (uint *)0x56a4d8;
+    pbStack_2c = pbStack_30;
+    pbStack_28 = pbStack_30;
+    func_0xab5c0055(CONCAT31(iVar14,cVar4 + (char)(iVar14 >> 7)));
+    return;
+  }
+  *(char *)(uVar9 - 0x2f) = *(char *)(uVar9 - 0x2f) + bVar20;
+  *(char *)(uVar9 - 0x2f) = *(char *)(uVar9 - 0x2f) + cVar5;
+  pcVar7 = (char *)(iVar8 + param_2 * 8);
+  cVar5 = (char)pbVar10;
+  *pcVar7 = *pcVar7 + cVar5;
+  pbStack_24 = pbStack_20;
+  bVar6 = *pbVar10;
+  *pbVar10 = *pbVar10 + bVar20;
+  *pbStack_20 = *pbStack_20 << 1 | CARRY1(bVar6,bVar20);
+  pbStack_28 = pbStack_20;
+  uVar15 = (undefined3)(CONCAT22((short)((uint)pbVar10 >> 0x10),CONCAT11(0xae,cVar5)) >> 8);
+  bVar6 = cVar5 + cVar4;
+  pcVar12 = (char *)CONCAT31(uVar15,bVar6);
+  pbStack_2c = pbStack_20;
+  pcVar7 = (char *)((int)&pbStack_2c + param_2 * 2);
+  *pcVar7 = *pcVar7 + (char)iVar8;
+  iVar11 = *(int *)(pcVar12 + 0x68) * 0x545f7265;
+  iVar8 = param_3 + 2;
+  pbStack_30 = (byte *)&pbStack_2c;
+  puVar1 = unaff_EDI + 6;
+  puVar19 = (uint *)(iVar11 + 3);
+  *(undefined4 *)(unaff_EDI + 2) = *(undefined4 *)(iVar11 + -1);
+  puStack_34 = puVar19;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  *pcVar12 = *pcVar12 + bVar6;
+  IMAGE_DOS_HEADER_00400000.e_program[unaff_EBP + 0x18] =
+       IMAGE_DOS_HEADER_00400000.e_program[unaff_EBP + 0x18] + bVar20;
+  *pcVar12 = *pcVar12 + bVar6;
+  puStack_38 = puVar19;
+  cVar5 = (char)(unaff_EBX + 2);
+  iStack_3c = CONCAT31(uVar15,(bVar6 | 0x9d) + cVar5);
+  pcVar7 = (char *)(iStack_3c + 1);
+  cVar4 = *pcVar7;
+  *pcVar7 = *pcVar7 + cVar16;
+  if (*pcVar7 == '\0' || SCARRY1(cVar4,cVar16) != *pcVar7 < '\0') {
+    cVar4 = (char)((uint)(unaff_EBX + 2) >> 8);
+    *(char *)((int)puVar1 * 3) = *(char *)((int)puVar1 * 3) + cVar4;
+    iVar13 = iStack_3c + 2;
+    puStack_40 = (uint *)CONCAT22((short)((uint)iVar13 >> 0x10),
+                                  CONCAT11((char)((uint)iVar13 >> 8) + (char)((uint)iVar8 >> 8),
+                                           (char)iVar13));
+    iVar13 = (int)puStack_40 + 1;
+    puStack_44 = (uint *)CONCAT31((int3)((uint)iVar13 >> 8),(char)iVar13 + (char)((uint)iVar13 >> 8)
+                                 );
+    pcVar7 = (char *)((int)puVar1 * 3 + 0x40);
+    *pcVar7 = *pcVar7 + (char)iVar8;
+    *(char *)((int)puStack_44 + 1) = *(char *)((int)puStack_44 + 1) + cVar16;
+    puVar18 = (uint *)(iVar11 + 2);
+    iVar11 = (int)puStack_44 + 2;
+    pcVar7 = (char *)(unaff_EBP * 5 + 0x60);
+    *pcVar7 = *pcVar7 + cVar16;
+    pcVar7 = (char *)((int)puStack_44 + 0x58 + (int)puVar1 * 4);
+    *pcVar7 = *pcVar7 + (char)iVar11;
+    pcVar7 = (char *)(iVar8 + (int)puVar1 * 4);
+    *pcVar7 = *pcVar7 + (char)((uint)iVar11 >> 8);
+    pcVar7 = (char *)(param_3 + 0x58 + (int)puVar1 * 4);
+    *pcVar7 = *pcVar7 + cVar5;
+    iVar14 = (int3)((uint)puVar1 >> 8);
+    bVar6 = (char)puVar1 * '\x02';
+    pcVar7 = (char *)(CONCAT31(iVar14,bVar6) + -0x65);
+    *pcVar7 = *pcVar7 + cVar5;
+    bVar20 = CARRY1(bVar6,(byte)(iVar14 >> 7));
+    puStack_48 = puVar18;
+    func_0xab5c0055(CONCAT31(iVar14,bVar6 + (char)(iVar14 >> 7)));
+    uVar3 = (ulonglong)CONCAT14(bVar20,*puVar18) << 1;
+    *puVar18 = (uint)uVar3 | (uint)bVar20;
+    puVar19 = (uint *)((int)puVar19 + (uint)bVar21 * -2);
+    *(undefined1 *)CONCAT31((int3)((uint)iVar11 >> 8),(char)iVar11 + cVar4) = *(undefined1 *)puVar18
+    ;
+    *puVar19 = *puVar19 << 1 | (uint)((uVar3 & 0x100000000) != 0);
+    pcVar2 = (code *)swi(3);
+    (*pcVar2)();
+    return;
+  }
+  pcVar12 = (char *)(param_3 + -0x2e33ffa8 + param_2 * 8);
+  cVar4 = (char)((uint)pcVar7 >> 8);
+  *pcVar12 = *pcVar12 + cVar4;
+  puStack_40 = puVar19;
+  *(char *)(iStack_3c + -0x2d) = *(char *)(iStack_3c + -0x2d) + cVar4;
+  puStack_44 = puVar19;
+  puStack_48 = puVar19;
+  pcVar7 = (char *)((int)&puStack_48 + param_2 * 2);
+  *pcVar7 = *pcVar7 + (char)iVar8;
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java> [create] 0056ad74 ok=true status=null (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== RVA 0x16ad74 VA 0056ad74 : FUN_0056ad74 @0056ad74 ==== (GhidraScript)  
+INFO  CleanupDecomp.java> 
+void FUN_0056ad74(void)
+
+{
+  int *piVar1;
+  uint extraout_EDX;
+  
+  piVar1 = (int *)func_0x0040525c();
+  (**(code **)(*piVar1 + 0x3c))();
+  func_0x00402f38(piVar1 + 0xc,0);
+  func_0x00402f38(piVar1 + 0xd,0);
+  func_0x00402f38(piVar1 + 0xb,0);
+  func_0x00402f38(piVar1 + 0xe,0);
+  func_0x005597a8(piVar1[6]);
+  piVar1[6] = 0;
+  func_0x00559cc8(piVar1,extraout_EDX & 0xfffffffc);
+  if ('\0' < (char)extraout_EDX) {
+    func_0x00405244(piVar1);
+  }
+  return;
+}
+
+ (GhidraScript)  
+INFO  CleanupDecomp.java>  (GhidraScript)  
+INFO  CleanupDecomp.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

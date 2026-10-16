@@ -1,0 +1,71 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (732 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1984 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra-mcp\scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: ScanClasses.java  (HeadlessAnalyzer)  
+ERROR ScanClasses.java:98: error: unreported exception ghidra.program.model.mem.MemoryAccessException; must be caught or declared to be thrown
+            long v = getInt(a) & 0xFFFFFFFFL;
+                           ^
+ScanClasses.java:102: error: unreported exception ghidra.program.model.mem.MemoryAccessException; must be caught or declared to be thrown
+        long tailStart = nameAddr.getOffset() + ((getByte(nameAddr.subtract(1)) & 0xFF) + 1);
+                                                         ^
+skipping D:\MyPrograms\ghidra-mcp\scripts\ScanClasses.java
+ (HeadlessAnalyzer)  
+ERROR REPORT SCRIPT ERROR: ScanClasses.java : The class could not be found. It must be the public class of the .java file: ScanClasses not found by 7c48171f [1] (HeadlessAnalyzer) ghidra.app.script.GhidraScriptLoadException: The class could not be found. It must be the public class of the .java file: ScanClasses not found by 7c48171f [1]
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:114)
+	at ghidra.app.util.headless.HeadlessAnalyzer.runScriptsList(HeadlessAnalyzer.java:917)
+	at ghidra.app.util.headless.HeadlessAnalyzer.analyzeProgram(HeadlessAnalyzer.java:1093)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processFileNoImport(HeadlessAnalyzer.java:1191)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processFolderNoImport(HeadlessAnalyzer.java:1363)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processNoImport(HeadlessAnalyzer.java:1392)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:449)
+	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:199)
+	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:81)
+	at ghidra.Ghidra.main(Ghidra.java:54)
+Caused by: java.lang.ClassNotFoundException: ScanClasses not found by 7c48171f [1]
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1591)
+	at org.apache.felix.framework.BundleWiringImpl.access$300(BundleWiringImpl.java:79)
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:1976)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at org.apache.felix.framework.Felix.loadBundleClass(Felix.java:2116)
+	at org.apache.felix.framework.BundleImpl.loadClass(BundleImpl.java:986)
+	at ghidra.app.script.JavaScriptProvider.loadClass(JavaScriptProvider.java:166)
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:97)
+	... 9 more
+ 
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  

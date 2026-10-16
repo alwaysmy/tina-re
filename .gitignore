@@ -1,0 +1,3 @@
+targets/*.exe
+*.log
+hs_err_*.log

@@ -1,0 +1,216 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (756 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2303 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra-mcp\scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  Removed old presave file: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp.rep\idata\00\~00000000.db\tmp723665236950997119.ps (LocalBufferFile)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: GapDecompile.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\MyPrograms\ghidra-mcp\scripts\GapDecompile.java (HeadlessAnalyzer)  
+INFO  GapDecompile.java> [create] 0056cf34 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x16cf34 VA 0056cf34 : FUN_0056cf34 @0056cf34 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+undefined4 FUN_0056cf34(void)
+
+{
+  return 0x56cf3a;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0056cf5c ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x16cf5c VA 0056cf5c : FUN_0056cf5c @0056cf5c ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0056cf5c(int param_1,uint *param_2)
+
+{
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  uint uVar4;
+  int iVar5;
+  
+  uVar2 = *param_2;
+  uVar4 = param_2[1];
+  iVar5 = 0;
+  piVar1 = *(int **)(param_1 + 0x38);
+  iVar3 = *(int *)(param_1 + 0x40);
+  do {
+    iVar5 = iVar5 + -0x61c88647;
+    uVar2 = ((uVar4 * 0x10 + *piVar1 ^ uVar4) + iVar5 ^ (uVar4 >> 5) + piVar1[1]) + uVar2;
+    uVar4 = uVar4 + ((uVar2 * 0x10 + piVar1[2] ^ uVar2) + iVar5 ^ (uVar2 >> 5) + piVar1[3]);
+    iVar3 = iVar3 + -1;
+  } while (iVar3 != 0);
+  *param_2 = uVar2;
+  param_2[1] = uVar4;
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 0056cfb4 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x16cfb4 VA 0056cfb4 : FUN_0056cfb4 @0056cfb4 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+void FUN_0056cfb4(int param_1,uint *param_2)
+
+{
+  int *piVar1;
+  uint uVar2;
+  int iVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
+  
+  uVar5 = *param_2;
+  uVar4 = param_2[1];
+  piVar1 = *(int **)(param_1 + 0x38);
+  iVar3 = *(int *)(param_1 + 0x40);
+  iVar6 = iVar3 * -0x61c88647;
+  do {
+    uVar4 = uVar4 - ((uVar5 * 0x10 + piVar1[2] ^ uVar5) + iVar6 ^ (uVar5 >> 5) + piVar1[3]);
+    uVar2 = (uVar4 * 0x10 + *piVar1 ^ uVar4) + iVar6;
+    iVar6 = iVar6 + 0x61c88647;
+    uVar5 = uVar5 - (uVar2 ^ (uVar4 >> 5) + piVar1[1]);
+    iVar3 = iVar3 + -1;
+  } while (iVar3 != 0);
+  *param_2 = uVar5;
+  param_2[1] = uVar4;
+  return;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java> [create] 00559c78 ok=true status=null (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== RVA 0x159c78 VA 00559c78 : FUN_00559c78 @00559c78 ==== (GhidraScript)  
+INFO  GapDecompile.java> 
+int FUN_00559c78(int param_1,char param_2,undefined4 param_3)
+
+{
+  undefined4 extraout_ECX;
+  char extraout_DL;
+  char cVar1;
+  undefined4 unaff_EDI;
+  undefined4 *in_FS_OFFSET;
+  
+  cVar1 = '\0';
+  if (param_2 != '\0') {
+    param_1 = func_0x004051f4();
+    param_3 = extraout_ECX;
+    cVar1 = extraout_DL;
+  }
+  func_0x00404e4c(param_1,0);
+  func_0x00559698(param_1,param_3);
+  *(undefined1 *)(param_1 + 0x10) = DAT_00559cc4;
+  if (cVar1 != '\0') {
+    func_0x0040524c(param_1);
+    *in_FS_OFFSET = unaff_EDI;
+  }
+  return param_1;
+}
+
+ (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== memory block @ VA 0x55b5b8 (24 dwords) ==== (GhidraScript)  
+INFO  GapDecompile.java>   [+0x00] = 0x0055cbf0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x04] = 0x0055cc28 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x08] = 0x0055cc50 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x0c] = 0x005597f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x10] = 0x005599c0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x14] = 0x00559b58 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x18] = 0x00559af0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x1c] = 0x0055ca40 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x20] = 0x0055c9ac (GhidraScript)  
+INFO  GapDecompile.java>   [+0x24] = 0x0055c9b4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x28] = 0x0055ca24 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x2c] = 0x0055ca2c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x30] = 0x0055ca3c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x34] = 0x61485405 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x38] = 0xc08b6873 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x3c] = 0x0055b640 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x40] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x44] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x48] = 0x0055b664 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x4c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x50] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x54] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x58] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x5c] = 0x0055b676 (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== memory block @ VA 0x56a43c (40 dwords) ==== (GhidraScript)  
+INFO  GapDecompile.java>   [+0x00] = 0x0056ab5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x04] = 0x0056ac68 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x08] = 0x0056cf18 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x0c] = 0x0056cf34 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x10] = 0x0056cf5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x14] = 0x0056cfb4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x18] = 0x0056d010 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x1c] = 0x0056aeb4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x20] = 0x0056aee8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x24] = 0x6943540b (GhidraScript)  
+INFO  GapDecompile.java>   [+0x28] = 0x72656870 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x2c] = 0x4145545f (GhidraScript)  
+INFO  GapDecompile.java>   [+0x30] = 0x0056a4b8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x34] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x38] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x3c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x40] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x44] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x48] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x4c] = 0x00000000 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x50] = 0x0056a4f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x54] = 0x00000044 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x58] = 0x0056a3d4 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x5c] = 0x004050d8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x60] = 0x00407f30 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x64] = 0x00407f3c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x68] = 0x004050ec (GhidraScript)  
+INFO  GapDecompile.java>   [+0x6c] = 0x004050e0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x70] = 0x00407f4c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x74] = 0x00404e30 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x78] = 0x0056ad74 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x7c] = 0x0056b844 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x80] = 0x0056b924 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x84] = 0x0056b95c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x88] = 0x005597f8 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x8c] = 0x005599c0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x90] = 0x00559b58 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x94] = 0x00559af0 (GhidraScript)  
+INFO  GapDecompile.java>   [+0x98] = 0x0056ab5c (GhidraScript)  
+INFO  GapDecompile.java>   [+0x9c] = 0x0056ac68 (GhidraScript)  
+INFO  GapDecompile.java>  (GhidraScript)  
+INFO  GapDecompile.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
