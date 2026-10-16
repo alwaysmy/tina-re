@@ -406,7 +406,54 @@ TCipher_Blowfish_* / THash_Haval_* / Haval_v3|v4|v5_Compress / memxor / LCG32_Ke
 
 ---
 
-## 11. 复现命令（本机）
+## 11. round 10-14：接线定案 + RIPEMD-256 实证
+
+### 11.1 类与 VMT 定案
+
+- **0xA28B64 = 0x00569E88 = TCipher_Blowfish 的实例 VMT**（工厂创建链所用）——管线密码器 = Blowfish 类**实锤**。
+  槽位（base=0x569E88）：+0x00=0x56B844 / +0x04=0x56B924 / +0x08=0x56B95C（Begin/End/Process 三件套）、
+  +0x0C=DoStream、+0x10..+0x18=0x5599C0/0x559B58/0x559AF0、+0x1C=SetFlag、+0x20=SetBlock、
+  +0x24..+0x28=GetParams/GetBlob、+0x2C=EncryptBlock、+0x30=DecryptBlock、+0x34=InitKey、+0x38=CmpCopy、+0x3C=ClearBuffers
+- **委托对象在 obj+0xC**（getter FUN_00559634；构造时由 FUN_00559698 设置；类校验引用 _DAT_005592EC）。
+- **委托哈希类 = THash_RipeMD256**（0xA1A0BC → 0x55B910；VMT 名串 "THash_RipeMD256" 实锤）。
+  其槽位：+0x20=Init(0x562A04)、+0x24=Update(0x55D6BC)、+0x28=Final(0x55D624)、+0x2C=状态指针(→obj+0x58)、
+  +0x30=摘要长度、+0x34=压缩(0x561588)；状态区 obj+0x58（8×32bit）。
+
+### 11.2 处理链（最终形态）
+
+```
+DoStream(4KB 分块) → Cipher.Process(buf,len,API-mode)
+  ├─ API-mode==1: 解密引擎 FUN_0056B490[self+0x14 分支]
+  │     cases 0-4: 专用解密（用 DecryptBlock）;case 5/6/7 → 转调 FUN_0056B034
+  │     （.TSC 运行时观测的 "mode5" = self+0x14 = 5 → 最终走 FUN_0056B034 case 5）
+  └─ 委托(哈希层).Process(buf,len,mode)：mode3=纯吸收;2/4=摘要回写;其它(含1/5)=自哈希链:
+        S_{n+1} = Finalize(Update(S_n))（状态回灌）;buf ^= S_{n+1}
+  Cipher.Begin/End 同样转发委托（mode4 时 LCG 随机掩码：FUN_0055ac38 即"0x15ac39"）
+```
+
+### 11.3 RIPEMD-256 = 标准实现（三重验证）
+
+1. **Ghidra p-code 模拟**二进制压缩函数（0x561588）三组块向量：
+   - compress(IV, 0⁶⁴) = `ac92f0fd7e573dcd81c9cf459a79d6a224ce03fbcdb023aa23bff3f7307fbef6`
+   - compress(IV, 0..63) = `115023a38024723bfb163700a7199c0ef7f87c75884ad633355769cade59c476`
+   - abc-padded 块 = **与官方 RMD256("abc") 逐字节一致** `afbd6e22…457b65`
+2. 官方向量（Bosselaers 页）：""、abc、message digest 全中
+3. Python 参考实现（`scripts/test_g_rmd256.py`）双门全过
+
+**结论**：管线哈希 = 标准 RIPEMD-256（32B 摘要）；此前围绕 Haval 的 G 候选方向应转向 RMD256 骨架。
+（0x98FAD0 / 0x56BD5A 两个 40B blob 与 RMD256 的 32B 不符——其为暂存密钥材料，来源待定。）
+
+### 11.4 G 对撞进展
+
+- 标准 Blowfish×密钥候选：排除（§9.6）
+- 纯 RMD256 切片 / 自哈希链首三态：0 命中
+- **下一步（已具备全部素材）**：全管线模拟器（Blowfish+RMD256+双引擎+委托链）对
+  `ks_ground.bin`（11626B 地面真值）+ oracle 5 点做参数搜索 {密钥来源×初始态×模式×委托门控}。
+  Ghidra p-code 模拟器可随时为任意中间函数生成金向量（Round14 模式）。
+
+---
+
+## 12. 复现命令（本机）
 
 ```powershell
 $env:JAVA_HOME = "D:\MyPrograms\jdk-21.0.12.1"
