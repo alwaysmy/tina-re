@@ -52,7 +52,7 @@ TINA-RE/
 | 工具 | ✅ `scripts/tina_static_decrypt.py`（单文件/`--all` 批量） |
 | Z3 路线文档 | ✅ docs/z3-route.md（G 已解决，作为方法论存档） |
 | Phase 3 引擎测绘（round 15-17） | ✅ 区域函数清点（18594）+ 两处归属修正（§14）；路线见 SpiceHappy `docs/engine-extraction.md` |
-| Phase 3 M2 求解调用链（round 18-21） | ✅ 运行时栈 + 静态对账：AC → `_SMPcSolve`（§15）；指针表 RVA 0x1BDAF20 |
+| Phase 3 M2 求解调用链（round 18-22） | ✅ 运行时栈 + 静态对账：AC 全链路 + 装配段（§15）；指针表 RVA 0x1BDAF20 |
 
 ## 快速验证（回归自检，离线）
 

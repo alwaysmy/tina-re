@@ -578,7 +578,25 @@ python D:\WorkDesigns\3_WorkTools\SpiceHappy-tina-re\tools\tina-run\tina_run.py 
   --trace-js D:\WorkDesigns\3_WorkTools\SpiceHappy-tina-re\tools\tina-run\tina_sparse_trace.js
 ```
 
-### 15.5 运维修复（同日）
+### 15.5 全导出探针：装配 / 分解 / 求解
+
+脚本 `tools/tina-run/tina_sparse_trace_all.js` 挂全部 11 个导出，同一次 AC 运行得到：
+
+| 导出 | 次数 | 引擎进入点 RVA |
+|---|---|---|
+| `_SMPnewMatrix` | 1 | 0x50372C（包装器）← 0x31662C（AC 工作函数） |
+| `_SMPmakeElt` | **1014** | 0x5110EB 等第二层跳板 → 返回 0x185EA0（装配循环） |
+| `_SMPclear` | 每步 | 0x51096D → 0x188926 |
+| `_SMPpreOrder` | 每步 | 0x51073C |
+| `_SMPreorder` | 每步 | 0x510AB7 |
+| `_SMPsolve` | 每步 | 0x510BAD ← 0x473DBF（派发 `FUN_00873638`，4186 B） |
+| `_SMPcSolve` | 每步 | 0x510C72 ← 0x31630D |
+
+AC 完整链路：`FUN_00715cb0`(扫描) → `FUN_0090372c`(建矩阵) → `FUN_00585ea0`(装配 1014×makeElt)
+→ `FUN_00873638`(派发) → `FUN_00873368`(求解驱动) → `0x510c58`(条件包装) → `_SMPcSolve`。
+这同时**证实**了求解器区 0x177000–0x186000 的归属（装配循环 0x185EA0 在区内）。
+
+### 15.6 运维修复（同日）
 
 - TINA 启动警告（库数据库不一致）需点『忽略』，否则编辑器不出现；
 - AC 分析对话框类名是 `TACTransferDlg`（不是 `TACAnalDlg`）；
