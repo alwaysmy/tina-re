@@ -605,6 +605,27 @@ AC 完整链路：`FUN_00715cb0`(扫描) → `FUN_0090372c`(建矩阵) → `FUN_
 
 ---
 
+## 16. SPICELIB 模型来源分层（2026-10-17）
+
+扫描 485 个解密库（脚本 `scripts/survey_spicelib.py`）：
+
+- **头部**：≈440 个写 `Simulator: TINA`（含版本变体），10 个写 `PSPICE`，35 个无声明。
+- **语法**：PSpice ABM 风格为主——`.SUBCKT` 484/485、`VALUE` 453、`IF (` 219、`TABLE` 126、
+  `POLY(` 91、`.PARAM` 213。
+- **A 类自包含**：13 个控制器库（TPS40140/Fast、TPS40180、TPS51275、TPS54xxx、LM10504 等）
+  把数字原语用 `E ... VALUE {{IF(...)}}` 内联，文件自带全部子电路。
+- **B 类跨库依赖**：9 个名字（`COMP2INPAND`/`COMPGNDREF`/`STDOPAMP`/`AMPLIGNDREF`/`RSFFLOP_P` 等），
+  定义在 `TINA_SMPSM.lib`。
+- **C 类 TINA 私有**：`Y` 器件 + `AMPLI`/`COMP` 模型，共 6 个文件（`TINA_SMPSM.lib`、
+  `TPS61000`、`TPS61020_AVG/TRANS`、`TPS61025_TRANS`、`TPS40055_TRANS`）。
+- **变体**：`*_TRANS` 250、`*_AVG` 51、`ALL IN ONE` 87；另有 `LM10504_TINA_TRANS_LINE/LOAD/PFM`。
+- **文本完整性**：`TPS40055_TRANS.LIB` 第 92 行起为二进制乱码（约 25%），其余 481/485 干净。
+
+完整报告：SpiceHappy `re/MODEL_SOURCES.md`。结论：**绝大多数是标准 PSpice 语法的模型，
+由 TI 针对 TINA 生成/验证（变体+封装调整），真正的 TINA 私有模型只占少数。**
+
+---
+
 ## 12. 复现命令（本机）
 
 ```powershell
