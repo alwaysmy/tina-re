@@ -54,7 +54,7 @@ TINA-RE/
 | Phase 3 引擎测绘（round 15-17） | ✅ 区域函数清点（18594）+ 两处归属修正（§14）；路线见 SpiceHappy `docs/engine-extraction.md` |
 | Phase 3 M2 求解调用链（round 18-22） | ✅ 运行时栈 + 静态对账：AC 全链路 + 装配段（§15）；指针表 RVA 0x1BDAF20 |
 | SPICELIB 模型来源分层 | ✅ 485 库扫描：PSpice 语法为主、TINA 私有仅 6 个文件（§16） |
-| 解密算法核验（TPS40055_TRANS 异常） | ✅ 再加密恒等 + 与 TINA 文本前 4120B 一致；尾部为文件自身不透明区（§17） |
+| 解密算法核验（TPS40055_TRANS 异常） | ✅ 再加密恒等 + 与 TINA 文本前 4120B 一致；Ghidra 证实加载器单密钥 CBC（§17/§18）；模型文本已恢复 |
 
 ## 快速验证（回归自检，离线）
 

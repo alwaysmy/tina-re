@@ -666,6 +666,40 @@ AC 完整链路：`FUN_00715cb0`(扫描) → `FUN_0090372c`(建矩阵) → `FUN_
 
 ---
 
+## 18. 库加载器实证：单密钥 CBC、整文件一次解密（2026-10-17）
+
+Ghidra（MCP，fixed 镜像 18596 函数）定位到 `.LIB` 加载器 **`FUN_0098f420`**（VA 0x98F420，RVA 0x58F420）：
+
+```c
+// 文件已读入流 param_1+0x58；先比较前 21 字节
+FUN_00406104(local_2c, "<Encrypted Library>");
+if (is_encrypted) {
+    cipher = FUN_0042db94(..., 1, 0);
+    FUN_00570c80(cipher, "BlowFish");        // 算法名
+    FUN_00570bec(cipher, 1);                 // mode = 1（§9.1：= CBC）
+    FUN_00570fe0(cipher, "<40B blob>", 0);   // 密钥串 @ 0x98FAD0
+    n = stream_size;
+    TSC_DecryptEntry(cipher, instream, outstream, n - 0x15);  // 整文件体一次解密
+}
+```
+
+结论：
+
+1. 加载器对**整个文件体**只调用一次解密——不存在分段、二次密钥或分块重启；
+   mode 固定为 1（`pt = D(ct) ^ ct_prev`，即标准 CBC），密钥固定为 40B 常量串。
+2. 因此 `TPS40055_TRANS.LIB` 尾部的高熵数据**不可能**是"另一种解密方式"的结果：
+   按引擎自身的方案，它就是非文本内容（文件损坏，或加密时填充了随机字节）。
+3. 前 4120 字节与 TINA 内嵌文本逐字节一致，进一步证明 key/IV/mode 全部正确。
+
+**模型恢复**：完整文本已从示例 `.TSC` 的内嵌副本拼接恢复
+（`decrypted-tina/TPS40055_TRANS.recovered.lib`，6982 B / 202 行，`.ENDS` 结尾）。
+通用脚本：`scripts/recover_from_capture.py`（.LIB + 原始 Frida 捕获 → 拼接明文）。
+
+> 运维：Ghidra MCP 现在跑的是 fixed 镜像（`tina_unpacked_fixed.exe`，18596 函数），
+> 旧的 `tina_unpacked_static.exe` 项目（8456 函数）只能做字符串/内存级查询。
+
+---
+
 ## 12. 复现命令（本机）
 
 ```powershell
