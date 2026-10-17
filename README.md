@@ -52,6 +52,20 @@ TINA-RE/
 | 工具 | ✅ `scripts/tina_static_decrypt.py`（单文件/`--all` 批量） |
 | Z3 路线文档 | ✅ docs/z3-route.md（G 已解决，作为方法论存档） |
 
+## 快速验证（回归自检，离线）
+
+依赖：Python 3.10+、`pip install pycryptodome`；TINA-TI 安装在默认路径（读取 SPICELIB）。
+
+```powershell
+python tests/verify_decrypt.py
+```
+
+预期输出：7 项全部 PASS（RMD256 官方向量 ×3、二进制压缩块向量 ×2、DAC882X 地面真值对比、
+全库 388 加密 + 97 明文扫描），末尾打印 `RESULT: ALL PASS`。
+
+> 维护副本：`tina_static_decrypt.py` / 验证脚本的**正式维护位置在 SpiceHappy 仓库 `re/`**
+> （`SpiceHappy-tina-re` 工作树，分支 `feat/tina-static-extract`）；本仓库保留分析档案与同一份脚本以便复现。
+
 ## 复现
 
 ```powershell

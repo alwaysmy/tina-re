@@ -137,7 +137,11 @@ def decrypt_bytes(raw: bytes) -> bytes:
 def decrypt_file(src: pathlib.Path, out_dir: pathlib.Path | None = None) -> pathlib.Path:
     raw = pathlib.Path(src).read_bytes()
     out_dir = pathlib.Path(out_dir) if out_dir else pathlib.Path(src).parent
-    dst = out_dir / pathlib.Path(src).stem.replace(".LIB", ".lib")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    name = pathlib.Path(src).name
+    if name.lower().endswith(".lib"):
+        name = name[:-4] + ".lib"
+    dst = out_dir / name
     dst.write_bytes(decrypt_bytes(raw))
     return dst
 
@@ -186,3 +190,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
