@@ -529,6 +529,64 @@ python scripts/tina_static_decrypt.py --all        # 全量 → decrypted-local/
 
 ---
 
+## 15. M2：线性求解层调用图（运行时 + 静态，2026-10-17）
+
+> 方法：Frida 探针（SpiceHappy `tools/tina-run/tina_sparse_trace.js`）抓 `_SMPcSolve` 调用栈，
+> 再用 Ghidra 对账（`Round18-21.java`，输出 `out/round18-21.txt`）。
+> 运行对象：TINA 自带示例 `2nd Order All-Pass Filter.TSC`，AC 分析 0xA7。
+
+### 15.1 运行时调用栈（模块内偏移 = RVA）
+
+```
+tina.exe+0x510c72   ← 条件包装器内部（直接调用者）
+sparse_dll.dll+0x6cdc   ← _SMPcSolve
+tina.exe+0x31630d   ← AC 扫描工作函数 FUN_00715cb0
+tina.exe+0x316ad8
+tina.exe+0x429726   ← 分析编排 FUN_00829726
+tina.exe+0x93a38 / 0x936b3   ← 命令派发
+tina.exe+0x2ec26    ← 窗口消息入口
+```
+
+单次 AC 扫描捕获 ≥20 次 `_SMPcSolve`，入参指针恒定（复用矩阵，只换激励/频率）。
+
+### 15.2 sparse 指针表（dump 时基址 0x04400000）
+
+RVA `0x1BDAF20` 起 11 项，依次为 `_SMPcSolve / _SMPcLUfac / _SMPcReorder / _SMPsolve /
+_SMPluFac / _SMPreorder / _SMPpreOrder / _SMPmakeElt / _SMPclear / _SMPdestroy / _SMPnewMatrix`。
+跳板岛 RVA `0x510620–0x510670`，每条 `jmp dword ptr [0x1FDAF2x]`（0x510670 = `_SMPcSolve`）。
+脚本：`scripts/find_sparse_callsites.py`（从镜像读表 + 反查导出名 + 列调用点）。
+
+> 注意：磁盘 PE 的静态导入表只列 `_SMPcSolve` 一条，但 dump 里 11 项全满 →
+> 加载/脱壳阶段重建了导入表，不能只信磁盘导入目录。
+
+### 15.3 静态结构
+
+| RVA | 作用 |
+|---|---|
+| `0x510C58` | 条件包装器（30 B）：`if (*(ushort*)(m+4) > 1) _SMPcSolve(...)` |
+| `0x1888EC` | 6 B 转发器 → 包装器 |
+| `0x473368` | 求解驱动（98 B）：`type==8` 走 sparse 路径，其它走另一条；末尾自增求解计数 |
+| `0x315CB0` | AC 扫描（2170 B，x87 double 频率循环） |
+| `0x49FA3C` | 另一条调用包装器的路径（2290 B，疑 DC/工作点） |
+
+### 15.4 复现
+
+```powershell
+python D:\WorkDesigns\3_WorkTools\SpiceHappy-tina-re\tools\tina-run\tina_run.py `
+  --tsc "C:\Program Files (x86)\DesignSoft\Tina 9 - TI\EXAMPLES\Filters_Others\2nd Order All-Pass Filter.TSC" `
+  --export "$env:TEMP\tina_probe\probe.net" --analysis 0xA7 --export-cmd 0x19 `
+  --trace-js D:\WorkDesigns\3_WorkTools\SpiceHappy-tina-re\tools\tina-run\tina_sparse_trace.js
+```
+
+### 15.5 运维修复（同日）
+
+- TINA 启动警告（库数据库不一致）需点『忽略』，否则编辑器不出现；
+- AC 分析对话框类名是 `TACTransferDlg`（不是 `TACAnalDlg`）；
+- 导出会自动追加扩展名（网表 → `.CIR`），检查路径要兜底。
+  以上均已修进 `tina_run.py`。
+
+---
+
 ## 12. 复现命令（本机）
 
 ```powershell
