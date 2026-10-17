@@ -47,8 +47,10 @@ TINA-RE/
 | 管线接线图（全局变量/调用链） | ✅ 综合成图（§10） |
 | 管线类/VMT 定案（Blowfish + 委托链） | ✅ 实例 VMT=0x569E88；委托(obj+0xC)→THash_RipeMD256（§11） |
 | RIPE MD-256 实证 | ✅ 二进制 p-code 模拟 + 官方向量 + Python 参考实现三重验证（§11） |
-| G 对撞 | 标准 Blowfish 全候选排除、RMD256 切片/链首 0 命中；下一步=全管线模拟器 vs ks_ground |
-| Z3 路线文档 | ✅ docs/z3-route.md（含 round10-14 后的具体抓手） |
+| G 对撞 | ✅ **已破解：标准 Blowfish-CBC**（key=RMD256(40B blob)，IV 常量）——"G(x)=D(x)^x" 是其等价变形 |
+| 全库静态解密 | ✅ 388/388 加密库解密成功（485 库=388 加密+97 明文；对 ks_ground 地面真值逐字节验证） |
+| 工具 | ✅ `scripts/tina_static_decrypt.py`（单文件/`--all` 批量） |
+| Z3 路线文档 | ✅ docs/z3-route.md（G 已解决，作为方法论存档） |
 
 ## 复现
 
