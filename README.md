@@ -51,6 +51,7 @@ TINA-RE/
 | 全库静态解密 | ✅ 388/388 加密库解密成功（485 库=388 加密+97 明文；对 ks_ground 地面真值逐字节验证） |
 | 工具 | ✅ `scripts/tina_static_decrypt.py`（单文件/`--all` 批量） |
 | Z3 路线文档 | ✅ docs/z3-route.md（G 已解决，作为方法论存档） |
+| Phase 3 引擎测绘（round 15-17） | ✅ 区域函数清点（18594）+ 两处归属修正（§14）；路线见 SpiceHappy `docs/engine-extraction.md` |
 
 ## 快速验证（回归自检，离线）
 
@@ -67,6 +68,18 @@ python tests/verify_decrypt.py
 > （`SpiceHappy-tina-re` 工作树，分支 `feat/tina-static-extract`）；本仓库保留分析档案与同一份脚本以便复现。
 
 ## 复现
+
+> **运维注意（2026-10-17 实锤）**：`ghidra-mcp.cmd stop` 用 taskkill 强杀后端时，JVM 内的自动分析
+> 结果**不会保存**（项目只剩手工创建的函数，如本例 18514 → 76）。需要分析覆盖时，用 headless
+> 补跑一次（会自动保存）：
+>
+> ```powershell
+> & "D:\MyPrograms\ghidra_12.1.4_PUBLIC\support\analyzeHeadless.bat" `
+>     "D:\MyPrograms\ghidra-mcp\projects" "tina_unpacked_fixed_ghidra_mcp" `
+>     -process "tina_unpacked_fixed.exe"
+> ```
+>
+> 或对 ghidra-mcp 后端优雅关闭（避免 taskkill /F）。
 
 ```powershell
 # 1) 生成修正版镜像

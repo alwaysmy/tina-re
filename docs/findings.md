@@ -493,6 +493,42 @@ python scripts/tina_static_decrypt.py --all        # 全量 → decrypted-local/
 
 ---
 
+## 14. Phase 3 引擎测绘（round 15-17，2026-10-17）
+
+> 数据来源：修复版镜像全量分析 **18594** 函数（已保存）；原始输出 `out/round15-17*.txt`，
+> 脚本 `scripts/ghidra-headless/Round1{5,5b,6,7}.java`。路线与里程碑见 SpiceHappy
+> `docs/engine-extraction.md`。
+
+### 14.1 区域函数清点（VA = RVA + 0x400000）
+
+| 区（历史字符串聚类） | RVA | 函数数 | 函数体 | 最大函数 / 判读 |
+|---|---|---|---|---|
+| 密码/保护 | 0x159000–0x16F000 | 181 | 67.7 KB | 0x162A9C(10.5KB) 保护调度；0x161588(5.2KB)=RIPEMD-256 压缩 |
+| 求解器区 | 0x177000–0x186000 | 110 | 39.7 KB | 0x183624(3.4KB)=参数/符号求值器（switch 表达式，含 π）；0x17BE8C(3.4KB) 待判 |
+| "线性代数"区 | 0x2E7000–0x2EA000 | 6 | 5.0 KB | 0x2E7F5C(4.2KB) 形似绘图/波形渲染，非 LU |
+| 分析编排区 | 0x330000–0x350000 | 44 | 17.7 KB | 0x348580(5.7KB) 待判 |
+| 库加载/签名 | 0x58F000–0x592000 | 20 | 9.1 KB | 含 `<Encrypted Library>` 字符串 + 40B 密钥常量（0x58FAD0） |
+
+### 14.2 两处归属修正
+
+1. **0x58F851 不是网表编译入口**：所在函数引用 `sign`/`silent`/`update.exe`/`Message_Digest_5`，
+   属签名/更新/库加载模块；密钥常量就在同模块数据区 → 与 .lib 解密链路一致。
+2. **"线性代数 0x2E7000" 的最大函数形似绘图渲染**；`' LU '` 字符串可能只是界面文案。
+   LU 实际来源更可能是 `sparse_dll.dll`（11 导出，早期结论）。
+
+### 14.3 结论
+
+按字符串聚类得到的"求解器区"仅 110 函数/40KB，与完整 SPICE 引擎规模不符（可能分散或经虚调用）。
+下一步不是继续按字符串猜区域，而是**运行时联查**：hook `sparse_dll.dll` 的
+`_SMPcLUfac`/`_SMPcSolve` 导出抓调用栈 → 反查静态地址 → 在 Ghidra 内持久命名。
+
+### 14.4 运维教训
+
+`ghidra-mcp.cmd stop` 用 taskkill 强杀后端会导致 JVM 内自动分析**不保存**（本例 18594 → 76）。
+补跑 `analyzeHeadless -process <proj> <name> <file>`（不带 `-noanalysis`）可恢复并保存（本次 252 s）。
+
+---
+
 ## 12. 复现命令（本机）
 
 ```powershell

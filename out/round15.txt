@@ -1,0 +1,112 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (724 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (2688 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects\tina_unpacked_fixed_ghidra_mcp (HeadlessProject)  
+INFO  REPORT: Processing project file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round15.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round15.java (HeadlessAnalyzer)  
+INFO  Round15.java> [region] crypto/protection            0x159000-0x16f000  functions=0  body=0.0 KB (GhidraScript)  
+INFO  Round15.java> [region] solver core                  0x177000-0x186000  functions=0  body=0.0 KB (GhidraScript)  
+INFO  Round15.java> [region] linear algebra               0x2e7000-0x2ea000  functions=0  body=0.0 KB (GhidraScript)  
+INFO  Round15.java> [region] analysis orchestration       0x330000-0x350000  functions=0  body=0.0 KB (GhidraScript)  
+INFO  Round15.java> [region] whole image                  0x401000-0xa0c000  functions=75  body=14.8 KB (GhidraScript)  
+INFO  Round15.java>  (GhidraScript)  
+INFO  Round15.java> ==== [netlist compile checkpoint] FUN_0058f851 @0058f851 ==== (GhidraScript)  
+INFO  Round15.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0058f851(void)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined1 unaff_BL;
+  int unaff_EBP;
+  undefined4 *in_FS_OFFSET;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  int iVar7;
+  undefined4 uVar8;
+  undefined4 uVar9;
+  
+  func_0x0040fe40();
+  uVar4 = *(undefined4 *)(unaff_EBP + -4);
+  uVar9 = 0x58f988;
+  uVar1 = *(undefined4 *)(unaff_EBP + -0x10);
+  func_0x00406078(unaff_EBP + -4,3);
+  uVar2 = *(undefined4 *)(unaff_EBP + -4);
+  uVar8 = 0x58f998;
+  iVar7 = unaff_EBP + -0x214;
+  uVar6 = 0x58f9a8;
+  uVar3 = *(undefined4 *)(unaff_EBP + -0x10);
+  uVar5 = 0x58f9a8;
+  func_0x00406078(unaff_EBP + -0x218,3);
+  func_0x0058fa84(*(undefined4 *)(unaff_EBP + -0x218),0x58f9b8,1,uVar5,uVar3,uVar6,iVar7,uVar8,uVar2
+                  ,uVar1,uVar9,uVar4);
+  uVar4 = *(undefined4 *)(unaff_EBP + -0x214);
+  func_0x00406078(unaff_EBP + -4,3);
+  if (*(char *)(unaff_EBP + -5) != '\0') {
+    func_0x00405fc0(unaff_EBP + -4,0x58f9d4);
+  }
+  func_0x004034c4(0,unaff_EBP + -0x220);
+  func_0x0040dfd4(*(undefined4 *)(unaff_EBP + -0x220),unaff_EBP + -0x21c);
+  func_0x00406004(unaff_EBP + -0xc,*(undefined4 *)(unaff_EBP + -0x21c),0x58f9e8,uVar4);
+  uVar5 = 5;
+  uVar3 = 0;
+  uVar1 = func_0x0040e7c0(unaff_EBP + -0x210,*(undefined4 *)(unaff_EBP + -4));
+  uVar2 = func_0x0040e7c0(unaff_EBP + -0x110,*(undefined4 *)(unaff_EBP + -0xc));
+  uVar4 = *(undefined4 *)(*_DAT_00a64b0c + 0x30);
+  func_0x0043fa50();
+  *_DAT_00a65378 = unaff_BL;
+  *in_FS_OFFSET = uVar4;
+  func_0x00405d0c(unaff_EBP + -0x220,4,uVar2,0x58f97b,uVar1,uVar3,uVar5);
+  func_0x00405d0c(unaff_EBP + -0x10,2);
+  func_0x00405ce8(unaff_EBP + -4);
+  return;
+}
+
+ (GhidraScript)  
+INFO  Round15.java>  (GhidraScript)  
+INFO  Round15.java> == callers of FUN_0058f851 @0058f851 == (GhidraScript)  
+INFO  Round15.java>  (GhidraScript)  
+INFO  Round15.java> == external symbols (imports) sample == (GhidraScript)  
+INFO  Round15.java>    <none in symbol table> (GhidraScript)  
+INFO  Round15.java>  (GhidraScript)  
+INFO  Round15.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /tina_unpacked_fixed.exe (HeadlessAnalyzer)  
