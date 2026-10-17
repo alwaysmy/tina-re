@@ -174,6 +174,15 @@ def main() -> None:
     if not args:
         print(__doc__)
         return
+    if args[0] == "--out":
+        if len(args) < 3:
+            raise SystemExit("usage: tina_static_decrypt.py --out <file> <input>")
+        out_file = pathlib.Path(args[1])
+        src = pathlib.Path(args[2])
+        out_file.parent.mkdir(parents=True, exist_ok=True)
+        out_file.write_bytes(decrypt_bytes(src.read_bytes()))
+        print(f"decrypted -> {out_file}")
+        return
     if args[0] in ("--all", "--dir"):
         sp = pathlib.Path(args[1] if args[0] == "--dir" else default_sp)
         out = pathlib.Path(args[2] if len(args) > 2 else str(pathlib.Path(__file__).resolve().parent.parent / "decrypted-local"))
@@ -190,4 +199,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
