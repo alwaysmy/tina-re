@@ -453,6 +453,46 @@ DoStream(4KB 分块) → Cipher.Process(buf,len,API-mode)
 
 ---
 
+## 13. ★ G 破解：标准 CBC + 全库静态解密（2026-10-17）
+
+**结论：加密库解密 = 标准 Blowfish-CBC。所谓 "G" 只是该 CBC 的等价改写。**
+
+```
+文件格式 : b"<Encrypted Library>\n\r"（21B 头）+ 密文
+key     = RIPEMD-256( 镜像内 40B 常量 @ RVA 0x58FAD0 )
+IV      = 0x864D93CD4B27E92D（常量；尾部不满 8B 的部分原样直通）
+pt      = Blowfish-CBC-decrypt(ct)
+```
+
+对既有两个疑点的解释：
+
+- 老模型 `pt_b = ct_b ^ ct_{b-1} ^ G(ct_b)` 与标准 CBC 等价：`G(x) = D_k(x) ^ x`
+  （`pt_b = D(ct_b) ^ ct_{b-1}`，两边同乘 `ct_b` 即得）。oracle 三点验证：
+  `G(0)=D_k(0)=7455d14e72cf5821` ✓；`G(2cfe90…) = D^ct = 272a69bbc7a0b123` ✓；`G(f5a4c7…) = bc7a318806a75984` ✓
+- 旧假设 "IV=0" 是块 0 永远不对的原因；真实 IV = 常量 0x864D93CD4B27E92D。
+- 密钥派生 = **RMD256(40B 密钥串)**（正是笔记里"密钥串已定位 40B"的那段数据）。
+  此前"标准 Blowfish 死"的失败源于：派生方式（RMD256 而非直用）与 CBC/IV 假设。
+
+**验证证据**：
+
+| 项 | 结果 |
+|---|---|
+| DAC882X.lib 全量对比 `ks_ground.bin` | 11626 字节仅末尾 2 字节不同（不完整块，原样直通） |
+| SPICELIB 全库 | 485 个 .lib = **388 加密（全部解密成功，ASCII 1.0）+ 97 明文** |
+| 抽样文本 | `*ADC161S626`、`* AFE5803`、`* DAC882X (PSpice format)`、`* TL431`，`.SUBCKT` 名与文件名一致 |
+
+**工具**：`scripts/tina_static_decrypt.py`
+
+```
+python scripts/tina_static_decrypt.py <file.lib> [out]
+python scripts/tina_static_decrypt.py --all        # 全量 → decrypted-local/（gitignore）
+```
+
+**意义**：加密库解密不再需要 TINA 运行时 / Frida / 窗口（原 tina_export.py 链路可退役）；
+剩余工作回到 SPICE 引擎剥离（Phase 3）与已解密模型的整理。
+
+---
+
 ## 12. 复现命令（本机）
 
 ```powershell
