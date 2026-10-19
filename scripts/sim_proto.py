@@ -158,7 +158,8 @@ class Circuit:
                 A[omi, cmi] += gm
 
     # -- assembly -----------------------------------------------------------
-    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None, vd=None, vb=None, vm=None):
+    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None, vd=None, vb=None, vm=None,
+                  method: str = "be", state_ic=None, state_vl=None):
         dtype = complex if mode == "ac" else float
         branches = self._branches(mode)
         bidx = {e.name: len(self.nodes) + i for i, e in enumerate(branches)}
@@ -221,16 +222,29 @@ class Circuit:
                 if mode == "ac":
                     self._g(A, i, j, s * e.value)
                 elif mode == "tran":
-                    y = e.value / dt
-                    self._g(A, i, j, y)
-                    vprev = (state_v or {}).get(i, 0.0) - (state_v or {}).get(j, 0.0)
-                    self._i(z, i, j, -y * vprev)
+                    if method == "trap":
+                        y = 2.0 * e.value / dt
+                        vprev = (state_v or {}).get(i, 0.0) - (state_v or {}).get(j, 0.0)
+                        iprev = (state_ic or {}).get(e.name, 0.0)
+                        self._g(A, i, j, y)
+                        self._i(z, i, j, -(y * vprev + iprev))
+                    else:
+                        y = e.value / dt
+                        self._g(A, i, j, y)
+                        vprev = (state_v or {}).get(i, 0.0) - (state_v or {}).get(j, 0.0)
+                        self._i(z, i, j, -y * vprev)
             elif e.kind == "L":
                 if mode == "ac":
                     self._g(A, i, j, 1.0 / (s * e.value))
                 elif mode == "dc":
                     k = bidx[e.name]
                     self._branch(A, z, i, j, k, 0.0)
+                elif method == "trap":
+                    k = bidx[e.name]
+                    iprev = (state_i or {}).get(e.name, 0.0)
+                    vprev = (state_vl or {}).get(e.name, 0.0)
+                    self._branch(A, z, i, j, k, -(2.0 * e.value / dt) * iprev - vprev)
+                    A[k, k] -= 2.0 * e.value / dt
                 else:
                     k = bidx[e.name]
                     iprev = (state_i or {}).get(e.name, 0.0)
@@ -310,6 +324,11 @@ class Circuit:
     def _node_v(v: dict[str, float], name: str) -> float:
         return 0.0 if name in ("0", "gnd", "GND") else v[name]
 
+    @staticmethod
+    def _limit(new: float, old: float, step: float = 0.2) -> float:
+        """Damped Newton update for junction voltages (pnjlim-style)."""
+        return old + max(-step, min(step, new - old))
+
     def solve_dc(self):
         diodes = [e for e in self.nl.elements if e.kind == "D"]
         bjts = [e for e in self.nl.elements if e.kind == "Q"]
@@ -323,11 +342,17 @@ class Circuit:
             A, z = self._assemble("dc", vd=vd, vb=vb, vm=vm)
             x = self._solve(A, z)
             v = {n: float(x[self.index[n]]) for n in self.nodes}
-            nvd = {e.name: self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[1]) for e in diodes}
-            nvb = {e.name: (self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]),
-                            self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[0])) for e in bjts}
-            nvm = {e.name: (self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]),
-                            self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[2])) for e in moss}
+            nvd = {e.name: self._limit(
+                self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[1]), vd[e.name]
+            ) for e in diodes}
+            nvb = {e.name: (
+                self._limit(self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]), vb[e.name][0]),
+                self._limit(self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[0]), vb[e.name][1]),
+            ) for e in bjts}
+            nvm = {e.name: (
+                self._limit(self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]), vm[e.name][0]),
+                self._limit(self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[2]), vm[e.name][1]),
+            ) for e in moss}
             delta = max(
                 [abs(nvd[k] - vd[k]) for k in vd]
                 + [abs(nvb[k][0] - vb[k][0]) for k in vb]
@@ -345,7 +370,7 @@ class Circuit:
         i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
         return v, i
 
-    def solve_tran(self, tstop: float, dt: float):
+    def solve_tran(self, tstop: float, dt: float, method: str = "be"):
         steps = int(round(tstop / dt))
         state_v = {n: 0.0 for n in self.nodes}
         branches = self._branches("tran")
@@ -353,24 +378,38 @@ class Circuit:
         diodes = [e for e in self.nl.elements if e.kind == "D"]
         bjts = [e for e in self.nl.elements if e.kind == "Q"]
         moss = [e for e in self.nl.elements if e.kind == "M"]
+        caps = [e for e in self.nl.elements if e.kind == "C"] if method == "trap" else []
+        inds = [e for e in self.nl.elements if e.kind == "L"] if method == "trap" else []
+        state_ic = {e.name: 0.0 for e in caps}
+        state_vl = {e.name: 0.0 for e in inds}
         state_vd = {e.name: 0.0 for e in diodes}
         state_vb = {e.name: (0.0, 0.0) for e in bjts}
         state_vm = {e.name: (0.0, 0.0) for e in moss}
         times = [0.0]
         hist = [dict(state_v)]
-        for _ in range(steps):
+        for step in range(steps):
+            step_method = "be" if (method == "trap" and step == 0) else method
+            prev_v = dict(state_v)
             vd = dict(state_vd)
             vb = dict(state_vb)
             vm = dict(state_vm)
             for _ in range(100):
-                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt, vd=vd, vb=vb, vm=vm)
+                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt,
+                                      vd=vd, vb=vb, vm=vm, method=step_method,
+                                      state_ic=state_ic, state_vl=state_vl)
                 x = self._solve(A, z)
                 new_v = {n: float(x[self.index[n]]) for n in self.nodes}
-                nvd = {e.name: self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]) for e in diodes}
-                nvb = {e.name: (self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]),
-                                self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[0])) for e in bjts}
-                nvm = {e.name: (self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]),
-                                self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[2])) for e in moss}
+                nvd = {e.name: self._limit(
+                    self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]), vd[e.name]
+                ) for e in diodes}
+                nvb = {e.name: (
+                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vb[e.name][0]),
+                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[0]), vb[e.name][1]),
+                ) for e in bjts}
+                nvm = {e.name: (
+                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vm[e.name][0]),
+                    self._limit(self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[2]), vm[e.name][1]),
+                ) for e in moss}
                 delta = max(
                     [abs(nvd[k] - vd[k]) for k in vd]
                     + [abs(nvb[k][0] - vb[k][0]) for k in vb]
@@ -385,10 +424,30 @@ class Circuit:
             else:
                 raise RuntimeError("transient Newton did not converge")
             state_v = new_v
-            state_vd = nvd
-            state_vb = nvb
-            state_vm = nvm
+            state_vd, state_vb, state_vm = nvd, nvb, nvm
             state_i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
+            if method == "trap":
+                if step == 0:
+                    # first step uses BE; derive the initial capacitor current from it
+                    state_ic = {
+                        e.name: (e.value / dt) * (
+                            self._node_v(state_v, e.nodes[0]) - self._node_v(state_v, e.nodes[1])
+                            - (self._node_v(prev_v, e.nodes[0]) - self._node_v(prev_v, e.nodes[1]))
+                        )
+                        for e in caps
+                    }
+                else:
+                    state_ic = {
+                        e.name: (2.0 * e.value / dt) * (
+                            self._node_v(state_v, e.nodes[0]) - self._node_v(state_v, e.nodes[1])
+                            - (self._node_v(prev_v, e.nodes[0]) - self._node_v(prev_v, e.nodes[1]))
+                        ) - state_ic[e.name]
+                        for e in caps
+                    }
+                state_vl = {
+                    e.name: self._node_v(state_v, e.nodes[0]) - self._node_v(state_v, e.nodes[1])
+                    for e in inds
+                }
             times.append(times[-1] + dt)
             hist.append(dict(state_v))
         return times, hist, state_i
@@ -424,7 +483,13 @@ def main() -> int:
     tau = 1e-3
     err = max(abs(hist[k]["out"] - 5 * (1 - math.exp(-t / tau)))
               for k, t in enumerate(times) if t > 0)
-    check("RC transient", err < 0.02, f"maxerr={err:.4f}")
+    check("RC transient (BE)", err < 0.02, f"maxerr={err:.4f}")
+
+    # 3b) RC transient, trapezoidal (second order)
+    times, hist, _ = c.solve_tran(5e-3, 1e-5, method="trap")
+    err = max(abs(hist[k]["out"] - 5 * (1 - math.exp(-t / tau)))
+              for k, t in enumerate(times) if t > 0)
+    check("RC transient (trap)", err < 1e-3, f"maxerr={err:.2e}")
 
     # 4) RL transient: i_L = 5/1k * (1-exp(-t/tau)), tau = L/R = 1us
     c = Circuit(parse("V1 in 0 5\nR1 in out 1k\nL1 out 0 1m\n"))

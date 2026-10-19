@@ -52,3 +52,22 @@ npx tsx src/cli/index.ts tsc-export "circuit.TSC" -o out --analysis ".op"
 # 与 TINA oracle 做拓扑差分（开发期）
 npx tsx tests/probes/tsc-diff.ts out/circuit.cir oracle/circuit.cir
 ```
+
+## 5. 仿真级验证（2026-10-19，ngspice-47+）
+
+`Precise Active Voltage Divider` 样例：
+
+| 网表 | ngspice `v(vout)` |
+|---|---|
+| 纯静态 `tsc-export --analysis .op` | **1.024004 V** |
+| TINA oracle（固定版 `tina_run` 导出） | **1.024004 V** |
+
+逐位一致；`XU1` 引脚映射也一致（静态 `n2 Vout n1…` ↔ oracle `1 Vout 3…`）。
+
+附带发现：
+
+- oracle 依赖 `.LIB`（TSPICE.LIB / Operational Amplifiers.LIB），ngspice 读不了；
+  静态导出把 `A3_132E` 内联进网表，反而更自包含——model-resolver 方向正确；
+- oracle 导出必须用带启动警告/AC 对话框修复的 `tina_run.py`；`feat/tsc-static`
+  分支里的旧版会直接失败（exit 2），需要 cherry-pick `8f21ec3`。
+
