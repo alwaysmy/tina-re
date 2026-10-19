@@ -461,6 +461,13 @@ class Circuit:
             out.append((f, {n: complex(x[self.index[n]]) for n in self.nodes}))
         return out
 
+    def ac_sweep(self, fmin: float, fmax: float, ppd: int = 10):
+        """Log sweep, `ppd` points per decade (inclusive endpoints)."""
+        decades = math.log10(fmax / fmin)
+        n = max(2, int(round(ppd * decades)) + 1)
+        freqs = [fmin * (fmax / fmin) ** (i / (n - 1)) for i in range(n)]
+        return self.solve_ac(freqs)
+
 
 def check(name: str, ok: bool, detail: str = "") -> None:
     print(("PASS " if ok else "FAIL ") + name + (f"  [{detail}]" if detail and not ok else ""))
@@ -510,6 +517,19 @@ def main() -> int:
     (_, vac), = c.solve_ac([fc])
     mag = abs(vac["out"])
     check("AC RC low-pass", abs(mag - 1 / math.sqrt(2)) < 1e-6, f"|H|={mag:.6f}")
+
+    # 6b) AC sweep: compare |H| and phase against the analytic RC response
+    sweep = c.ac_sweep(1.0, 1e6, ppd=5)
+    worst_mag = 0.0
+    worst_phase = 0.0
+    for f, nodes in sweep:
+        h = nodes["out"]
+        ana_mag = 1 / math.sqrt(1 + (f / fc) ** 2)
+        ana_phase = -math.atan(f / fc)
+        worst_mag = max(worst_mag, abs(abs(h) - ana_mag))
+        worst_phase = max(worst_phase, abs(cmath.phase(h) - ana_phase))
+    check("AC sweep vs analytic", worst_mag < 1e-9 and worst_phase < 1e-9,
+          f"dmag={worst_mag:.2e} dphase={worst_phase:.2e}")
 
     # 7) robustness: zero-diagonal system (TINA's no-pivot path would return 102)
     from scipy.sparse import csc_matrix

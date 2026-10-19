@@ -62,7 +62,15 @@ npx tsx tests/probes/tsc-diff.ts out/circuit.cir oracle/circuit.cir
 | 纯静态 `tsc-export --analysis .op` | **1.024004 V** |
 | TINA oracle（固定版 `tina_run` 导出） | **1.024004 V** |
 
-逐位一致；`XU1` 引脚映射也一致（静态 `n2 Vout n1…` ↔ oracle `1 Vout 3…`）。
+`All-Pass Filter 455kHz` 样例：
+
+| 网表 | ngspice `v(vout)` |
+|---|---|
+| 纯静态 `tsc-export --analysis .op` | **2.501503 V** |
+| TINA oracle | **2.501503 V** |
+
+两个样例均逐位一致；`XU1` 引脚映射也一致（Divider：`n2 Vout n1…` ↔ `1 Vout 3…`；
+All-Pass：`Vout 0 n4 n2 n1 n1` ↔ `Vout 0 2 3 4 4`）。
 
 附带发现：
 

@@ -31,7 +31,7 @@
   Q（BJT，Ebers-Moll）/ M（MOS Level 1）；理想运放 = 高增益 VCVS；
 - 分析：DC 工作点（含 Newton 非线性）、后向欧拉瞬态、AC 小信号；
 - 求解：SuperLU（COLAMD + 默认部分选主元），每次求解做残差检查，奇异矩阵给出明确错误；
-- 自测（12 项全 PASS）：
+- 自测（13 项全 PASS）：
 
 ```
 PASS DC divider
@@ -41,6 +41,7 @@ PASS RC transient (trap)        ← 梯形积分，误差 2.46e-4（BE 9.16e-3�
 PASS RL transient
 PASS inverting op-amp
 PASS AC RC low-pass
+PASS AC sweep vs analytic       ← 对数扫频，幅值/相位与解析式一致
 PASS zero-diagonal robustness   ← TINA 的不选主元路径会在此返回 102
 PASS diode DC vs reference      ← Newton-Raphson + brentq 对拍
 PASS BJT bias Vbe / Vc          ← Ebers-Moll 共射偏置
