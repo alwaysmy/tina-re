@@ -15,26 +15,40 @@
 All-Pass 的 37 条“器件行”是 **INA121 宏内部**的器件（`CIN/C4/CC1/CC2/R1/R2/I1…`），
 不是顶层电路；三个样本都**没有** `.ac/.tran/.op` 分析卡。
 
-## 2. 结论
+## 2. 结论（2026-10-19 修订）
 
-- `.tsc` 的文本记录只包含：注释、符号标签、宏模型内部网表；
-- **顶层器件连接与分析设置不在文本记录里**（应在二进制记录中）；
-- 因此“纯静态 `.tsc → 完整网表”当前不可行，与 `sim-api-design.md §2.3` 的结论一致。
+- `.tsc` 的**文本记录**只包含：注释、符号标签、宏模型内部网表；顶层器件连接与分析设置
+  **不在文本记录里**（在二进制记录中）。
+- 但二进制记录**可以被解码**：`feat/tsc-static` 线程已经实现了组件/导线/引脚记录解析，
+  并对 `Precise Active Voltage Divider`、`All-Pass Filter` 达到**拓扑 MATCH**（对照 TINA 导出）。
+- 因此正确结论是：**纯静态 `.tsc → 网表是可行的，但当前只覆盖子集，仍是 beta**；
+  不是“不可行”。本文档早先的“不可行”结论已作废。
+
+当前边界（以 `SpiceHappy/docs/tsc-static-design.md` 为准）：
+
+- 器件覆盖：V/R/C/L/D/子电路/地/标签；BJT/MOS/受控源/数字未做；
+- 2 引脚器件的引脚方向目前靠几何打分（启发式），需要符号引脚表替代；
+- 分析卡尚未从二进制属性解码，需外部 `--analysis`；
+- 模型依赖（如 INA132E → A3_132E）需要库内联，正在补；
+- oracle 抽样 15 个：4 MATCH / 10 DIFF / 1 失败。
 
 ## 3. 选项
 
-| 方案 | 成本 | 风险 |
-|---|---|---|
-| A. 解码 OBSS 二进制原理图记录 | 高（格式未知，需大量样本逆向） | 高（可能依赖 TINA 内部对象模型） |
-| B. 要求先导出网表（TINA GUI 一次） | 低 | 产品运行时不依赖 GUI，但准备阶段需要一次导出 |
-| C. v1 只接受网表/用户提供电路 | 零 | 无法直接吃 `.tsc` |
+| 方案 | 状态 |
+|---|---|
+| A. 解码 OBSS 二进制原理图记录 | ✅ **已落地原型**（`feat/tsc-static`），覆盖子集，beta |
+| B. 先导出网表（TINA GUI 一次） | ✅ 保底方案；未覆盖的 `.tsc` 仍走这里 |
+| C. v1 只接受网表/用户提供电路 | ✅ 兜底；不是唯一选项了 |
 
-**建议**：v1 走 B/C；把 A 作为独立研究项，不在主线上等待。
-`sim` 的产品链路仍然无 GUI；`.tsc` 只是“输入准备”阶段的一次性动作。
+**建议**：把 A 作为主路线继续完善（符号表、分析解码、模型内联、回归门禁），
+B/C 作为未覆盖文件的明确回退；任何不确定都 fail-closed，不静默生成错网表。
 
 ## 4. 复现
 
 ```powershell
-python $env:TEMP\tina_probe\tsc_scan.py "C:\...\EXAMPLES\Filters_Others\2nd Order All-Pass Filter.TSC"
+# 纯静态导出（不需要 TINA）
+npx tsx src/cli/index.ts tsc-export "circuit.TSC" -o out --analysis ".op"
+
+# 与 TINA oracle 做拓扑差分（开发期）
+npx tsx tests/probes/tsc-diff.ts out/circuit.cir oracle/circuit.cir
 ```
-（脚本为临时探针；核心逻辑就是 `tsm_parse.extract_records` + 正则分类。）

@@ -24,7 +24,7 @@ TINA-RE/
 │   ├── tsm-format.md         ← ★ TSM 容器格式与解析工具
 │   ├── engine-reimplementation.md ← ★ C 路线：自研 MNA/求解器（不再调 DLL）
 │   ├── sparse-dll-algorithms.md   ← ★ sparse_dll 算法逆向（LU/排序/容差/坑点）
-│   ├── tsc-static-extraction.md   ← ★ .tsc 静态提取可行性 spike（结论：文本不含顶层网表）
+│   ├── tsc-static-extraction.md   ← ★ .tsc 静态提取（文本不含顶层网表；二进制记录可解码，beta）
 │   └── legacy-first-pass.md  ← 2026-10-16 首轮快照（已被 findings.md 覆盖）
 ├── out/                      ← Ghidra headless 原始输出（证据）
 │   ├── gap_decompile_output.txt   (round 1: TEA 加解密/分发器）
