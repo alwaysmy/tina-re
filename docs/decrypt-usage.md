@@ -108,6 +108,12 @@ python tests/verify_decrypt.py
 # 统一入口：自动识别 TINA / PSpice / LTspice 格式
 npx tsx src/cli/index.ts decrypt "C:\...\TPS40140.LIB" -o "D:\Models\TPS40140.lib"
 
-# TINA 专用批量（静态优先，Frida 仅兜底）
+# TINA 专用：按型号（在 SPICELIB 里找）
+npx tsx src/cli/index.ts tina-decrypt TPS40140 -o "D:\Models\decrypted"
+
+# TINA 专用：直接给 .lib 路径（不需要 TINA 安装）
+npx tsx src/cli/index.ts tina-decrypt "C:\...\LM4755.LIB" -o "D:\Models\decrypted"
+
+# 批量：一次 Python 调用处理整个 SPICELIB（约 6 秒）
 npx tsx src/cli/index.ts tina-decrypt all -o "D:\Models\decrypted"
 ```
