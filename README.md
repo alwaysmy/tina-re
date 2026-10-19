@@ -22,6 +22,7 @@ TINA-RE/
 │   ├── findings.md           ← 汇总发现（当前主文档）
 │   ├── decrypt-usage.md      ← ★ 解密工具使用说明（新模型怎么解）
 │   ├── tsm-format.md         ← ★ TSM 容器格式与解析工具
+│   ├── engine-reimplementation.md ← ★ C 路线：自研 MNA/求解器（不再调 DLL）
 │   └── legacy-first-pass.md  ← 2026-10-16 首轮快照（已被 findings.md 覆盖）
 ├── out/                      ← Ghidra headless 原始输出（证据）
 │   ├── gap_decompile_output.txt   (round 1: TEA 加解密/分发器）

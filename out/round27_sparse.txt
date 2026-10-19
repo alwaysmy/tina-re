@@ -1,0 +1,487 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (687 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1863 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessProject)  
+INFO  REPORT: Processing project file: /sparse_dll.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round27.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round27.java (HeadlessAnalyzer)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> [newMatrix core] FUN_00402360 @00402360 body=770 (GhidraScript)  
+INFO  Round27.java> 
+undefined4 * __cdecl FUN_00402360(int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  undefined4 *puVar1;
+  undefined1 *puVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  
+  *param_3 = 0;
+  if (param_1 < 0) {
+    *param_3 = 0x65;
+  }
+  else {
+    iVar5 = param_1;
+    if (param_1 < 7) {
+      iVar5 = 6;
+    }
+    iVar4 = iVar5 + 1;
+    puVar1 = (undefined4 *)FUN_00407ae8(0xe8);
+    if (puVar1 == (undefined4 *)0x0) {
+      *param_3 = 8;
+    }
+    else {
+      puVar1[0x12] = 0x772773;
+      puVar1[4] = param_2;
+      puVar1[0x21] = param_2;
+      puVar1[0xe] = 0;
+      puVar1[9] = 0;
+      puVar1[10] = *param_3;
+      puVar1[0xf] = 0;
+      puVar1[0x24] = 0;
+      puVar1[0x1b] = 1;
+      puVar1[0x1c] = 0;
+      puVar1[0x1d] = 0;
+      puVar1[0x25] = 0;
+      puVar1[0x14] = 0;
+      puVar1[0x26] = 0;
+      puVar1[0x27] = 0;
+      puVar1[0x29] = param_1;
+      puVar1[2] = iVar5;
+      puVar1[0xb] = param_1;
+      puVar1[3] = iVar5;
+      puVar1[5] = 0;
+      puVar1[0xc] = 0;
+      puVar1[0xd] = 0;
+      puVar1[0x15] = 0;
+      puVar1[0x16] = 0;
+      puVar1[0x17] = 0;
+      puVar1[0x18] = 0;
+      puVar1[0x19] = 0;
+      puVar1[7] = 0;
+      puVar1[8] = 0;
+      puVar1[0x13] = 0;
+      puVar1[0x22] = 0xd2f1a9fc;
+      puVar1[0x23] = 0x3f50624d;
+      *puVar1 = 0;
+      puVar1[1] = 0;
+      puVar1[0x32] = 0;
+      puVar1[0x33] = 0;
+      puVar1[0x35] = 0;
+      puVar1[0x37] = 0;
+      FUN_0040279c((int)puVar1,puVar1);
+      if (puVar1[10] != 8) {
+        puVar1[0x2a] = 0;
+        puVar1[0x2b] = 0;
+        puVar1[0x2c] = 0;
+        puVar1[0x2d] = 0;
+        puVar1[0x2e] = 0;
+        puVar1[0x2f] = 0;
+        puVar1[0x30] = 0;
+        puVar1[0x31] = 0;
+        puVar2 = FUN_00407ae8(iVar4 * 4);
+        puVar1[6] = puVar2;
+        iVar3 = iVar5;
+        if (puVar2 != (undefined1 *)0x0) {
+          for (; -1 < iVar3; iVar3 = iVar3 + -1) {
+            *(undefined4 *)(puVar1[6] + iVar3 * 4) = 0;
+          }
+        }
+        if (puVar1[6] != 0) {
+          puVar2 = FUN_00407ae8(iVar4 * 4);
+          puVar1[0x10] = puVar2;
+          iVar3 = iVar5;
+          if (puVar2 != (undefined1 *)0x0) {
+            for (; -1 < iVar3; iVar3 = iVar3 + -1) {
+              *(undefined4 *)(puVar1[0x10] + iVar3 * 4) = 0;
+            }
+          }
+          if (puVar1[0x10] != 0) {
+            puVar2 = FUN_00407ae8(iVar4 * 4);
+            puVar1[0x11] = puVar2;
+            iVar3 = iVar5;
+            if (puVar2 != (undefined1 *)0x0) {
+              for (; -1 < iVar3; iVar3 = iVar3 + -1) {
+                *(undefined4 *)(puVar1[0x11] + iVar3 * 4) = 0;
+              }
+            }
+            if (puVar1[0x11] != 0) {
+              puVar2 = FUN_00407ae8(iVar4 * 4);
+              puVar1[0x15] = puVar2;
+              if (puVar2 != (undefined1 *)0x0) {
+                puVar2 = FUN_00407ae8(iVar4 * 4);
+                puVar1[0x16] = puVar2;
+                if (puVar2 != (undefined1 *)0x0) {
+                  iVar3 = 1;
+                  if (0 < iVar5) {
+                    do {
+                      *(int *)(puVar1[0x16] + iVar3 * 4) = iVar3;
+                      *(int *)(puVar1[0x15] + iVar3 * 4) = iVar3;
+                      iVar3 = iVar3 + 1;
+                    } while (iVar3 <= iVar5);
+                  }
+                  puVar2 = FUN_00407ae8(iVar4 * 4);
+                  puVar1[0xc] = puVar2;
+                  if (puVar2 != (undefined1 *)0x0) {
+                    puVar2 = FUN_00407ae8(iVar4 * 4);
+                    puVar1[0xd] = puVar2;
+                    if (puVar2 != (undefined1 *)0x0) {
+                      iVar4 = 1;
+                      if (0 < iVar5) {
+                        do {
+                          *(undefined4 *)(puVar1[0xc] + iVar4 * 4) = 0xffffffff;
+                          *(undefined4 *)(puVar1[0xd] + iVar4 * 4) = 0xffffffff;
+                          iVar4 = iVar4 + 1;
+                        } while (iVar4 <= iVar5);
+                      }
+                      *(undefined4 *)puVar1[0xc] = 0;
+                      *(undefined4 *)puVar1[0xd] = 0;
+                      FUN_004026c0((int)puVar1,iVar5 * 6,iVar5 << 2);
+                      if (puVar1[10] != 8) {
+                        return puVar1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      *param_3 = 8;
+      FUN_0040284
+... (truncated) (GhidraScript)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> [makeElt core] FUN_00402e04 @00402e04 body=203 (GhidraScript)  
+INFO  Round27.java> 
+undefined4 * __cdecl FUN_00402e04(int param_1,int param_2,int param_3)
+
+{
+  undefined4 *puVar1;
+  
+  if ((((param_1 != 0) && (*(int *)(param_1 + 0x48) == 0x772773)) && (-1 < param_2)) &&
+     (-1 < param_3)) {
+    if ((param_2 != 0) && (param_3 != 0)) {
+      FUN_00402f18(param_1,&param_2,&param_3);
+      if (*(int *)(param_1 + 0x28) == 8) {
+        return (undefined4 *)0x0;
+      }
+      if ((param_2 != param_3) ||
+         (puVar1 = *(undefined4 **)(*(int *)(param_1 + 0x18) + param_2 * 4),
+         puVar1 == (undefined4 *)0x0)) {
+        puVar1 = FUN_00402ed0(param_1,(int *)(param_3 * 4 + *(int *)(param_1 + 0x40)),param_2,
+                              param_3,1);
+      }
+      return puVar1;
+    }
+    return (undefined4 *)(param_1 + 0xa8);
+  }
+  _fflush((FILE *)(__streams_exref + 0x18));
+  _fprintf((FILE *)(__streams_exref + 0x30),s_sparse__panic_in_file___s__at_li_00409721,
+           s_C__DesignSoft_spice_SRC_LIB_SPAR_00409749,0xde);
+  _fflush((FILE *)(__streams_exref + 0x30));
+                    /* WARNING: Subroutine does not return */
+  _abort();
+}
+
+ (GhidraScript)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> [clear core] FUN_00402cc4 @00402cc4 body=317 (GhidraScript)  
+INFO  Round27.java> 
+void __cdecl FUN_00402cc4(int param_1,undefined *param_2)
+
+{
+  int iVar1;
+  undefined4 *puVar2;
+  
+  if ((param_1 != 0) && (*(int *)(param_1 + 0x48) == 0x772773)) {
+    if ((*(int *)(param_1 + 0x84) == 0) && (*(int *)(param_1 + 0x10) == 0)) {
+      if (param_2 != (undefined *)0xffffffff) {
+        for (iVar1 = *(int *)(param_1 + 0xa4); 0 < iVar1; iVar1 = iVar1 + -1) {
+          for (puVar2 = *(undefined4 **)(*(int *)(param_1 + 0x40) + iVar1 * 4);
+              puVar2 != (undefined4 *)0x0; puVar2 = (undefined4 *)puVar2[7]) {
+            *puVar2 = 0;
+            puVar2[1] = 0;
+            if (param_2 != (undefined *)0x0) {
+              (*(code *)param_2)();
+            }
+          }
+        }
+      }
+    }
+    else {
+      for (iVar1 = *(int *)(param_1 + 0xa4); 0 < iVar1; iVar1 = iVar1 + -1) {
+        for (puVar2 = *(undefined4 **)(*(int *)(param_1 + 0x40) + iVar1 * 4);
+            puVar2 != (undefined4 *)0x0; puVar2 = (undefined4 *)puVar2[7]) {
+          *puVar2 = 0;
+          puVar2[1] = 0;
+          if (param_2 != (undefined *)0x0) {
+            (*(code *)param_2)();
+          }
+          puVar2[2] = 0;
+          puVar2[3] = 0;
+        }
+      }
+    }
+    *(undefined4 *)(param_1 + 0xa8) = 0;
+    *(undefined4 *)(param_1 + 0xac) = 0;
+    *(undefined4 *)(param_1 + 0xb0) = 0;
+    *(undefined4 *)(param_1 + 0xb4) = 0;
+    *(undefined4 *)(param_1 + 0x28) = 0;
+    *(undefined4 *)(param_1 + 0x38) = 0;
+    *(undefined4 *)(param_1 + 0x98) = 0;
+    *(undefined4 *)(param_1 + 0x9c) = 0;
+    *(undefined4 *)(param_1 + 0x84) = *(undefined4 *)(param_1 + 0x10);
+    return;
+  }
+  _fflush((FILE *)(__streams_exref + 0x18));
+  _fprintf((FILE *)(__streams_exref + 0x30),s_sparse__panic_in_file___s__at_li_004096cc,
+           s_C__DesignSoft_spice_SRC_LIB_SPAR_004096f4,0x7a);
+  _fflush((FILE *)(__streams_exref + 0x30));
+                    /* WARNING: Subroutine does not return */
+  _abort();
+}
+
+ (GhidraScript)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> [solve core] FUN_00407150 @00407150 body=887 (GhidraScript)  
+INFO  Round27.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __cdecl
+FUN_00407150(int param_1,int param_2,int param_3,int param_4,int param_5,undefined *param_6)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  double *pdVar3;
+  int iVar4;
+  double *pdVar5;
+  double *pdVar6;
+  double dVar7;
+  int *piVar8;
+  double *local_20;
+  int local_14;
+  undefined4 local_10;
+  undefined4 uStack_c;
+  
+  if (((((param_1 != 0) && (*(int *)(param_1 + 0x48) == 0x772773)) &&
+       (-1 < *(int *)(param_1 + 0x28))) &&
+      ((*(int *)(param_1 + 0x28) < 0x65 && (*(int *)(param_1 + 0x38) != 0)))) &&
+     (*(int *)(param_1 + 0x6c) == 0)) {
+    if (*(int *)(param_1 + 0x10) == 0) {
+      if (param_6 != (undefined *)0xffffffff) {
+        pdVar3 = *(double **)(param_1 + 0x4c);
+        iVar4 = *(int *)(param_1 + 0xa4);
+        piVar8 = (int *)(*(int *)(param_1 + 0x58) + iVar4 * 4);
+        pdVar5 = pdVar3 + iVar4;
+        for (iVar2 = iVar4; 0 < iVar2; iVar2 = iVar2 + -1) {
+          puVar1 = (undefined4 *)(param_2 + *piVar8 * 8);
+          *(undefined4 *)pdVar5 = *puVar1;
+          *(undefined4 *)((int)pdVar5 + 4) = puVar1[1];
+          if (param_6 != (undefined *)0x0) {
+            (*(code *)param_6)();
+            (*(code *)param_6)();
+          }
+          piVar8 = piVar8 + -1;
+          pdVar5 = pdVar5 + -1;
+        }
+        local_14 = 1;
+        local_20 = pdVar3;
+        if (0 < iVar4) {
+          do {
+            local_20 = local_20 + 1;
+            if ((*local_20 != (double)_DAT_004074c8) || (param_6 != (undefined *)0x0)) {
+              pdVar5 = *(double **)(*(int *)(param_1 + 0x18) + local_14 * 4);
+              dVar7 = *pdVar5 * *local_20;
+              *local_20 = dVar7;
+              if (param_6 != (undefined *)0x0) {
+                (*(code *)param_6)();
+                (*(code *)param_6)();
+                (*(code *)param_6)();
+                (*(code *)param_6)();
+                (*(code *)param_6)();
+              }
+              for (pdVar5 = *(double **)((int)pdVar5 + 0x1c); pdVar5 != (double *)0x0;
+                  pdVar5 = *(double **)((int)pdVar5 + 0x1c)) {
+                pdVar3[*(int *)(pdVar5 + 2)] = pdVar3[*(int *)(pdVar5 + 2)] - dVar7 * *pdVar5;
+                if (param_6 != (undefined *)0x0) {
+                  (*(code *)param_6)();
+                  (*(code *)param_6)();
+                  (*(code *)param_6)();
+                  (*(code *)param_6)();
+                }
+              }
+              if (param_6 != (undefined *)0x0) {
+                (*(code *)param_6)();
+                (*(code *)param_6)();
+              }
+            }
+            local_14 = local_14 + 1;
+          } while (local_14 <= iVar4);
+        }
+        pdVar5 = pdVar3 + iVar4;
+        for (iVar2 = iVar4; 0 < iVar2; iVar2 = iVar2 + -1) {
+          dVar7 = *pdVar5;
+          if (param_6 != (undefined *)0x0) {
+            (*(code *)param_6)();
+          }
+          for (pdVar6 = *(double **)(*(int *)(*(int *)(param_1 + 0x18) + iVar2 * 4) + 0x18);
+              pdVar6 != (double *)0x0; pdVar6 = *(double **)(pdVar6 + 3)) {
+            dVar7 = dVar7 - *pdVar6 * pdVar3[*(int *)((int)pdVar6 + 0x14)];
+            if (param_6 != (undefined *)0x0) {
+              (*(code *)param_6)();
+              (*(code *)param_6)();
+              (*(code *)param_6)();
+            }
+          }
+          local_10 = SUB84(dVar7,0);
+          *(undefined4 *)pdVar5 = local_10;
+          uStack_c = (undefined4)((ulonglong)dVar7 >> 0x20);
+          *(undefined4 *)((int)pdVar5 + 4) = uStack_c;
+          if (param_6 != (undefined *)0x0) {
+            (*(code *)param_6)();
+          }
+          pdVar5 = pdVar5 + -1;
+        }
+        piVar8 = (int *)(*(int *)(param_1 + 0x54) + iVar4 * 4);
+        pdVar3 = pdVar3 + iVar4;
+        for (; 0 < iVar4; iVar4 = iVar4 + -1) {
+          puVar1 = (undefined4 *)(param_3 + *piVar8 * 8);
+          *puVar1 = *(undefined4 *)pdVar3;
+          puVar1[1] = *(undefined4 *)((int)pdVar3 + 4);
+          if (param_6 != (undefined *)0x0) {
+            (*(code *)param_6)();
+            (*(code *)param_6)();
+          }
+          piVar8 = piVar8 + -1;
+          pdVar3 = pdVar3 + -1;
+        }
+      }
+    }
+    else {
+      FUN_004074cc(param_1,param_2,param_3,param_4,param_5);
+    }
+    return;
+  }
+  _fflush((FILE *)(__streams_exref + 0x18));
+  _fprintf((FILE *)(__streams_exref + 0x30),s_sparse__panic_in_file___s__at_li_00409f24,
+           s_C__DesignSoft_spice_SRC_LIB_SPAR_00409f4c,0xaa);
+  _fflush((FILE *)(__streams_exref + 0x30));
+                    /* WARNING: Subroutine does not return */
+  _abort();
+}
+
+ (GhidraScript)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> [destroy core] FUN_0040284c @0040284c body=394 (GhidraScript)  
+INFO  Round27.java> 
+void __cdecl FUN_0040284c(int param_1)
+
+{
+  undefined4 *puVar1;
+  undefined4 *puVar2;
+  
+  if ((param_1 != 0) && (*(int *)(param_1 + 0x48) == 0x772773)) {
+    if (*(void **)(param_1 + 0x54) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x54));
+    }
+    *(undefined4 *)(param_1 + 0x54) = 0;
+    if (*(void **)(param_1 + 0x58) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x58));
+    }
+    *(undefined4 *)(param_1 + 0x58) = 0;
+    if (*(void **)(param_1 + 0x30) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x30));
+    }
+    *(undefined4 *)(param_1 + 0x30) = 0;
+    if (*(void **)(param_1 + 0x34) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x34));
+    }
+    *(undefined4 *)(param_1 + 0x34) = 0;
+    if (*(void **)(param_1 + 0x18) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x18));
+    }
+    *(undefined4 *)(param_1 + 0x18) = 0;
+    if (*(void **)(param_1 + 0x44) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x44));
+    }
+    *(undefined4 *)(param_1 + 0x44) = 0;
+    if (*(void **)(param_1 + 0x40) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x40));
+    }
+    *(undefined4 *)(param_1 + 0x40) = 0;
+    if (*(void **)(param_1 + 0x5c) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x5c));
+    }
+    *(undefined4 *)(param_1 + 0x5c) = 0;
+    if (*(void **)(param_1 + 0x60) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x60));
+    }
+    *(undefined4 *)(param_1 + 0x60) = 0;
+    if (*(void **)(param_1 + 100) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 100));
+    }
+    *(undefined4 *)(param_1 + 100) = 0;
+    if (*(void **)(param_1 + 0x1c) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x1c));
+    }
+    *(undefined4 *)(param_1 + 0x1c) = 0;
+    if (*(void **)(param_1 + 0x20) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x20));
+    }
+    *(undefined4 *)(param_1 + 0x20) = 0;
+    if (*(void **)(param_1 + 0x4c) != (void *)0x0) {
+      FUN_00407b98(*(void **)(param_1 + 0x4c));
+    }
+    *(undefined4 *)(param_1 + 0x4c) = 0;
+    puVar1 = *(undefined4 **)(param_1 + 200);
+    while (puVar2 = puVar1, puVar2 != (undefined4 *)0x0) {
+      puVar1 = (undefined4 *)puVar2[1];
+      if (puVar2 == (undefined4 *)*puVar2) {
+        if (puVar2 != (undefined4 *)0x0) {
+          FUN_00407b98(puVar2);
+        }
+      }
+      else {
+        if ((void *)*puVar2 != (void *)0x0) {
+          F
+... (truncated) (GhidraScript)  
+INFO  Round27.java>  (GhidraScript)  
+INFO  Round27.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /sparse_dll.dll (HeadlessAnalyzer)  

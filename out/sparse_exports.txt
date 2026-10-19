@@ -1,0 +1,281 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (686 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1847 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessAnalyzer)  
+INFO  Creating project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:32:default:borlandcpp (ProgramLoader)  
+INFO  Using Library Search Path: [., C:\Windows\SysWOW64, D:\MyPrograms\jdk-21.0.12.1\bin, C:\Windows\Sun\Java\bin, C:\Windows\system32, C:\Windows, C:\Program Files\PowerShell\7, C:\Program Files (x86)\Microsoft\Edge Beta\Application, C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\x64, C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\dotnet\, C:\Program Files\Git\cmd, C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\, C:\Program Files\NVIDIA Corporation\Nsight Compute 2026.2.1\, C:\Program Files\GitHub CLI\, C:\Program Files (x86)\IVI Foundation\IVI\bin, C:\Program Files\IVI Foundation\IVI\bin, C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\, C:\Program Files\IVI Foundation\VISA\Win64\Bin\, C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin, C:\Program Files\Tailscale\, C:\Program Files\Go\bin, C:\Program Files (x86)\ZeroTier\One\, C:\Program Files\PowerShell\7\, C:\Users\dell\AppData\Local\Nowledge Mem CLI\bin, c:\Users\dell\AppData\Local\Programs\Trae CN\bin, C:\Users\dell\.moon\bin, C:\Users\dell\.cargo\bin, C:\Users\dell\.kimi-code\bin, C:\Program Files\Arm\GNU Toolchain mingw-w64-x86_64-arm-none-eabi\bin, C:\Users\dell\AppData\Local\pi-node\current, C:\Users\dell\AppData\Local\Microsoft\WindowsApps, C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin, C:\iverilog\bin, C:\iverilog\gtkwave\bin, C:\Users\dell\.dotnet\tools, C:\Users\dell\AppData\Local\Microsoft\WinGet\Packages\xpack-dev-tools.openocd-xpack_Microsoft.Winget.Source_8wekyb3d8bbwe\xpack-openocd-0.12.0-7\bin, C:\msys64\ucrt64\bin, C:\msys64\usr\bin, C:\Users\dell\AppData\Local\Python\pythoncore-3.14-64\Scripts, C:\Users\dell\.wps365\bin, C:\msys64\home\dell\.wps365\bin, C:\Program Files\GitHub CLI, C:\Users\dell\AppData\Local\Microsoft\WinGet\Packages\astral-sh.uv_Microsoft.Winget.Source_8wekyb3d8bbwe, C:\Users\dell\AppData\Local\omp, C:\Users\dell\AppData\Local\PowerToys\DSCModules\, C:\Users\dell\go\bin, C:\Users\dell\AppData\Local\Microsoft\WinGet\Packages\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe, C:\Users\dell\AppData\Local\Microsoft\WinGet\Packages\Google.PlatformTools_Microsoft.Winget.Source_8wekyb3d8bbwe\platform-tools, C:\Program Files\LibreOffice\program, C:\Users\dell\AppData\Local\Microsoft\WinGet\Packages\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\poppler-25.07.0\Library\bin, C:\Users\dell\AppData\Local\OfficeCLI, C:\Program Files\lceda-pro, D:\MyPrograms\ghidra_12.1.4_PUBLIC, D:\MyPrograms\ghidra_12.1.4_PUBLIC\support, D:\MyPrograms\1_Tools, C:\Users\dell\AppData\Local\agy\bin, C:\Users\dell\AppData\Local\cursor-agent, C:\Users\dell\.opencode\bin, C:\Users\dell\.bun\bin, C:\Users\dell\.local\bin, C:\Users\dell\AppData\Local\Programs\Cursor\resources\app\bin, C:\Users\dell\AppData\Roaming\npm, C:\Users\dell\AppData\Local\Programs\@openchamberelectron\resources\opencode-cli, C:\Users\dell\AppData\Local\pnpm] (ProgramLoader)  
+INFO  Additional info:
+Loading file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll?MD5=a43422a3e17ba0cda9fb6868d7e9a783...
+------------------------------------------------
+
+Searching 62 paths for library BORLNDMM.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 62 paths for library CC3260MT.DLL...
+Library not found.
+------------------------------------------------
+
+Searching 62 paths for library KERNEL32.DLL...
+Loading file:///C:/Windows/SysWOW64/kernel32.dll?MD5=7180141a89985451fec9e096fc1e64a9...
+Created exports file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\symbols\win32\kernel32.exports
+Library not saved to project.
+------------------------------------------------
+
+Searching 62 paths for library RTL60.BPL...
+Library not found.
+------------------------------------------------
+
+Applying cached symbols from KERNEL32.DLL
+Linking the External Programs of 'sparse_dll.dll' to imported libraries...
+  [RTL60.BPL] -> not found in project
+  [BORLNDMM.DLL] -> not found in project
+  [KERNEL32.DLL] -> not found in project
+  [CC3260MT.DLL] -> not found in project
+------------------------------------------------
+
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll (HeadlessAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___raise_securityfailure' specified in file: D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\data\PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+WARN  Ignoring leading '_' chars on no-return name '___report_rangecheckfailure' specified in file: D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\data\PEFunctionsThatDoNotReturn (NoReturnFunctionAnalyzer)  
+INFO  Skipping PDB processing: missing PDB information in program metadata (PdbUniversalAnalyzer)  
+INFO  hit non-returning function, restarting decompiler switch analyzer later (DecompilerSwitchAnalyzer)  
+INFO  Packed database cache: C:\Users\dell\AppData\Local\ghidra\packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: windows_vs12_32 (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              0.371 secs
+    Apply Data Archives                        0.849 secs
+    Call Convention ID                         0.003 secs
+    Call-Fixup Installer                       0.037 secs
+    Create Address Tables                      0.026 secs
+    Create Address Tables - One Time           0.005 secs
+    Create Function                            0.074 secs
+    Data Reference                             0.023 secs
+    Decompiler Parameter ID                    3.113 secs
+    Decompiler Switch Analysis                 1.992 secs
+    Decompiler Switch Analysis - One Time      0.000 secs
+    Demangler GNU                              0.186 secs
+    Demangler Microsoft                        0.015 secs
+    Disassemble                                0.131 secs
+    Disassemble Entry Points                   0.279 secs
+    Embedded Media                             0.004 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.483 secs
+    Function Start Pre Search                  0.007 secs
+    Function Start Search                      0.018 secs
+    Function Start Search After Code           0.007 secs
+    Function Start Search After Data           0.005 secs
+    Non-Returning Functions - Discovered       0.023 secs
+    Non-Returning Functions - Known            0.005 secs
+    PDB Universal                              0.003 secs
+    Reference                                  0.036 secs
+    Scalar Operand References                  0.124 secs
+    Shared Return Calls                        0.023 secs
+    Stack                                      0.661 secs
+    Subroutine References                      0.031 secs
+    WindowsResourceReference                   0.480 secs
+    X86 Function Callee Purge                  0.024 secs
+    x86 Constant Reference Analyzer            0.610 secs
+-----------------------------------------------------
+     Total Time   9 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DumpSparseExports.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\DumpSparseExports.java (HeadlessAnalyzer)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPmakeElt @00406bbc ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPmakeElt(int param_1,int param_2,int param_3)
+
+{
+                    /* 0x6bbc  1  _SMPmakeElt */
+  FUN_00402e04(param_1,param_2,param_3);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPclear @00406bec ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPclear(int param_1,undefined *param_2)
+
+{
+                    /* 0x6bec  2  _SMPclear */
+  FUN_00402cc4(param_1,param_2);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPcLUfac @00406c04 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPcLUfac(double *param_1)
+
+{
+                    /* 0x6c04  3  _SMPcLUfac */
+  FUN_00402ba0((int)param_1);
+  FUN_0040367c(param_1,(undefined *)0x0);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPluFac @00406c20 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl
+_SMPluFac(double *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+         undefined4 param_5,undefined *param_6)
+
+{
+                    /* 0x6c20  4  _SMPluFac */
+  FUN_00402b3c((int)param_1);
+  FUN_00406f90((int)param_1,(double)CONCAT44(param_5,param_4));
+  FUN_0040367c(param_1,param_6);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPcReorder @00406c50 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl
+_SMPcReorder(double *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+            undefined4 param_5,undefined4 *param_6)
+
+{
+                    /* 0x6c50  5  _SMPcReorder */
+  *param_6 = 1;
+  FUN_00402ba0((int)param_1);
+  FUN_0040340c(param_1,0,param_4,param_5,param_2,param_3,1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPreorder @00406c84 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl
+_SMPreorder(double *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+           undefined4 param_5,undefined4 param_6,undefined4 param_7)
+
+{
+                    /* 0x6c84  6  _SMPreorder */
+  FUN_00402b3c((int)param_1);
+  FUN_00406f90((int)param_1,(double)CONCAT44(param_7,param_6));
+  FUN_0040340c(param_1,0,param_4,param_5,param_2,param_3,1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPcSolve @00406cdc ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPcSolve(int param_1,int param_2,int param_3,int param_4,int param_5)
+
+{
+                    /* 0x6cdc  7  _SMPcSolve */
+  FUN_00407150(param_1,param_2,param_4,param_3,param_5,(undefined *)0x0);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPsolve @00406d00 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPsolve(int param_1,int param_2,int param_3,undefined *param_4)
+
+{
+                    /* 0x6d00  8  _SMPsolve */
+  FUN_00407150(param_1,param_2,param_3,0,0,param_4);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPnewMatrix @00406d38 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+undefined4 __cdecl _SMPnewMatrix(undefined4 *param_1)
+
+{
+  undefined4 *puVar1;
+  undefined4 local_8;
+  
+                    /* 0x6d38  9  _SMPnewMatrix */
+  puVar1 = FUN_00402360(0,1,&local_8);
+  *param_1 = puVar1;
+  return local_8;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPdestroy @00406d58 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPdestroy(int param_1)
+
+{
+                    /* 0x6d58  10  _SMPdestroy */
+  FUN_0040284c(param_1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== _SMPpreOrder @00406d68 ==== (GhidraScript)  
+INFO  DumpSparseExports.java> 
+void __cdecl _SMPpreOrder(int param_1)
+
+{
+                    /* 0x6d68  11  _SMPpreOrder */
+  FUN_00401448(param_1);
+  FUN_004029d8(param_1);
+  return;
+}
+
+ (GhidraScript)  
+INFO  DumpSparseExports.java>  (GhidraScript)  
+INFO  DumpSparseExports.java> ==== done ==== (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///D:/WorkDesigns/3_WorkTools/TINA-RE/targets/sparse_dll.dll (HeadlessAnalyzer)  
+INFO  /sparse_dll.dll: file created (dell) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /sparse_dll.dll (sparse_dll:/sparse_dll.dll) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
