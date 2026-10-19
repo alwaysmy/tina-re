@@ -22,6 +22,9 @@ from scipy.sparse import lil_matrix
 from scipy.sparse.linalg import splu
 
 SUFFIX = {"p": 1e-12, "n": 1e-9, "u": 1e-6, "m": 1e-3, "k": 1e3, "meg": 1e6, "g": 1e9}
+VT = 0.025852          # thermal voltage at ~300 K
+DEFAULT_IS = 1e-14
+DEFAULT_N = 1.0
 
 
 def parse_value(tok: str) -> float:
@@ -40,6 +43,7 @@ class Element:
     value: float
     ctrl_nodes: tuple[str, str] | None = None
     ctrl_src: str | None = None
+    params: dict[str, float] = field(default_factory=dict)
 
 
 @dataclass
@@ -63,6 +67,13 @@ def parse(text: str) -> Netlist:
         elif kind in "FH" and len(p) >= 5:
             nl.elements.append(Element(kind, name, (p[1], p[2]), parse_value(p[4]),
                                        ctrl_src=p[3]))
+        elif kind == "D" and len(p) >= 3:
+            params = {}
+            for tok in p[3:]:
+                if "=" in tok:
+                    k, v = tok.split("=", 1)
+                    params[k.lower()] = parse_value(v)
+            nl.elements.append(Element("D", name, (p[1], p[2]), 0.0, params=params))
     return nl
 
 
@@ -119,7 +130,7 @@ class Circuit:
         z[k] += rhs
 
     # -- assembly -----------------------------------------------------------
-    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None):
+    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None, vd=None):
         dtype = complex if mode == "ac" else float
         branches = self._branches(mode)
         bidx = {e.name: len(self.nodes) + i for i, e in enumerate(branches)}
@@ -186,6 +197,18 @@ class Circuit:
                 kv = bidx[e.ctrl_src]  # type: ignore[index]
                 self._branch(A, z, i, j, k, 0.0)
                 A[k, kv] -= e.value
+            elif e.kind == "D":
+                vdi = (vd or {}).get(e.name, 0.0)
+                isat = e.params.get("is", DEFAULT_IS)
+                n = e.params.get("n", DEFAULT_N)
+                vt = n * VT
+                v = max(min(vdi, 40.0 * vt), -50.0 * vt)
+                ex = math.exp(v / vt)
+                idd = isat * (ex - 1.0)
+                gd = isat / vt * ex
+                ieq = idd - gd * v
+                self._g(A, i, j, gd)
+                self._i(z, i, j, ieq)
         return A.tocsc(), z
 
     # -- solver -------------------------------------------------------------
@@ -209,10 +232,26 @@ class Circuit:
         )
 
     # -- analyses -----------------------------------------------------------
+    @staticmethod
+    def _node_v(v: dict[str, float], name: str) -> float:
+        return 0.0 if name in ("0", "gnd", "GND") else v[name]
+
     def solve_dc(self):
-        A, z = self._assemble("dc")
-        x = self._solve(A, z)
-        v = {n: float(x[self.index[n]]) for n in self.nodes}
+        diodes = [e for e in self.nl.elements if e.kind == "D"]
+        vd = {e.name: 0.0 for e in diodes}
+        v: dict[str, float] = {}
+        x = None
+        for _ in range(200):
+            A, z = self._assemble("dc", vd=vd)
+            x = self._solve(A, z)
+            v = {n: float(x[self.index[n]]) for n in self.nodes}
+            nvd = {e.name: self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[1]) for e in diodes}
+            delta = max((abs(nvd[k] - vd[k]) for k in vd), default=0.0)
+            vd = nvd
+            if not diodes or delta < 1e-8:
+                break
+        else:
+            raise RuntimeError("DC Newton did not converge")
         branches = self._branches("dc")
         i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
         return v, i
@@ -220,14 +259,27 @@ class Circuit:
     def solve_tran(self, tstop: float, dt: float):
         steps = int(round(tstop / dt))
         state_v = {n: 0.0 for n in self.nodes}
-        state_i = {e.name: 0.0 for e in self._branches("tran")}
+        branches = self._branches("tran")
+        state_i = {e.name: 0.0 for e in branches}
+        diodes = [e for e in self.nl.elements if e.kind == "D"]
+        state_vd = {e.name: 0.0 for e in diodes}
         times = [0.0]
         hist = [dict(state_v)]
         for _ in range(steps):
-            A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt)
-            x = self._solve(A, z)
-            state_v = {n: float(x[self.index[n]]) for n in self.nodes}
-            branches = self._branches("tran")
+            vd = dict(state_vd)
+            for _ in range(100):
+                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt, vd=vd)
+                x = self._solve(A, z)
+                new_v = {n: float(x[self.index[n]]) for n in self.nodes}
+                nvd = {e.name: self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]) for e in diodes}
+                delta = max((abs(nvd[k] - vd[k]) for k in vd), default=0.0)
+                vd = nvd
+                if not diodes or delta < 1e-8:
+                    break
+            else:
+                raise RuntimeError("transient Newton did not converge")
+            state_v = new_v
+            state_vd = nvd
             state_i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
             times.append(times[-1] + dt)
             hist.append(dict(state_v))
@@ -290,6 +342,13 @@ def main() -> int:
     from scipy.sparse import csc_matrix
     x = Circuit._solve(csc_matrix(np.array([[0.0, 1.0], [1.0, 0.0]])), np.array([1.0, 2.0]))
     check("zero-diagonal robustness", np.allclose(x, [2.0, 1.0]), f"{x}")
+
+    # 8) diode DC vs analytic/brentq reference
+    from scipy.optimize import brentq
+    c = Circuit(parse("V1 in 0 5\nR1 in d 1k\nD1 d 0\n"))
+    v, _ = c.solve_dc()
+    ref = brentq(lambda vd: (5 - vd) / 1e3 - 1e-14 * (math.exp(vd / 0.025852) - 1), 0.0, 1.0)
+    check("diode DC vs reference", abs(v["d"] - ref) < 1e-6, f"{v['d']:.6f} vs {ref:.6f}")
 
     return 0
 
