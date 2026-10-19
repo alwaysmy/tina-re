@@ -105,6 +105,9 @@ class Circuit:
         self.nodes = nodes
         self.index = {n: i for i, n in enumerate(nodes)}
         self.nl = nl
+        self._lu = None
+        self._lu_key = None
+        self.cache_enabled = True
 
     # -- branch bookkeeping -------------------------------------------------
     def _branches(self, mode: str) -> list[Element]:
@@ -299,13 +302,59 @@ class Circuit:
                 self._i(z, i, j, ieq)
         return A.tocsc(), z
 
-    # -- solver -------------------------------------------------------------
-    @staticmethod
-    def _solve(A, z):
-        try:
-            lu = splu(A, permc_spec="COLAMD")  # robust defaults: partial pivoting
-        except RuntimeError as exc:
-            raise SingularMatrix(f"matrix is singular: {exc}") from exc
+    def _assemble_z(self, mode, state_v=None, state_i=None, dt=None, method="be",
+                    state_ic=None, state_vl=None):
+        """RHS-only assembly for linear circuits (matrix is constant across steps)."""
+        dtype = complex if mode == "ac" else float
+        branches = self._branches(mode)
+        bidx = {e.name: len(self.nodes) + i for i, e in enumerate(branches)}
+        z = np.zeros(len(self.nodes) + len(branches), dtype=dtype)
+        for e in self.nl.elements:
+            i, j = e.nodes
+            if e.kind == "I":
+                self._i(z, i, j, e.value)
+            elif e.kind == "V":
+                z[bidx[e.name]] = e.value
+            elif e.kind == "C" and mode == "tran":
+                y = (2.0 if method == "trap" else 1.0) * e.value / dt
+                vprev = (state_v or {}).get(i, 0.0) - (state_v or {}).get(j, 0.0)
+                if method == "trap":
+                    iprev = (state_ic or {}).get(e.name, 0.0)
+                    self._i(z, i, j, -(y * vprev + iprev))
+                else:
+                    self._i(z, i, j, -y * vprev)
+            elif e.kind == "L" and mode == "tran":
+                k = bidx[e.name]
+                iprev = (state_i or {}).get(e.name, 0.0)
+                if method == "trap":
+                    vprev = (state_vl or {}).get(e.name, 0.0)
+                    z[k] += -(2.0 * e.value / dt) * iprev - vprev
+                else:
+                    z[k] += -(e.value / dt) * iprev
+        return z
+    def _solve(self, A, z):
+        """Solve A x = z, reusing the LU factorization when A is unchanged.
+
+        Linear transient circuits keep the same matrix for every step (only the
+        RHS changes), so the SuperLU factorization is computed once. Nonlinear
+        Newton iterations change A and therefore refactorize as needed.
+        """
+        key = None
+        if self.cache_enabled:
+            key = (A.indptr.tobytes(), A.indices.tobytes(), A.data.tobytes())
+            if self._lu is not None and self._lu_key == key:
+                lu = self._lu
+            else:
+                try:
+                    lu = splu(A, permc_spec="COLAMD")  # robust defaults: partial pivoting
+                except RuntimeError as exc:
+                    raise SingularMatrix(f"matrix is singular: {exc}") from exc
+                self._lu, self._lu_key = lu, key
+        else:
+            try:
+                lu = splu(A, permc_spec="COLAMD")
+            except RuntimeError as exc:
+                raise SingularMatrix(f"matrix is singular: {exc}") from exc
         x = lu.solve(z)
         res = np.linalg.norm(A @ x - z, np.inf)
         scale = max(1.0, float(np.linalg.norm(z, np.inf)))
@@ -387,42 +436,62 @@ class Circuit:
         state_vm = {e.name: (0.0, 0.0) for e in moss}
         times = [0.0]
         hist = [dict(state_v)]
+        linear = not any(e.kind in ("D", "Q", "M") for e in self.nl.elements)
+        linear_fast = linear and self.cache_enabled
+        lu = None
         for step in range(steps):
             step_method = "be" if (method == "trap" and step == 0) else method
             prev_v = dict(state_v)
-            vd = dict(state_vd)
-            vb = dict(state_vb)
-            vm = dict(state_vm)
-            for _ in range(100):
-                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt,
-                                      vd=vd, vb=vb, vm=vm, method=step_method,
-                                      state_ic=state_ic, state_vl=state_vl)
-                x = self._solve(A, z)
+            if linear_fast:
+                # BE: step 0 matrix is reused for every step.
+                # Trap: step 0 uses BE; step 1 assembles the trap matrix (2C/dt),
+                # then steps 2+ reuse it.
+                need_matrix = (step == 0) or (method == "trap" and step == 1)
+                if need_matrix:
+                    A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt,
+                                          method=step_method, state_ic=state_ic, state_vl=state_vl)
+                    x = self._solve(A, z)
+                    lu = self._lu
+                else:
+                    z = self._assemble_z("tran", state_v=state_v, state_i=state_i, dt=dt,
+                                         method=step_method, state_ic=state_ic, state_vl=state_vl)
+                    x = lu.solve(z)
                 new_v = {n: float(x[self.index[n]]) for n in self.nodes}
-                nvd = {e.name: self._limit(
-                    self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]), vd[e.name]
-                ) for e in diodes}
-                nvb = {e.name: (
-                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vb[e.name][0]),
-                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[0]), vb[e.name][1]),
-                ) for e in bjts}
-                nvm = {e.name: (
-                    self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vm[e.name][0]),
-                    self._limit(self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[2]), vm[e.name][1]),
-                ) for e in moss}
-                delta = max(
-                    [abs(nvd[k] - vd[k]) for k in vd]
-                    + [abs(nvb[k][0] - vb[k][0]) for k in vb]
-                    + [abs(nvb[k][1] - vb[k][1]) for k in vb]
-                    + [abs(nvm[k][0] - vm[k][0]) for k in vm]
-                    + [abs(nvm[k][1] - vm[k][1]) for k in vm]
-                    + [0.0]
-                )
-                vd, vb, vm = nvd, nvb, nvm
-                if delta < 1e-8:
-                    break
+                nvd, nvb, nvm = {}, {}, {}
             else:
-                raise RuntimeError("transient Newton did not converge")
+                vd = dict(state_vd)
+                vb = dict(state_vb)
+                vm = dict(state_vm)
+                for _ in range(100):
+                    A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt,
+                                          vd=vd, vb=vb, vm=vm, method=step_method,
+                                          state_ic=state_ic, state_vl=state_vl)
+                    x = self._solve(A, z)
+                    new_v = {n: float(x[self.index[n]]) for n in self.nodes}
+                    nvd = {e.name: self._limit(
+                        self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]), vd[e.name]
+                    ) for e in diodes}
+                    nvb = {e.name: (
+                        self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vb[e.name][0]),
+                        self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[0]), vb[e.name][1]),
+                    ) for e in bjts}
+                    nvm = {e.name: (
+                        self._limit(self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]), vm[e.name][0]),
+                        self._limit(self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[2]), vm[e.name][1]),
+                    ) for e in moss}
+                    delta = max(
+                        [abs(nvd[k] - vd[k]) for k in vd]
+                        + [abs(nvb[k][0] - vb[k][0]) for k in vb]
+                        + [abs(nvb[k][1] - vb[k][1]) for k in vb]
+                        + [abs(nvm[k][0] - vm[k][0]) for k in vm]
+                        + [abs(nvm[k][1] - vm[k][1]) for k in vm]
+                        + [0.0]
+                    )
+                    vd, vb, vm = nvd, nvb, nvm
+                    if delta < 1e-8:
+                        break
+                else:
+                    raise RuntimeError("transient Newton did not converge")
             state_v = new_v
             state_vd, state_vb, state_vm = nvd, nvb, nvm
             state_i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
@@ -533,7 +602,8 @@ def main() -> int:
 
     # 7) robustness: zero-diagonal system (TINA's no-pivot path would return 102)
     from scipy.sparse import csc_matrix
-    x = Circuit._solve(csc_matrix(np.array([[0.0, 1.0], [1.0, 0.0]])), np.array([1.0, 2.0]))
+    tmp = Circuit(Netlist())
+    x = tmp._solve(csc_matrix(np.array([[0.0, 1.0], [1.0, 0.0]])), np.array([1.0, 2.0]))
     check("zero-diagonal robustness", np.allclose(x, [2.0, 1.0]), f"{x}")
 
     # 8) diode DC vs analytic/brentq reference

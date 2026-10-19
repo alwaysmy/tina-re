@@ -80,3 +80,32 @@ PASS MOS saturation Vd          ← Level 1 饱和区
 - DLL 逆向：`out/sparse_exports.txt`、`out/round27_sparse.txt`、`out/round28_sparse.txt`
 - 探针（已停用，仅存档）：`scripts/sparse_dll_probe.py`
 - 原型：`scripts/sim_proto.py`
+- 基准：`scripts/sim_bench.py`
+
+## 6. 性能设计（2026-10-19）
+
+原型基准（Python/SciPy，单线程）：
+
+| 场景 | 优化前 | 优化后 | 加速 |
+|---|---|---|---|
+| RC 5ms（500 步，BE） | 63.0 ms | 3.5 ms | **17.9×** |
+| 50 节点 RC 梯形网络，100 步 | 65.2 ms | 4.8 ms | **13.6×** |
+
+优化点：
+
+1. **线性瞬态复用 LU 分解**：A 只与 dt/元件值有关、与状态无关；首步分解后，后续只重建 RHS
+   （`_assemble_z`），不再构造矩阵/分解。
+2. **分解缓存键**：矩阵 CSC 的 `indptr/indices/data` 字节比较；非线性 Newton 改变 A 时自动重新分解。
+3. **梯形积分首步特殊处理**：首步 BE，第二步重建 trap 矩阵（`2C/dt`），之后复用。
+4. **残差检查**：每次求解一次稀疏 matvec，成本可接受；生产环境可降频或采样。
+5. **节点限幅**：二极管/BJT/MOS 的 Newton 步长限制在 0.2 V，改善收敛（不增加线性求解次数上限）。
+
+多核 / GPU 立场：
+
+- **多核**：按**任务级**并行（分析 × 求解器、AC 频点、Monte Carlo/参数扫描），与
+  `sim-api-design.md §3.3` 一致；单次瞬态内部是串行时间步，不做线程并行
+  （时间依赖链 + Python/GIL）。
+- **GPU**：电路矩阵规模小、稀疏且 LU 有强依赖；kernel 启动/传输开销大于收益，
+  SuperLU GPU 只在超大矩阵有意义。**暂不投入**（与调研结论一致）。
+- **下一步性能项**：稀疏模式预构建（只更新 `data`）、自适应步长（LTE 控制）、
+  TS/原生端口（消除 Python 逐元素开销），以及 AC 频点的进程池并行。
