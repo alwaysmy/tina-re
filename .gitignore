@@ -3,3 +3,4 @@ targets/*.exe
 hs_err_*.log
 decrypted-local/
 __pycache__/
+targets/*.dll
