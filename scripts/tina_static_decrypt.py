@@ -15,8 +15,15 @@
 
 用法：
     python tina_static_decrypt.py <某个 .lib> [输出路径]
-    python tina_static_decrypt.py --all [输出目录]     # 批量 SPICELIB
-    python tina_static_decrypt.py --dir <SPICELIB 路径> [输出目录]
+    python tina_static_decrypt.py --out <输出文件> <输入文件>
+    python tina_static_decrypt.py --check <文件>          # 只判断是否加密 + 预览首行
+    python tina_static_decrypt.py --all [输出目录]         # 批量 SPICELIB
+    python tina_static_decrypt.py --dir <库目录> [输出目录]
+
+支持范围：
+    - 仅处理以 b"<Encrypted Library>\\n\\r" 开头的 .lib（TINA 加密模型库）。
+    - 明文 .lib 原样复制（会打印 [plain] 提示）。
+    - .TSM（宏容器）不是加密格式（OBSS 容器，内容为明文），无需解密；本工具不解析它。
 """
 from __future__ import annotations
 
@@ -143,6 +150,7 @@ def decrypt_file(src: pathlib.Path, out_dir: pathlib.Path | None = None) -> path
         name = name[:-4] + ".lib"
     dst = out_dir / name
     dst.write_bytes(decrypt_bytes(raw))
+    print(f"[{'enc' if is_encrypted(raw) else 'plain'}] {src.name}")
     return dst
 
 
@@ -174,6 +182,17 @@ def main() -> None:
     if not args:
         print(__doc__)
         return
+    if args[0] == "--check":
+        if len(args) < 2:
+            raise SystemExit("usage: tina_static_decrypt.py --check <file>")
+        src = pathlib.Path(args[1])
+        raw = src.read_bytes()
+        enc = is_encrypted(raw)
+        print(f"{src}: {len(raw)} bytes, encrypted={enc}")
+        head = decrypt_bytes(raw) if enc else raw
+        first = head.splitlines()[0][:100] if head.splitlines() else b""
+        print(f"  first line: {first!r}")
+        return
     if args[0] == "--out":
         if len(args) < 3:
             raise SystemExit("usage: tina_static_decrypt.py --out <file> <input>")
@@ -191,9 +210,16 @@ def main() -> None:
         print(f"done: encrypted={enc} plaintext={plain} -> {out}")
         return
     src = pathlib.Path(args[0])
-    out = pathlib.Path(args[1]) if len(args) > 1 else None
+    dst_arg = pathlib.Path(args[1]) if len(args) > 1 else None
     _check_image_blob()
-    dst = decrypt_file(src, out)
+    if dst_arg is not None and dst_arg.suffix.lower() == ".lib":
+        raw = src.read_bytes()
+        dst_arg.parent.mkdir(parents=True, exist_ok=True)
+        dst_arg.write_bytes(decrypt_bytes(raw))
+        print(f"[{'enc' if is_encrypted(raw) else 'plain'}] {src.name}")
+        print(f"decrypted -> {dst_arg}")
+        return
+    dst = decrypt_file(src, dst_arg)
     print(f"decrypted -> {dst}")
 
 

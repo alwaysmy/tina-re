@@ -1,0 +1,107 @@
+# TINA 加密模型库解密 —— 使用说明
+
+> 工具：`scripts/tina_static_decrypt.py`（纯静态，离线，不需要 TINA 运行）
+> 分析依据：`docs/findings.md` §11–§18（算法、验证、加载器实证）
+
+## 1. 支持什么、不支持什么
+
+| 文件类型 | 是否加密 | 本工具 |
+|---|---|---|
+| `.lib`，前 21 字节为 `<Encrypted Library>\n\r` | ✅ 加密 | **解密**（这就是 TINA/SPICELIB 的加密模型库） |
+| `.lib`，无该头 | ❌ 明文 | 原样复制（提示 `[plain]`） |
+| `.TSM`（宏容器，OBSS 格式） | ❌ 不加密 | **不需要解密**；本工具不解析它的容器结构 |
+| `.TSC`（原理图） | ❌ 不加密 | 不处理 |
+| `.IND` / `.TLD`（库索引/元数据） | ❌ 明文 | 不处理 |
+
+一句话：**只有带 `<Encrypted Library>` 头的 `.lib` 需要解密**。新拿到的宏模型如果本身是 `.TSM`，
+它已经是明文容器，不存在“解密”这一步。
+
+## 2. 先判断一个文件要不要解
+
+```powershell
+python scripts/tina_static_decrypt.py --check "C:\...\SPICELIB\TPS40140.LIB"
+```
+
+输出示例：
+
+```
+...\TPS40140.LIB: 57258 bytes, encrypted=True
+  first line: b'*$'
+```
+
+`encrypted=False` 就说明不用解（明文或其它容器）。
+
+## 3. 单个文件
+
+```powershell
+# 默认输出到同目录（同名）
+python scripts/tina_static_decrypt.py "C:\...\SPICELIB\TPS40140.LIB"
+
+# 指定输出文件
+python scripts/tina_static_decrypt.py --out "D:\Models\TPS40140.lib" "C:\...\SPICELIB\TPS40140.LIB"
+```
+
+## 4. 批量
+
+```powershell
+# 默认扫 SPICELIB，输出到仓库的 decrypted-local/
+python scripts/tina_static_decrypt.py --all
+
+# 指定输出目录
+python scripts/tina_static_decrypt.py --all "D:\Models\decrypted"
+
+# 指定库目录
+python scripts/tina_static_decrypt.py --dir "C:\...\SPICELIB" "D:\Models\decrypted"
+```
+
+批量模式会输出 `done: encrypted=N plaintext=M -> 目录`。
+
+## 5. 自检 / 验证
+
+```powershell
+python tests/verify_decrypt.py
+```
+
+预期：
+
+- 7 项全部 `PASS`，末尾 `RESULT: ALL PASS`；
+- 全库扫描行：`encrypted=388 plain=97 非文本=4`。
+
+“非文本=4”是已知例外：3 个是版权注释里的 NBSP（0xA0），1 个是
+`TPS40055_TRANS.LIB`（文件尾部损坏，模型文本已从示例 `.TSC` 内嵌副本恢复，
+见 `scripts/recover_from_capture.py`）。
+
+## 6. 新模型怎么处理
+
+- **TI/DesignSoft 给的 `.lib`（带加密头）** → 直接按第 3/4 节跑，秒级完成。
+- **`.TSM` 宏** → 不需要解密；它是 TINA 的宏容器，里面是明文。
+  如果你需要把里面的网表/符号提取成文本，那是**容器解析**，不是解密，需要另写工具
+  （目前没做）。
+- **PSpice/LTspice 的加密模型**（头不是 `<Encrypted Library>`）→ 本工具不处理，
+  走 SpiceHappy 的统一入口 `decrypt`（自动识别格式并路由到对应 provider）。
+
+## 7. 依赖
+
+- Python 3.10+
+- `pip install pycryptodome`
+- Windows / Linux 均可；不需要安装 TINA，不需要 Frida
+
+## 8. 已知边界
+
+- **文件损坏**：`TPS40055_TRANS.LIB` 第 515 块（明文 4120 字节）之后是随机数据。
+  这不是解密算法问题（Ghidra 已证实加载器就是单密钥 CBC、整文件一次解密），
+  是该文件自身损坏/填充。模型文本可用 `scripts/recover_from_capture.py` 从运行时副本恢复。
+- **未来版本**：如果 TINA 换了算法，`--check` 仍会识别头，但 `verify_decrypt.py` 的
+  官方向量/地面真值会失败——那时需要重新做一次密钥/算法分析
+  （密钥常量 RVA 0x58FAD0、加载器 `FUN_0098f420`）。
+- **`.TSM` 解析**：当前没有实现，只有“判断它不需要解密”。
+
+## 9. SpiceHappy CLI（集成入口）
+
+```powershell
+# 统一入口：自动识别 TINA / PSpice / LTspice 格式
+npx tsx src/cli/index.ts decrypt "C:\...\TPS40140.LIB" -o "D:\Models\TPS40140.lib"
+
+# TINA 专用批量（静态优先，Frida 仅兜底）
+npx tsx src/cli/index.ts tina-decrypt all -o "D:\Models\decrypted"
+```
