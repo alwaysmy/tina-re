@@ -1,0 +1,291 @@
+INFO  Using log config file: jar:file:/D:/MyPrograms/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\dell\AppData\Roaming\ghidra\ghidra_12.1.4_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (703 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (1848 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    D:\MyPrograms\ghidra_12.1.4_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessAnalyzer)  
+INFO  Opening project: D:\MyPrograms\ghidra-mcp\projects_sparse\sparse_dll (HeadlessProject)  
+INFO  REPORT: Processing project file: /sparse_dll.dll (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: Round31.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless\Round31.java (HeadlessAnalyzer)  
+INFO  Round31.java>  (GhidraScript)  
+INFO  Round31.java> [numeric LU (real path)] FUN_00405b14 @00405b14 body=45 (GhidraScript)  
+INFO  Round31.java> 
+undefined4 __cdecl FUN_00405b14(int param_1,int param_2)
+
+{
+  *(undefined4 *)(param_1 + 0x9c) = *(undefined4 *)(*(int *)(param_1 + 0x58) + param_2 * 4);
+  *(undefined4 *)(param_1 + 0x98) = *(undefined4 *)(*(int *)(param_1 + 0x54) + param_2 * 4);
+  *(undefined4 *)(param_1 + 0x28) = 0x66;
+  return 0x66;
+}
+
+ (GhidraScript)  
+INFO  Round31.java>  (GhidraScript)  
+INFO  Round31.java> [ordering / reorder core] FUN_0040340c @0040340c body=614 (GhidraScript)  
+INFO  Round31.java> 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+int __cdecl
+FUN_0040340c(double *param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,
+            undefined4 param_6,int param_7)
+
+{
+  double dVar1;
+  double dVar2;
+  bool bVar3;
+  double *pdVar4;
+  int iVar5;
+  int iVar6;
+  longdouble in_ST0;
+  longdouble in_ST1;
+  longdouble in_ST2;
+  longdouble in_ST3;
+  longdouble in_ST4;
+  longdouble in_ST5;
+  longdouble in_ST6;
+  longdouble lVar7;
+  
+  if ((((param_1 == (double *)0x0) || (*(int *)(param_1 + 9) != 0x772773)) ||
+      (*(int *)(param_1 + 5) < 0)) ||
+     ((100 < *(int *)(param_1 + 5) || (*(int *)(param_1 + 7) != 0)))) {
+    _fflush((FILE *)(__streams_exref + 0x18));
+    _fprintf((FILE *)(__streams_exref + 0x30),s_sparse__panic_in_file___s__at_li_00409778,
+             s_C__DesignSoft_spice_SRC_LIB_SPAR_004097a0,0xef);
+    _fflush((FILE *)(__streams_exref + 0x30));
+                    /* WARNING: Subroutine does not return */
+    _abort();
+  }
+  *(undefined4 *)(param_1 + 5) = 0;
+  iVar5 = *(int *)((int)param_1 + 0xa4);
+  if ((double)CONCAT44(param_4,param_3) <= (double)_DAT_00403674) {
+    param_3 = *(undefined4 *)(param_1 + 0x11);
+    param_4 = *(undefined4 *)((int)param_1 + 0x8c);
+  }
+  if ((double)_DAT_00403678 < (double)CONCAT44(param_4,param_3)) {
+    param_3 = *(undefined4 *)(param_1 + 0x11);
+    param_4 = *(undefined4 *)((int)param_1 + 0x8c);
+  }
+  *(undefined4 *)(param_1 + 0x11) = param_3;
+  *(undefined4 *)((int)param_1 + 0x8c) = param_4;
+  if ((double)CONCAT44(param_6,param_5) < (double)_DAT_00403674) {
+    param_5 = *(undefined4 *)param_1;
+    param_6 = *(undefined4 *)((int)param_1 + 4);
+  }
+  *(undefined4 *)param_1 = param_5;
+  *(undefined4 *)((int)param_1 + 4) = param_6;
+  bVar3 = false;
+  if (*(int *)((int)param_1 + 0x6c) == 0) {
+    iVar6 = 1;
+    if (0 < iVar5) {
+      do {
+        pdVar4 = *(double **)(*(int *)(param_1 + 3) + iVar6 * 4);
+        FUN_00404e80(*(double **)((int)pdVar4 + 0x1c));
+        if ((double)_DAT_00403674 <= *pdVar4) {
+          dVar1 = *pdVar4;
+        }
+        else {
+          dVar1 = -*pdVar4;
+        }
+        if ((double)_DAT_00403674 <= pdVar4[1]) {
+          dVar2 = pdVar4[1];
+        }
+        else {
+          dVar2 = -pdVar4[1];
+        }
+        if (dVar2 + dVar1 <= (double)in_ST0 * (double)CONCAT44(param_4,param_3)) {
+          bVar3 = true;
+          break;
+        }
+        lVar7 = in_ST6;
+        if (*(int *)(param_1 + 2) == 0) {
+          FUN_00405668((int)param_1,pdVar4);
+        }
+        else {
+          FUN_00405728((int)param_1,pdVar4);
+        }
+        iVar6 = iVar6 + 1;
+        in_ST0 = in_ST1;
+        in_ST1 = in_ST2;
+        in_ST2 = in_ST3;
+        in_ST3 = in_ST4;
+        in_ST4 = in_ST5;
+        in_ST5 = in_ST6;
+        in_ST6 = lVar7;
+      } while (iVar6 <= iVar5);
+    }
+    if (!bVar3) goto LAB_00403652;
+  }
+  else {
+    iVar6 = 1;
+    if (*(int *)((int)param_1 + 0x94) == 0) {
+      FUN_00403124((int)param_1);
+    }
+    if (*(int *)(param_1 + 10) == 0) {
+      FUN_00404384((int)param_1);
+    }
+    if (100 < *(int *)(param_1 + 5)) {
+      return *(int *)(param_1 + 5);
+    }
+  }
+  FUN_0040446c((int)param_1,param_2,iVar6);
+  FUN_00404524((int)param_1,iVar6);
+  *(undefined4 *)(param_1 + 0xd) = 0xffffffff;
+  for (; iVar6 <= iVar5; iVar6 = iVar6 + 1) {
+    pdVar4 = (double *)FUN_004045f8(param_1,iVar6,param_7);
+    if (pdVar4 == (double *)0x0) {
+      iVar5 = FUN_00405ae4((int)param_1,iVar6);
+      return iVar5;
+    }
+    FUN_00404fbc((int)param_1,(int)pdVar4,iVar6);
+    if (*(int *)(param_1 + 2) == 0) {
+      FUN_00405668((int)param_1,pdVar4);
+    }
+    else {
+      FUN_00405728((int)param_1,pdVar4);
+    }
+    if (100 < *(int *)(param_1 + 5)) {
+      return *(int *)(param_1 + 5);
+    }
+    FUN_004058bc((int)param_1,(int)pdVar4);
+  }
+LAB_00403652:
+  *(undefined4 *)((int)param_1 + 0x6c) = 0;
+  *(undefined4 *)(param_1 + 0x12) = 1;
+  *(undefined4 *)(param_1 + 7) = 1;
+  return *(int *)(param_1 + 5);
+}
+
+ (GhidraScript)  
+INFO  Round31.java>  (GhidraScript)  
+INFO  Round31.java> [cleanup/drop pass] FUN_004040dc @004040dc body=680 (GhidraScript)  
+INFO  Round31.java> 
+void __cdecl FUN_004040dc(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  int *piVar3;
+  int iVar4;
+  int *piVar5;
+  int *piVar6;
+  uint *local_3c;
+  uint *local_38;
+  int *local_2c;
+  int *local_28;
+  int *local_24;
+  int local_8;
+  
+  if ((param_1 != 0) && (*(int *)(param_1 + 0x48) == 0x772773)) {
+    if (*(int *)(param_1 + 0x74) == 0) {
+      iVar1 = *(int *)(param_1 + 0xa4);
+      local_38 = *(uint **)(param_1 + 0x20);
+      local_3c = *(uint **)(param_1 + 0x1c);
+      *(undefined4 *)(param_1 + 0x74) = 1;
+      if (param_2 == 0) {
+        param_2 = 3;
+      }
+      if (param_2 == 1) {
+        local_8 = 1;
+        if (0 < iVar1) {
+          do {
+            local_38 = local_38 + 1;
+            *local_38 = 1;
+            local_8 = local_8 + 1;
+          } while (local_8 <= iVar1);
+        }
+        local_3c[local_8] = 1;
+      }
+      else if (param_2 == 2) {
+        local_8 = 1;
+        if (0 < iVar1) {
+          do {
+            local_38 = local_38 + 1;
+            *local_38 = 0;
+            local_8 = local_8 + 1;
+          } while (local_8 <= iVar1);
+        }
+        local_3c[local_8] = 0;
+      }
+      else {
+        if (param_2 != 3) {
+          _fflush((FILE *)(__streams_exref + 0x18));
+          _fprintf((FILE *)(__streams_exref + 0x30),s_sparse__panic_in_file___s__at_li_004098d0,
+                   s_C__DesignSoft_spice_SRC_LIB_SPAR_004098f8,0x2db);
+          _fflush((FILE *)(__streams_exref + 0x30));
+                    /* WARNING: Subroutine does not return */
+          _abort();
+        }
+        piVar5 = *(int **)(param_1 + 0x5c);
+        piVar6 = *(int **)(param_1 + 0x60);
+        piVar3 = *(int **)(param_1 + 100);
+        local_8 = 1;
+        local_2c = piVar5;
+        local_28 = piVar6;
+        local_24 = piVar3;
+        if (0 < iVar1) {
+          do {
+            local_24 = local_24 + 1;
+            local_28 = local_28 + 1;
+            local_2c = local_2c + 1;
+            *local_24 = 0;
+            *local_28 = 0;
+            *local_2c = 0;
+            for (iVar4 = *(int *)(*(int *)(param_1 + 0x40) + local_8 * 4); iVar4 != 0;
+                iVar4 = *(int *)(iVar4 + 0x1c)) {
+              *local_2c = *local_2c + 1;
+            }
+            for (iVar4 = *(int *)(*(int *)(param_1 + 0x40) + local_8 * 4);
+                *(int *)(iVar4 + 0x10) < local_8; iVar4 = *(int *)(iVar4 + 0x1c)) {
+              iVar2 = *(int *)(*(int *)(param_1 + 0x18) + *(int *)(iVar4 + 0x10) * 4);
+              *local_24 = *local_24 + 1;
+              while (iVar2 = *(int *)(iVar2 + 0x1c), iVar2 != 0) {
+                *local_28 = *local_28 + 1;
+              }
+            }
+            local_8 = local_8 + 1;
+          } while (local_8 <= iVar1);
+        }
+        local_8 = 1;
+        if (0 < iVar1) {
+          do {
+            local_38 = local_38 + 1;
+            local_3c = local_3c + 1;
+            piVar6 = piVar6 + 1;
+            piVar5 = piVar5 + 1;
+ 
+... (truncated) (GhidraScript)  
+INFO  Round31.java>  (GhidraScript)  
+INFO  Round31.java> ==== done ==== (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /sparse_dll.dll (HeadlessAnalyzer)  
