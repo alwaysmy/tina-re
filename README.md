@@ -10,6 +10,8 @@ TINA-TI（DesignSoft TINA 9 - TI）脱壳镜像的独立静态分析成果。与
 
 **新模型解密**：见 `docs/decrypt-usage.md`（`scripts/tina_static_decrypt.py`；`--check` 判断
 是否加密，单文件/批处理，离线，无需 TINA 运行）。
+**TSM 宏解析**：见 `docs/tsm-format.md`（`scripts/tsm_parse.py`；提取 `.SUBCKT…ENDS` 网表，
+`--text/--json/--out`，离线）。
 
 ## 目录
 
@@ -19,6 +21,7 @@ TINA-RE/
 ├── docs/
 │   ├── findings.md           ← 汇总发现（当前主文档）
 │   ├── decrypt-usage.md      ← ★ 解密工具使用说明（新模型怎么解）
+│   ├── tsm-format.md         ← ★ TSM 容器格式与解析工具
 │   └── legacy-first-pass.md  ← 2026-10-16 首轮快照（已被 findings.md 覆盖）
 ├── out/                      ← Ghidra headless 原始输出（证据）
 │   ├── gap_decompile_output.txt   (round 1: TEA 加解密/分发器）

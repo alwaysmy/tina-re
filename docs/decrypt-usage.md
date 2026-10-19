@@ -9,7 +9,7 @@
 |---|---|---|
 | `.lib`，前 21 字节为 `<Encrypted Library>\n\r` | ✅ 加密 | **解密**（这就是 TINA/SPICELIB 的加密模型库） |
 | `.lib`，无该头 | ❌ 明文 | 原样复制（提示 `[plain]`） |
-| `.TSM`（宏容器，OBSS 格式） | ❌ 不加密 | **不需要解密**；本工具不解析它的容器结构 |
+| `.TSM`（宏容器，OBSS 格式） | ❌ 不加密 | **不需要解密**；用 `scripts/tsm_parse.py` 解析（见 `docs/tsm-format.md`） |
 | `.TSC`（原理图） | ❌ 不加密 | 不处理 |
 | `.IND` / `.TLD`（库索引/元数据） | ❌ 明文 | 不处理 |
 
@@ -75,8 +75,8 @@ python tests/verify_decrypt.py
 
 - **TI/DesignSoft 给的 `.lib`（带加密头）** → 直接按第 3/4 节跑，秒级完成。
 - **`.TSM` 宏** → 不需要解密；它是 TINA 的宏容器，里面是明文。
-  如果你需要把里面的网表/符号提取成文本，那是**容器解析**，不是解密，需要另写工具
-  （目前没做）。
+  用 `scripts/tsm_parse.py` 解析：`--netlist` 导出 `.SUBCKT … .ENDS`，
+  `--json` 输出结构化结果，详见 `docs/tsm-format.md`。
 - **PSpice/LTspice 的加密模型**（头不是 `<Encrypted Library>`）→ 本工具不处理，
   走 SpiceHappy 的统一入口 `decrypt`（自动识别格式并路由到对应 provider）。
 
@@ -94,7 +94,8 @@ python tests/verify_decrypt.py
 - **未来版本**：如果 TINA 换了算法，`--check` 仍会识别头，但 `verify_decrypt.py` 的
   官方向量/地面真值会失败——那时需要重新做一次密钥/算法分析
   （密钥常量 RVA 0x58FAD0、加载器 `FUN_0098f420`）。
-- **`.TSM` 解析**：当前没有实现，只有“判断它不需要解密”。
+- **`.TSM` 解析**：已由 `scripts/tsm_parse.py` 支持（`--netlist/--text/--json`）；
+  但只解析文本记录，符号图形/坐标等二进制段不解析（见 `docs/tsm-format.md`）。
 
 ## 9. SpiceHappy CLI（集成入口）
 
