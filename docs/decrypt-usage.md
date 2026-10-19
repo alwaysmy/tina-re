@@ -16,6 +16,10 @@
 一句话：**只有带 `<Encrypted Library>` 头的 `.lib` 需要解密**。新拿到的宏模型如果本身是 `.TSM`，
 它已经是明文容器，不存在“解密”这一步。
 
+> 算法补充：尾部不满 8 字节的块按 DEC 引擎的 **CFB8 收尾**
+> （`P* = C* XOR E(上一密文块)`）。不能“原样直通”——那会毁掉部分库尾部的 `.ENDS`
+> （2026-10-19 修正，DAC882X 地面真值因此从“差 2B”变为逐字节一致）。
+
 ## 2. 先判断一个文件要不要解
 
 ```powershell
@@ -64,8 +68,9 @@ python tests/verify_decrypt.py
 
 预期：
 
-- 7 项全部 `PASS`，末尾 `RESULT: ALL PASS`；
-- 全库扫描行：`encrypted=388 plain=97 非文本=4`。
+- 8 项全部 `PASS`，末尾 `RESULT: ALL PASS`；
+- 全库扫描行：`encrypted=388 plain=97 非文本=4`；
+- 配平行：`SUBCKT/ENDS 配平: mismatches=1`（仅 `TPS40055_TRANS.LIB` 孤例）。
 
 “非文本=4”是已知例外：3 个是版权注释里的 NBSP（0xA0），1 个是
 `TPS40055_TRANS.LIB`（文件尾部损坏，模型文本已从示例 `.TSC` 内嵌副本恢复，

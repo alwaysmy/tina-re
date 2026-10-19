@@ -4,8 +4,9 @@
 检查项：
   1. RIPEMD-256 官方向量（3 组）
   2. 二进制 p-code 模拟的压缩块向量（2 组，来自 tina_unpacked_fixed.exe 的 0x561588）
-  3. DAC882X.lib 全量解密 vs ks_ground.bin 地面真值（允许末尾 2 字节部分块差异）
-  4. SPICELIB 全库扫描：388 加密库全部可解且 ASCII 纯净；97 明文库原样直通
+  3. DAC882X.lib 全量解密 vs ks_ground.bin 地面真值（逐字节一致，11626/11626）
+  4. SPICELIB 全库扫描：388 加密库全部可解且全文纯净；97 明文库原样直通
+  5. SUBCKT/ENDS 配平：仅允许已知孤例 TPS40055_TRANS.LIB
 
 用法：
     python tests/verify_decrypt.py
@@ -16,6 +17,7 @@ from __future__ import annotations
 
 import os
 import pathlib
+import re
 import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -87,18 +89,19 @@ def main() -> int:
         pt = decrypt_bytes(dac.read_bytes())
         n = min(len(pt), len(ref))
         diffs = [i for i in range(n) if pt[i] != ref[i]]
-        tail_only = all(i >= n - 2 for i in diffs) and len(diffs) <= 2
         check(
             f"DAC882X 地面真值对比 (len={n}, diffs={len(diffs)})",
-            tail_only and n > 11000,
+            len(diffs) == 0 and n > 11000,
             str(diffs[:5]),
         )
     else:
         check("DAC882X 地面真值对比（跳过：缺文件）", True, "skipped")
 
-    # 4) full library sweep
+    # 4) full library sweep（全文检查 + SUBCKT/ENDS 配平）
     if sp.is_dir():
-        enc = plain = bad = 0
+        enc = plain = 0
+        full_bad = []
+        mismatch = []
         for p in sorted(sp.iterdir()):
             if p.suffix.lower() != ".lib":
                 continue
@@ -108,10 +111,29 @@ def main() -> int:
             else:
                 plain += 1
             pt = decrypt_bytes(raw)
-            asc = sum(1 for b in pt[:2000] if 9 <= b <= 13 or 32 <= b < 127)
-            if pt and asc / min(len(pt), 2000) < 0.98:
-                bad += 1
-        check(f"全库扫描: encrypted={enc} plain={plain} bad={bad}", enc == 388 and plain == 97 and bad == 0)
+            text = pt.decode("latin-1", "replace")
+            worst = max(
+                (sum(1 for c in ln if ord(c) > 126 or ord(c) < 9) for ln in text.splitlines()),
+                default=0,
+            )
+            if worst > 8:
+                full_bad.append((p.name, worst))
+            n_sub = len(re.findall(r"(?im)^\s*\.subckt\b", text))
+            n_end = len(re.findall(r"(?im)^\s*\.ends\b", text))
+            if n_sub != n_end:
+                mismatch.append((p.name, n_sub, n_end))
+        names = {n.lower() for n, _ in full_bad}
+        known = {"tps40055_trans.lib", "uc1901_trans.lib", "uc1901_avg.lib", "tps61020_avg.lib"}
+        check(
+            f"全库扫描: encrypted={enc} plain={plain} 非文本={len(full_bad)}",
+            enc == 388 and plain == 97 and names == known,
+            str(sorted(full_bad))[:240],
+        )
+        check(
+            f"SUBCKT/ENDS 配平: mismatches={len(mismatch)}",
+            [m[0] for m in mismatch] == ["TPS40055_TRANS.LIB"],
+            str(mismatch),
+        )
     else:
         check("全库扫描（跳过：SPICELIB 不存在）", True, "skipped")
 

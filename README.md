@@ -71,8 +71,8 @@ TINA-RE/
 python tests/verify_decrypt.py
 ```
 
-预期输出：7 项全部 PASS（RMD256 官方向量 ×3、二进制压缩块向量 ×2、DAC882X 地面真值对比、
-全库 388 加密 + 97 明文扫描），末尾打印 `RESULT: ALL PASS`。
+预期输出：8 项全部 PASS（RMD256 官方向量 ×3、二进制压缩块向量 ×2、DAC882X 地面真值逐字节一致、
+全库 388 加密 + 97 明文扫描、SUBCKT/ENDS 配平），末尾打印 `RESULT: ALL PASS`。
 
 > 维护副本：`tina_static_decrypt.py` / 验证脚本的**正式维护位置在 SpiceHappy 仓库 `re/`**
 > （`SpiceHappy-tina-re` 工作树，分支 `feat/tina-static-extract`）；本仓库保留分析档案与同一份脚本以便复现。
