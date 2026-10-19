@@ -119,6 +119,7 @@ IMAGE_PATH = pathlib.Path(r"D:/WorkDesigns/3_WorkTools/TINA-RE/targets/tina_unpa
 KEY = ripemd256(KEY_BLOB)
 _ECB = Blowfish.new(KEY, Blowfish.MODE_ECB)
 _DECRYPT_BLOCK = _ECB.decrypt
+_ENCRYPT_BLOCK = _ECB.encrypt   # 尾部 CFB8 收尾用（ks = E(上一密文块)）
 
 
 def is_encrypted(data: bytes) -> bool:
@@ -126,7 +127,13 @@ def is_encrypted(data: bytes) -> bool:
 
 
 def decrypt_bytes(raw: bytes) -> bytes:
-    """解密一个 .lib 文件的完整字节（自动剥离 21B 头；明文文件原样返回）。"""
+    """解密一个 .lib 文件的完整字节（自动剥离 21B 头；明文文件原样返回）。
+
+    尾部不满 8B：DEC 引擎的 CBC 对非整块尾按 CFB8 字节流收尾——
+    keystream = E(上一密文块)，P* = C* XOR ks[0:len]（2026-10-19 实证修正：
+    LM4755 尾 4B 解出 "ENDS"、DAC882X 尾 5B 解出行尾——旧"原样直通"假设
+    导致 22 个库的尾部 .ENDS 丢失，见 decrypted-local 配平异常）。
+    """
     if not is_encrypted(raw):
         return raw
     ct = raw[len(HEADER):]
@@ -137,7 +144,10 @@ def decrypt_bytes(raw: bytes) -> bytes:
         blk = ct[b * 8:(b + 1) * 8]
         out += bytes(x ^ y for x, y in zip(_DECRYPT_BLOCK(blk), prev))
         prev = blk
-    out += ct[nblocks * 8:]          # 尾部不满 8B：原样直通（与引擎行为一致）
+    tail = ct[nblocks * 8:]
+    if tail:
+        ks = _ENCRYPT_BLOCK(prev)     # E(上一密文块)
+        out += bytes(x ^ y for x, y in zip(tail, ks))
     return bytes(out)
 
 

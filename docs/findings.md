@@ -736,3 +736,22 @@ python D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\fix-pe.py
     -scriptPath "D:\WorkDesigns\3_WorkTools\TINA-RE\scripts\ghidra-headless" `
     -postScript "Round4.java"
 ```
+
+
+### §18.1 尾部不满块的真实语义（2026-10-19 独立核对修正）
+
+`--check` 交叉核对（SpiceHappy 运行时导出 307 库 vs 静态解密）发现 22 个库
+`SUBCKT/ENDS` 差一（如 LM4755 15/14）——缺的 `.ENDS` 全部落在**尾部不满块**。
+实证：LM4755 尾 4B 密文 `b9806929` 按 DEC 引擎 CBC 的 CFB8 字节流收尾解出
+`ENDS`；DAC882X 尾 5B 同法解出 `
+`，补丁后 11626/11626 与运行时捕获
+**完全一致**（原"仅差 2B"即直通垃圾 vs 正确字节）。
+
+算法：`P* = C* XOR E(上一密文块)[0:len]`（E = Blowfish 加密单块）。
+这是 DEC `TCipher` 对 `DataSize % 8 ≠ 0` 尾部的标准流式收尾；此前"原样直通"
+假设不成立——§17.1 的"再加密恒等"是自写加密器与自身的互逆，不能证明 TINA
+加密器尾部行为。
+
+修复后全库配平异常 23 → 2：`Diodes_ON.LIB`（纯 .MODEL 库，无 SUBCKT，正常）与
+`TPS40055_TRANS.LIB`（§17 定性的文件本体不透明孤例）。ngspice 实解析抽验
+（LM4755/TPS54616/OPA1662/PGA870）零 error。
