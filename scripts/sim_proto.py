@@ -39,7 +39,7 @@ def parse_value(tok: str) -> float:
 class Element:
     kind: str
     name: str
-    nodes: tuple[str, str]
+    nodes: tuple[str, ...]
     value: float
     ctrl_nodes: tuple[str, str] | None = None
     ctrl_src: str | None = None
@@ -74,6 +74,20 @@ def parse(text: str) -> Netlist:
                     k, v = tok.split("=", 1)
                     params[k.lower()] = parse_value(v)
             nl.elements.append(Element("D", name, (p[1], p[2]), 0.0, params=params))
+        elif kind == "Q" and len(p) >= 4:
+            params = {}
+            for tok in p[4:]:
+                if "=" in tok:
+                    k, v = tok.split("=", 1)
+                    params[k.lower()] = parse_value(v)
+            nl.elements.append(Element("Q", name, (p[1], p[2], p[3]), 0.0, params=params))
+        elif kind == "M" and len(p) >= 5:
+            params = {}
+            for tok in p[5:]:
+                if "=" in tok:
+                    k, v = tok.split("=", 1)
+                    params[k.lower()] = parse_value(v)
+            nl.elements.append(Element("M", name, (p[1], p[2], p[3], p[4]), 0.0, params=params))
     return nl
 
 
@@ -129,8 +143,22 @@ class Circuit:
             A[k, mi] -= 1
         z[k] += rhs
 
+    def _vccs(self, A, op, om, cp, cm, gm):
+        oi, omi = self._n(op), self._n(om)
+        ci, cmi = self._n(cp), self._n(cm)
+        if oi is not None:
+            if ci is not None:
+                A[oi, ci] += gm
+            if cmi is not None:
+                A[oi, cmi] -= gm
+        if omi is not None:
+            if ci is not None:
+                A[omi, ci] -= gm
+            if cmi is not None:
+                A[omi, cmi] += gm
+
     # -- assembly -----------------------------------------------------------
-    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None, vd=None):
+    def _assemble(self, mode: str, s=None, state_v=None, state_i=None, dt=None, vd=None, vb=None, vm=None):
         dtype = complex if mode == "ac" else float
         branches = self._branches(mode)
         bidx = {e.name: len(self.nodes) + i for i, e in enumerate(branches)}
@@ -138,6 +166,52 @@ class Circuit:
         z = np.zeros(A.shape[0], dtype=dtype)
 
         for e in self.nl.elements:
+            if e.kind == "Q":
+                c, b, em = e.nodes
+                vbe, vbc = (vb or {}).get(e.name, (0.0, 0.0))
+                isat = e.params.get("is", 1e-14)
+                bf = e.params.get("bf", 100.0)
+                br = e.params.get("br", 1.0)
+                vt = VT
+                exb = math.exp(max(min(vbe / vt, 40.0), -50.0))
+                exc = math.exp(max(min(vbc / vt, 40.0), -50.0))
+                ibe = isat / bf * (exb - 1.0)
+                ibc = isat / br * (exc - 1.0)
+                gbe = isat / bf / vt * exb
+                gbc = isat / br / vt * exc
+                gm = isat / vt * exb
+                gmr = isat / vt * exc
+                self._g(A, b, em, gbe)
+                self._i(z, b, em, ibe - gbe * vbe)
+                self._g(A, b, c, gbc)
+                self._i(z, b, c, ibc - gbc * vbc)
+                ict0 = isat * (exb - exc)
+                self._i(z, c, em, ict0 - gm * vbe + gmr * vbc)
+                self._vccs(A, c, em, b, em, gm)
+                self._vccs(A, c, em, b, c, -gmr)
+                continue
+            if e.kind == "M":
+                d, g, s, b = e.nodes
+                vgs, vds = (vm or {}).get(e.name, (0.0, 0.0))
+                vto = e.params.get("vto", 1.0)
+                kp = e.params.get("kp", 1e-3)
+                lam = e.params.get("lambda", 0.0)
+                vov = vgs - vto
+                if vov <= 0:
+                    idd = gm = gds = 0.0
+                elif vds < vov:
+                    idd = kp * (vov * vds - 0.5 * vds * vds) * (1 + lam * vds)
+                    gm = kp * vds * (1 + lam * vds)
+                    gds = kp * (vov - vds) * (1 + lam * vds) + kp * (vov * vds - 0.5 * vds * vds) * lam
+                else:
+                    idd = 0.5 * kp * vov * vov * (1 + lam * vds)
+                    gm = kp * vov * (1 + lam * vds)
+                    gds = 0.5 * kp * vov * vov * lam
+                ieq = idd - gm * vgs - gds * vds
+                self._i(z, d, s, ieq)
+                self._vccs(A, d, s, g, s, gm)
+                self._vccs(A, d, s, d, s, gds)
+                continue
             i, j = e.nodes
             if e.kind == "R":
                 self._g(A, i, j, 1.0 / e.value)
@@ -238,17 +312,32 @@ class Circuit:
 
     def solve_dc(self):
         diodes = [e for e in self.nl.elements if e.kind == "D"]
+        bjts = [e for e in self.nl.elements if e.kind == "Q"]
+        moss = [e for e in self.nl.elements if e.kind == "M"]
         vd = {e.name: 0.0 for e in diodes}
+        vb = {e.name: (0.0, 0.0) for e in bjts}
+        vm = {e.name: (0.0, 0.0) for e in moss}
         v: dict[str, float] = {}
         x = None
         for _ in range(200):
-            A, z = self._assemble("dc", vd=vd)
+            A, z = self._assemble("dc", vd=vd, vb=vb, vm=vm)
             x = self._solve(A, z)
             v = {n: float(x[self.index[n]]) for n in self.nodes}
             nvd = {e.name: self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[1]) for e in diodes}
-            delta = max((abs(nvd[k] - vd[k]) for k in vd), default=0.0)
-            vd = nvd
-            if not diodes or delta < 1e-8:
+            nvb = {e.name: (self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]),
+                            self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[0])) for e in bjts}
+            nvm = {e.name: (self._node_v(v, e.nodes[1]) - self._node_v(v, e.nodes[2]),
+                            self._node_v(v, e.nodes[0]) - self._node_v(v, e.nodes[2])) for e in moss}
+            delta = max(
+                [abs(nvd[k] - vd[k]) for k in vd]
+                + [abs(nvb[k][0] - vb[k][0]) for k in vb]
+                + [abs(nvb[k][1] - vb[k][1]) for k in vb]
+                + [abs(nvm[k][0] - vm[k][0]) for k in vm]
+                + [abs(nvm[k][1] - vm[k][1]) for k in vm]
+                + [0.0]
+            )
+            vd, vb, vm = nvd, nvb, nvm
+            if delta < 1e-8:
                 break
         else:
             raise RuntimeError("DC Newton did not converge")
@@ -262,24 +351,43 @@ class Circuit:
         branches = self._branches("tran")
         state_i = {e.name: 0.0 for e in branches}
         diodes = [e for e in self.nl.elements if e.kind == "D"]
+        bjts = [e for e in self.nl.elements if e.kind == "Q"]
+        moss = [e for e in self.nl.elements if e.kind == "M"]
         state_vd = {e.name: 0.0 for e in diodes}
+        state_vb = {e.name: (0.0, 0.0) for e in bjts}
+        state_vm = {e.name: (0.0, 0.0) for e in moss}
         times = [0.0]
         hist = [dict(state_v)]
         for _ in range(steps):
             vd = dict(state_vd)
+            vb = dict(state_vb)
+            vm = dict(state_vm)
             for _ in range(100):
-                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt, vd=vd)
+                A, z = self._assemble("tran", state_v=state_v, state_i=state_i, dt=dt, vd=vd, vb=vb, vm=vm)
                 x = self._solve(A, z)
                 new_v = {n: float(x[self.index[n]]) for n in self.nodes}
                 nvd = {e.name: self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[1]) for e in diodes}
-                delta = max((abs(nvd[k] - vd[k]) for k in vd), default=0.0)
-                vd = nvd
-                if not diodes or delta < 1e-8:
+                nvb = {e.name: (self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]),
+                                self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[0])) for e in bjts}
+                nvm = {e.name: (self._node_v(new_v, e.nodes[1]) - self._node_v(new_v, e.nodes[2]),
+                                self._node_v(new_v, e.nodes[0]) - self._node_v(new_v, e.nodes[2])) for e in moss}
+                delta = max(
+                    [abs(nvd[k] - vd[k]) for k in vd]
+                    + [abs(nvb[k][0] - vb[k][0]) for k in vb]
+                    + [abs(nvb[k][1] - vb[k][1]) for k in vb]
+                    + [abs(nvm[k][0] - vm[k][0]) for k in vm]
+                    + [abs(nvm[k][1] - vm[k][1]) for k in vm]
+                    + [0.0]
+                )
+                vd, vb, vm = nvd, nvb, nvm
+                if delta < 1e-8:
                     break
             else:
                 raise RuntimeError("transient Newton did not converge")
             state_v = new_v
             state_vd = nvd
+            state_vb = nvb
+            state_vm = nvm
             state_i = {e.name: float(x[len(self.nodes) + k]) for k, e in enumerate(branches)}
             times.append(times[-1] + dt)
             hist.append(dict(state_v))
@@ -349,6 +457,23 @@ def main() -> int:
     v, _ = c.solve_dc()
     ref = brentq(lambda vd: (5 - vd) / 1e3 - 1e-14 * (math.exp(vd / 0.025852) - 1), 0.0, 1.0)
     check("diode DC vs reference", abs(v["d"] - ref) < 1e-6, f"{v['d']:.6f} vs {ref:.6f}")
+
+    # 9) BJT common-emitter bias vs self-consistent reference
+    c = Circuit(parse("V1 5 0 5\nRb 5 b 1meg\nRc 5 c 1k\nQ1 c b 0 NPN Is=1e-14 Bf=100\n"))
+    v, _ = c.solve_dc()
+    vt = 0.025852
+    ref = brentq(
+        lambda vbe: vbe - vt * math.log(100 * (5 - vbe) / (1e6 * 1e-14)),
+        0.0, 0.9,
+    )
+    check("BJT bias Vbe", abs(v["b"] - ref) < 2e-3, f"{v['b']:.4f} vs {ref:.4f}")
+    ic = 100 * (5 - v["b"]) / 1e6
+    check("BJT bias Vc", abs(v["c"] - (5 - ic * 1e3)) < 0.02, f"{v['c']:.3f}")
+
+    # 10) MOS common-source saturation: Vg=2, Vto=1, Kp=1m, Rd=1k, Vdd=5 -> Id=0.5mA, Vd=4.5
+    c = Circuit(parse("Vdd 5 0 5\nVg g 0 2\nRd 5 d 1k\nM1 d g 0 0 Vto=1 Kp=1m\n"))
+    v, _ = c.solve_dc()
+    check("MOS saturation Vd", abs(v["d"] - 4.5) < 0.02, f"{v['d']:.3f}")
 
     return 0
 

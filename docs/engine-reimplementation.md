@@ -27,11 +27,11 @@
 
 `scripts/sim_proto.py`（Python + numpy/scipy，无 GUI）：
 
-- 网表子集：R / V / I / C / L / E（VCVS）/ G（VCCS）/ F（CCCS）/ H（CCVS）/ D（二极管）；
-  理想运放 = 高增益 VCVS；
+- 网表子集：R / V / I / C / L / E（VCVS）/ G（VCCS）/ F（CCCS）/ H（CCVS）/ D（二极管）/
+  Q（BJT，Ebers-Moll）/ M（MOS Level 1）；理想运放 = 高增益 VCVS；
 - 分析：DC 工作点（含 Newton 非线性）、后向欧拉瞬态、AC 小信号；
 - 求解：SuperLU（COLAMD + 默认部分选主元），每次求解做残差检查，奇异矩阵给出明确错误；
-- 自测（8 项全 PASS）：
+- 自测（11 项全 PASS）：
 
 ```
 PASS DC divider
@@ -41,7 +41,9 @@ PASS RL transient
 PASS inverting op-amp
 PASS AC RC low-pass
 PASS zero-diagonal robustness   ← TINA 的不选主元路径会在此返回 102
-PASS diode DC vs reference      ← Newton-Raphson + brentq 对拍（误差 < 1e-6 V）
+PASS diode DC vs reference      ← Newton-Raphson + brentq 对拍
+PASS BJT bias Vbe / Vc          ← Ebers-Moll 共射偏置
+PASS MOS saturation Vd          ← Level 1 饱和区
 ```
 
 **设计原则：全面超越 TINA，不复制它的缺陷。**
@@ -60,8 +62,8 @@ PASS diode DC vs reference      ← Newton-Raphson + brentq 对拍（误差 < 1e
 | M1 ✅ | MNA 核心 + DC + BE 瞬态（R/V/I/C） | 自测通过 |
 | M2 ✅（本轮） | L、受控源（E/G/F/H）、理想运放、AC 小信号 | 7 项自测通过（含零对角鲁棒性） |
 | M3a ✅（本轮） | 二极管 + Newton-Raphson（含指数限幅） | 与 brentq 解析参考对拍，误差 < 1e-6 V |
-| M3b | BJT（Ebers-Moll）、MOS Level 1 + 收敛增强 | 与 ngspice 对拍整流/共射/共源 |
-| M4 | 瞬态步长控制、AC 扫频输出、噪声（可选） | 与 ngspice `.ac/.tran` 对拍 |
+| M3b ✅（本轮） | BJT（Ebers-Moll）、MOS Level 1 | 共射偏置 / MOS 饱和与解析参考对拍；11 项自测全 PASS |
+| M4 | 收敛增强（pnjlim/阻尼）、瞬态步长控制、AC 扫频输出 | 与 ngspice `.ac/.tran` 对拍 |
 | M5 | 网表兼容层：TINA/PSpice 子集 + 解密后的 `.lib` 模型 | 能跑通 SPICELIB 基础子电路 |
 | M6 | 产品化：TS 端口（或 WASM/C++），按 `docs/sim-api-design.md` 接入 `SimRequest/SimResult` | `spicehappy sim` 无 TINA、无 GUI |
 
